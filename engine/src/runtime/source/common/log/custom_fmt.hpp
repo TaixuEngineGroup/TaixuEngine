@@ -16,6 +16,9 @@
 
 #include "common/utils/type_utils.hpp"
 
+template<typename T>
+concept FmtStringLikeT = std::is_same_v<std::decay_t<T>, fmt::basic_string_view<typename T::value_type>>;
+
 // Generic fmt::formatter for any enum
 template<typename T>
 struct fmt::formatter<T, std::enable_if_t<std::is_enum_v<T>, char>> {
@@ -33,7 +36,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_enum_v<T>, char>> {
 
 // Generic fmt::formatter for any iterable
 template<typename T>
-    requires taixu::IterableNotStrT<T>
+    requires taixu::IterableT<T> && (!taixu::StringLikeT<T>) && (!FmtStringLikeT<T>)
 struct fmt::formatter<T> {
     constexpr auto parse(fmt::format_parse_context& ctx) -> decltype(ctx.begin()) {
         return ctx.end();

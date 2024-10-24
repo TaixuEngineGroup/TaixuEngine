@@ -50,24 +50,26 @@ concept IsUnion = std::is_union_v<T>;
 template<typename T>
 using SameT = T;
 
+template<typename T>
+concept StringLikeT =
+        std::is_same_v<std::decay_t<T>, std::basic_string<typename T::value_type, typename T::traits_type,
+                                                          typename T::allocator_type>>// std::string
+        || std::is_same_v<std::decay_t<T>, std::basic_string_view<typename T::value_type,
+                                                                  typename T::traits_type>>// std::string_view
+        || std::is_same_v<std::decay_t<T>, const char*>                                    // const char*
+        || std::is_same_v<std::decay_t<T>, char*>                                          // char*
+        || std::is_array_v<std::decay_t<T>>;                                               // char[] and other arrays;
+
 /**
  * @brief iterable type
  *
  * @tparam T
  */
 template<typename T>
-concept IterableNotStrT =
-        requires(T t) {
-            { std::begin(t) } -> std::input_or_output_iterator;
-            { std::end(t) } -> std::input_or_output_iterator;
-        } &&
-        !std::is_same_v<std::decay_t<T>, std::basic_string<typename T::value_type, typename T::traits_type,
-                                                           typename T::allocator_type>>// Exclude std::string
-        && !std::is_same_v<std::decay_t<T>, std::basic_string_view<typename T::value_type,
-                                                                   typename T::traits_type>>// Exclude std::string_view
-        && !std::is_same_v<std::decay_t<T>, const char*>                                    // Exclude const char*
-        && !std::is_same_v<std::decay_t<T>, char*>                                          // Exclude char*
-        && !std::is_array_v<std::decay_t<T>>;// Exclude char[] and other arrays;
+concept IterableT = requires(T t) {
+    { std::begin(t) } -> std::input_or_output_iterator;
+    { std::end(t) } -> std::input_or_output_iterator;
+};
 
 // Concept to check if a container has key-value pairs (i.e., maps)
 template<typename T>

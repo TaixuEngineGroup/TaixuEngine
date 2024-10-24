@@ -25,6 +25,8 @@ TEST_CASE("log test", "[log tests]") {
 TEST_CASE("log fmt test", "[log tests]") {
     Logger::init();
 
+    fmt::basic_string_view<char> a;
+
     DEBUG_LOG("Debug log with fmt: {}", 42);
     DEBUG_LOG("Debug log with fmt: {}", std::string{"hello world"});
     DEBUG_LOG("Debug log with fmt: {}", std::string_view{"hello world"});
