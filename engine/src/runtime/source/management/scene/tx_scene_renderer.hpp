@@ -64,7 +64,7 @@ private:
     bool                  _enable_imgui{true};
 
 public:
-    void init(Window* window);
+    void init(Window* window, RenderAPI render_api);
     void update(float delta_time, Scene* scene);
     void destroy();
 
@@ -93,7 +93,7 @@ protected:
      *
      * @param window GLFW窗口
      */
-    void initForGraphicsAPI(Window* window);
+    void initForGraphicsAPI(Window* window, RenderAPI render_api);
 
     void imguiGraphicsPreUpdate();
     void imguiGraphicsUpdate();

@@ -16,6 +16,7 @@
 #include "taixu/common/base/lib_info.hpp"
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/log/logger.hpp"
+#include "vk_utils.hpp"
 
 
 #include <vulkan/vk_enum_string_helper.h>
@@ -32,6 +33,12 @@ VULKAN_HPP_DEFAULT_DISPATCH_LOADER_DYNAMIC_STORAGE
 
 TX_NAMESPACE_BEGIN
 
+/**
+ * @brief Get the Device Extensions object
+ *
+ * @param physical_device
+ * @return tx_unordered_set<tx_string>
+ */
 tx_unordered_set<tx_string> getDeviceExtensions(vk::raii::PhysicalDevice const& physical_device) {
     auto const exts  = physical_device.enumerateDeviceExtensionProperties();
     auto       cview = exts | std::views::transform([](vk::ExtensionProperties const& prop) {
@@ -68,6 +75,14 @@ tx_string getDriverVersionStr(uint32_t vendorID, uint32_t driverVersion) {
     return oss.str();
 }
 
+/**
+ * @brief score devices, first check the vulkan version, then check the device type, and check the device memory, and
+ * check the device type
+ *
+ * @param device
+ * @param surface
+ * @return float
+ */
 float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR const& surface) {
     static constexpr float HIGH_SCORE = 500.0f;
     static constexpr float LOW_SCORE  = 500.0f;
@@ -101,8 +116,8 @@ float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR c
 
     auto const queue_family_props = device.getQueueFamilyProperties();
     INFO_LOG("Queue family: {} families", queue_family_props.size());
-    for (auto&& family : queue_family_props) {
-        INFO_LOG("\t{} ({} queues)", vk::to_string(family.queueFlags), family.queueCount);
+    for (auto&& prop : queue_family_props) {
+        INFO_LOG("\t{} ({} queues)", vk::to_string(prop.queueFlags), prop.queueCount);
     }
 
     auto const mem_props = device.getMemoryProperties();
@@ -118,16 +133,9 @@ float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR c
                  mem_props.memoryTypes[i].heapIndex);
     }
 
-    static constexpr vk::QueueFlags REQUIRED_QUEUE_FLAGS =
-            vk::QueueFlagBits::eGraphics | vk::QueueFlagBits::eCompute | vk::QueueFlagBits::eTransfer;
-
-    for (size_t i = 0; i < queue_family_props.size(); i++) {
-        if ((queue_family_props.at(i).queueCount > 0) && (queue_family_props.at(i).queueFlags & REQUIRED_QUEUE_FLAGS)) {
-            if (auto const support = device.getSurfaceSupportKHR(i, *surface); !support) {
-                INFO_LOG("Discarding device '{}': surface not supported", tx_string(props.deviceName.data()));
-                return -1.f;
-            }
-        }
+    if (!findQueueFamily(device, surface, queue_family_props, vk::QueueFlagBits::eGraphics)) {
+        INFO_LOG("Discarding device '{}': no graphics queue found", tx_string(props.deviceName.data()));
+        return -1.0f;
     }
 
     if (auto const features = device.getFeatures(); !features.samplerAnisotropy) {
@@ -145,8 +153,8 @@ float scoreDevice(vk::raii::PhysicalDevice const& device, vk::raii::SurfaceKHR c
     return score;
 }
 
-ResValT<vk::raii::PhysicalDevice> selectDevice(vk::raii::Instance const&   instance,
-                                               vk::raii::SurfaceKHR const& surface) {
+ResValT<vk::raii::PhysicalDevice> createPhysicsDevice(vk::raii::Instance const&   instance,
+                                                      vk::raii::SurfaceKHR const& surface) {
     auto devices = instance.enumeratePhysicalDevices();
 
     if (!devices.has_value()) {
@@ -169,37 +177,11 @@ ResValT<vk::raii::PhysicalDevice> selectDevice(vk::raii::Instance const&   insta
 
 ResValT<vk::raii::Device> createDevice(vk::raii::PhysicalDevice const& physical_device) {
     tx_vector<tx_string> enabled_dev_extensions{};
-
     enabled_dev_extensions.emplace_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
-
 #if defined(TX_APPLE)
     enabled_dev_extensions.emplace_back("VK_KHR_portability_subset");
 #endif
-
-    INFO_LOG("Enabled device extensions: {}");
-
-
-    tx_vector<uint32_t> queue_family_indices{};
-
-    tx_vector<char const*> const enabled_dev_exts{};
-    enabled_dev_extensions.emplace_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
-#if defined(TX_APPLE)
-    enabled_dev_exts.emplace_back("VK_KHR_portability_subset");
-#endif
-    INFO_LOG("Enabled device extensions:");
-    for (auto const& ext : enabled_dev_extensions) {
-        INFO_LOG("\t{}", ext);
-    }
-    return UNEXPECTED(RetCode::UNIMPL_ERROR);
-}
-
-ResValT<vk::raii::PhysicalDevice> createPhysicsDevice(vk::raii::Instance const&   instance,
-                                                      vk::raii::SurfaceKHR const& surface) {
-    auto device = selectDevice(instance, surface);
-
-    if (!device.has_value()) {
-        return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
-    }
+    INFO_LOG("Enabled device extensions: {}", enabled_dev_extensions);
 
     return UNEXPECTED(RetCode::UNIMPL_ERROR);
 }
@@ -239,76 +221,19 @@ ResValT<tx_unordered_set<tx_string>> getInstanceSupportedExtensions() {
     return ret;
 }
 
-ResValT<vk::raii::Instance> createInstance(tx_vector<const char*> const&                        enabled_layers,
-                                           tx_vector<const char*> const&                        enabled_extensions,
-                                           std::optional<vk::DebugUtilsMessengerCreateInfoEXT>& debug_info) {
-    // Log layers and extensions
-    for (auto&& layer : enabled_layers) {
-        INFO_LOG("Enabled layer: {}", layer);
-    }
-    for (auto&& extension : enabled_extensions) {
-        INFO_LOG("Enabled extension: {}", extension);
-    }
-
-    vk::ApplicationInfo app_info{
-            LIB_INFO.name.data(), LIB_INFO.version, LIB_INFO.name.data(), LIB_INFO.version, VK_API_VERSION_1_3,
-    };
-
-    const vk::InstanceCreateInfo create_info{{},
-                                             &app_info,
-                                             static_cast<uint32_t>(enabled_layers.size()),
-                                             enabled_layers.data(),
-                                             static_cast<uint32_t>(enabled_extensions.size()),
-                                             enabled_extensions.data(),
-                                             debug_info.has_value() ? &debug_info.value() : nullptr};
-
-    const auto instance = vk::createInstance(create_info);
-
-    if (instance.result != vk::Result::eSuccess) {
-        ERROR_LOG("Failed to create Vulkan instance: {}", vk::to_string(instance.result));
-        return UNEXPECTED(RetCode::VULKAN_INSTANCE_CREATE_ERROR);
-    }
-
-    VULKAN_HPP_DEFAULT_DISPATCHER.init(instance.value);
-
-    return vk::raii::Instance{vk::raii::Context{}, instance.value};
-}
-
-void initDynamicDispatchLoader() {
-    // initialize minimal set of function pointers
-    VULKAN_HPP_DEFAULT_DISPATCHER.init();
-
-    // the same initialization, now with explicitly providing a DynamicLoader
-    vk::DynamicLoader dl;
-    VULKAN_HPP_DEFAULT_DISPATCHER.init(dl);
-
-    // the same initialization, now with explicitly providing the initial function pointer
-    auto get_instance_proc_addr = dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
-    VULKAN_HPP_DEFAULT_DISPATCHER.init(get_instance_proc_addr);
-}
-
-ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window* window) {
-    initDynamicDispatchLoader();
-
-    if (!window) {
-        ERROR_LOG("Window is not support vulkan");
-        return UNEXPECTED(RetCode::UNSUPPORTED_VULKAN_ERROR);
-    }
-
-    tx_vector<const char*> enabled_layers;
-    tx_vector<const char*> enabled_extensions;
-
+RetCode
+getExtensionsAndLayers(tx_vector<const char*>& enabled_layers, tx_vector<const char*>& enabled_extensions,
+                       std::optional<vk::DebugUtilsMessengerCreateInfoEXT>& debug_utils_messenger_create_info_opt,
+                       bool&                                                enable_debug_utils) {
     auto supported_layers = getInstanceSupportedLayers();
     if (!supported_layers.has_value()) {
-        return UNEXPECTED(supported_layers.error());
+        return supported_layers.error();
     }
 
     auto supported_extensions = getInstanceSupportedExtensions();
     if (!supported_extensions.has_value()) {
-        return UNEXPECTED(supported_extensions.error());
+        return supported_extensions.error();
     }
-
-    bool enable_debug_utils = false;
 
 #if defined(TX_DEBUG)
     #define DEBUG_LAYER_NAME "VK_LAYER_KHRONOS_validation"
@@ -331,18 +256,16 @@ ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window*
     VkGlfwExtensions glfwexts = GLFWWindow::getVulkanInstanceExtensions();
     if (glfwexts.count == 0) {
         ERROR_LOG("Failed to get Vulkan extensions");
-        return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
+        return RetCode::VULKAN_INIT_ERROR;
     }
 
     for (uint32_t i = 0; i < glfwexts.count; i++) {
         if (!supported_extensions.value().contains(glfwexts.names[i])) {
             ERROR_LOG("Failed to get GLFW needed Vulkan extensions: {}", glfwexts.names[i]);
-            return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
+            return RetCode::VULKAN_INIT_ERROR;
         }
         enabled_extensions.emplace_back(glfwexts.names[i]);
     }
-
-    std::optional<vk::DebugUtilsMessengerCreateInfoEXT> debug_utils_messenger_create_info_opt{std::nullopt};
 
     if (enable_debug_utils) {
         vk::DebugUtilsMessengerCreateInfoEXT debug_utils_messenger_create_info{};
@@ -375,17 +298,54 @@ ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window*
 
         debug_utils_messenger_create_info_opt = debug_utils_messenger_create_info;
     }
+    return RetCode::SUCCESS;
+}
 
-    auto instance = createInstance(enabled_layers, enabled_extensions, debug_utils_messenger_create_info_opt);
+ResValT<std::tuple<vk::raii::Instance, vk::raii::DebugUtilsMessengerEXT>> createInstance() {
+    tx_vector<const char*>                              enabled_layers{};
+    tx_vector<const char*>                              enabled_extensions{};
+    std::optional<vk::DebugUtilsMessengerCreateInfoEXT> debug_info{std::nullopt};
+    bool                                                enable_debug_utils{false};
 
-    if (!instance.has_value()) {
-        return UNEXPECTED(instance.error());
+    if (auto ret = getExtensionsAndLayers(enabled_layers, enabled_extensions, debug_info, enable_debug_utils);
+        ret != RetCode::SUCCESS) {
+        return UNEXPECTED(ret);
     }
+
+    // Log layers and extensions
+    for (auto&& layer : enabled_layers) {
+        INFO_LOG("Enabled layer: {}", layer);
+    }
+    for (auto&& extension : enabled_extensions) {
+        INFO_LOG("Enabled extension: {}", extension);
+    }
+
+    vk::ApplicationInfo app_info{
+            LIB_INFO.name.data(), LIB_INFO.version, LIB_INFO.name.data(), LIB_INFO.version, VK_API_VERSION_1_3,
+    };
+
+    const vk::InstanceCreateInfo create_info{{},
+                                             &app_info,
+                                             static_cast<uint32_t>(enabled_layers.size()),
+                                             enabled_layers.data(),
+                                             static_cast<uint32_t>(enabled_extensions.size()),
+                                             enabled_extensions.data(),
+                                             debug_info.has_value() ? &debug_info.value() : nullptr};
+
+    const auto instance = vk::createInstance(create_info);
+
+    if (instance.result != vk::Result::eSuccess) {
+        ERROR_LOG("Failed to create Vulkan instance: {}", vk::to_string(instance.result));
+        return UNEXPECTED(RetCode::VULKAN_INSTANCE_CREATE_ERROR);
+    }
+
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(instance.value);
+
+    auto instance_raii = vk::raii::Instance{vk::raii::Context{}, instance.value};
 
     vk::raii::DebugUtilsMessengerEXT debug_messenger{VK_NULL_HANDLE};
     if (enable_debug_utils) {
-        auto debug_messenger_expt =
-                instance->createDebugUtilsMessengerEXT(debug_utils_messenger_create_info_opt.value());
+        auto debug_messenger_expt = instance_raii.createDebugUtilsMessengerEXT(debug_info.value());
         if (!debug_messenger_expt.has_value()) {
             ERROR_LOG("Failed to create debug utils messenger: {}", vk::to_string(debug_messenger_expt.error()));
             return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
@@ -393,8 +353,12 @@ ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window*
         debug_messenger = std::move(debug_messenger_expt.value());
     }
 
+    return std::make_tuple(std::move(instance_raii), std::move(debug_messenger));
+}
+
+ResValT<vk::raii::SurfaceKHR> createSurface(vk::raii::Instance const& instance, Window const* window) {
     VkSurfaceKHR surface_strct{VK_NULL_HANDLE};
-    VkInstance   instance_c_ptr = *(instance.value());
+    VkInstance   instance_c_ptr = *(instance);
 
     if (auto const res = glfwCreateWindowSurface(
                 instance_c_ptr, dynamic_cast<const GLFWWindow*>(window)->getRawWindow(), nullptr, &surface_strct);
@@ -402,15 +366,90 @@ ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window*
         ERROR_LOG("Failed to create window surface: {}", string_VkResult(res));
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
     }
+    return vk::raii::SurfaceKHR{instance, surface_strct};
+}
 
-    vk::raii::SurfaceKHR surface{instance.value(), surface_strct};
+struct NeededQueueResult {
+    std::uint32_t            graphics_family_index{0};
+    std::uint32_t            present_family_index{0};
+    tx_vector<std::uint32_t> queue_indices{};
+};
+NeededQueueResult getNeedQueueIndices(vk::raii::PhysicalDevice const& physical_device,
+                                      vk::raii::SurfaceKHR const&     surface) {
+    tx_vector<uint32_t> queue_family_indices{};
+    auto const          queue_family_props = physical_device.getQueueFamilyProperties();
 
-    auto physical_devices = createPhysicsDevice(instance.value(), surface);
+    NeededQueueResult ret;
+
+    if (auto const index =
+                findQueueFamily(physical_device, surface, queue_family_props, vk::QueueFlagBits::eGraphics)) {
+        ret.graphics_family_index = *index;
+        queue_family_indices.emplace_back(*index);
+    } else {
+        auto graphics =
+                findQueueFamily(physical_device, VK_NULL_HANDLE, queue_family_props, vk::QueueFlagBits::eGraphics);
+        auto present = findQueueFamily(physical_device, surface, queue_family_props, std::nullopt);
+
+        assert(graphics && present);
+
+        ret.graphics_family_index = *graphics;
+        ret.present_family_index  = *present;
+
+        queue_family_indices.emplace_back(*graphics);
+        if (*graphics != *present) {
+            queue_family_indices.emplace_back(*present);
+        }
+    }
+
+    return ret;
+}
+
+void initDynamicDispatchLoader() {
+    // initialize minimal set of function pointers
+    VULKAN_HPP_DEFAULT_DISPATCHER.init();
+
+    // the same initialization, now with explicitly providing a DynamicLoader
+    vk::DynamicLoader dl;
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(dl);
+
+    // the same initialization, now with explicitly providing the initial function pointer
+    auto get_instance_proc_addr = dl.getProcAddress<PFN_vkGetInstanceProcAddr>("vkGetInstanceProcAddr");
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(get_instance_proc_addr);
+}
+
+ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window* window) {
+    initDynamicDispatchLoader();
+
+    if (!window) {
+        ERROR_LOG("Window is not support vulkan");
+        return UNEXPECTED(RetCode::UNSUPPORTED_VULKAN_ERROR);
+    }
+
+    auto instance_tuple = createInstance();
+
+    if (!instance_tuple.has_value()) {
+        return UNEXPECTED(instance_tuple.error());
+    }
+
+    auto&& [instance, debug_messenger] = instance_tuple.value();
 
     std::unique_ptr context   = std::make_unique<VKContext>();
-    context->_instance        = std::move(instance.value());
+    context->_instance        = std::move(instance);
     context->_debug_messenger = std::move(debug_messenger);
-    context->_surface         = std::move(surface);
+
+    auto surface = createSurface(context->_instance, window);
+    if (!surface.has_value()) {
+        return UNEXPECTED(surface.error());
+    }
+    context->_surface = std::move(surface.value());
+
+    auto physical_devices = createPhysicsDevice(context->_instance, context->_surface);
+
+    if (!physical_devices.has_value()) {
+        return UNEXPECTED(physical_devices.error());
+    }
+    context->_physical_device = std::move(physical_devices.value());
+
 
     return context;
 }

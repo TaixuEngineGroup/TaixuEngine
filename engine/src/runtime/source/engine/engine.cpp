@@ -28,7 +28,6 @@ struct EnginePrivate {
      */
     Window* _window{nullptr};
 
-public:
     /**
      * 渲染器
      */
@@ -53,7 +52,7 @@ void Engine::initWithWindow(Window* window) {
     _p->_window = window;
 
     _p->renderer = std::make_unique<TXSceneRenderer>();
-    _p->renderer->init(window);
+    _p->renderer->init(window, _engine_args.render_api());
 
     _p->asset_manager = std::make_unique<AssetManager>();
 }

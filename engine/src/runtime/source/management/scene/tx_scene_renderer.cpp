@@ -8,14 +8,12 @@
 #include "management/gfx/tx_context.hpp"
 #include "taixu/common/base/result.hpp"
 #include "taixu/common/log/logger.hpp"
-#include "taixu/engine/engine.hpp"
 #include "taixu/gameplay/gui/window.hpp"
 
 #include "generated/fonts/lucide_iconfont.hpp"
 #include "generated/fonts/source_han_sans_cn_font.hpp"
 
 #include "backends/imgui_impl_glfw.h"
-#include "backends/imgui_impl_vulkan.h"
 #include "imgui.h"
 #include "imgui/icons/IconsLucide.h"
 
@@ -30,8 +28,8 @@ static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
         Color{76_uc, 48_uc, 67_uc, 255_uc},    Color{105_uc, 50_uc, 68_uc, 255_uc},
         Color{0_uc, 0_uc, 0_uc, 255_uc}};
 
-void TXSceneRenderer::init(Window* window) {
-    initForGraphicsAPI(window);
+void TXSceneRenderer::init(Window* window, RenderAPI render_api) {
+    initForGraphicsAPI(window, render_api);
     initImgui(window);
 }
 
@@ -209,8 +207,8 @@ void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {
 void TXSceneRenderer::imguiForGraphicsAPIInit() {
 }
 
-void TXSceneRenderer::initForGraphicsAPI(Window* window) {
-    ResValT<std::unique_ptr<TXContext>> res = TXContext::create(window, g_engine.getEngineArgs().render_api());
+void TXSceneRenderer::initForGraphicsAPI(Window* window, RenderAPI render_api) {
+    ResValT<std::unique_ptr<TXContext>> res = TXContext::create(window, render_api);
     if (!res.has_value()) {
         FATAL_LOG("Failed to create TXContext");
         return;

@@ -13,6 +13,8 @@
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/base/result.hpp"
 
+#include "vk_surface.hpp"
+
 TX_NAMESPACE_BEGIN
 
 class VKContext final : public TXContext {
@@ -23,9 +25,16 @@ private:
 
     vk::raii::Device         _device{VK_NULL_HANDLE};
     vk::raii::PhysicalDevice _physical_device{VK_NULL_HANDLE};
-    std::uint32_t            _graphicsFamilyIndex{0};
 
+    // We need one or two queues:
+    // - best case: one GRAPHICS queue that can present
+    // - otherwise: one GRAPHICS queue and any queue that can present
+    std::uint32_t   _graphics_family_index{0};
     vk::raii::Queue _graphics_queue{VK_NULL_HANDLE};
+    std::uint32_t   _present_family_index{0};
+    vk::raii::Queue _present_queue{VK_NULL_HANDLE};
+
+    VKSurface _surface_impl{};
 
 public:
     static ResValT<std::unique_ptr<VKContext>> createVulkanContext(const Window* window);
