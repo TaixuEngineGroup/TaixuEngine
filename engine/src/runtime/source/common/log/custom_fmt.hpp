@@ -11,7 +11,10 @@
 
 #pragma once
 
+#include <fmt/chrono.h>
+#include <fmt/compile.h>
 #include <fmt/core.h>
+#include <fmt/std.h>
 #include <magic_enum.hpp>
 
 #include "common/utils/type_utils.hpp"
@@ -27,7 +30,7 @@ struct fmt::formatter<T, std::enable_if_t<std::is_enum_v<T>, char>> {
     }
 
     template<typename FormatContext>
-    auto format(const T& value, FormatContext& ctx) -> decltype(ctx.out()) {
+    auto format(const T value, FormatContext& ctx) -> decltype(ctx.out()) {
         // Use magic_enum to convert enum to string
         auto name = magic_enum::enum_name(value);
         return fmt::format_to(ctx.out(), "{}", name.empty() ? "Unknown Enum" : name);

@@ -10,7 +10,11 @@
 
 #pragma once
 
+#include "common/hal/tx_container.hpp"
+#include "taixu/common/designs/abstract_factory.hpp"
 #include "taixu/gameplay/gui/window.hpp"
+#include "taixu/gameplay/gui/window_factory.hpp"
+
 
 #ifdef TX_WINDOWS
     #include "taixu/platform/windows/windows_min.hpp"
@@ -30,8 +34,8 @@
 namespace taixu {
 
 struct VkGlfwExtensions {
-    uint32_t                 count{0};
-    std::vector<const char*> names{};
+    uint32_t               count{0};
+    tx_vector<const char*> names{};
 };
 
 class GLFWWindow final : public Window {
@@ -77,8 +81,10 @@ private:
     void        updateTitle(const char* title) override;
 
 public:
-    GLFWWindow(WindowInfo const& window_info) : Window(window_info) {
+    explicit GLFWWindow(WindowInfo const& window_info) : Window(window_info) {
     }
 };
+
+TX_WINDOW_FACTORY_REGISTER(GLFWWindow, WindowAPI::GLFW);// NOLINT(cppcoreguidelines-rvalue-reference-param-not-moved)
 
 }// namespace taixu

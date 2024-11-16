@@ -4,19 +4,10 @@
 
 #include <argparse/argparse.hpp>
 
-#include "common/log/custom_fmt.hpp"
-#include "gameplay/gui/glfw_window.hpp"
 #include "taixu/common/log/logger.hpp"
 #include "taixu/engine/engine_args.hpp"
-#include "taixu/gameplay/gui/window_factory.hpp"
 
 namespace taixu {
-
-void EngineArgs::registerWithArgs() {
-    WindowFactory::registerCreationFunc(
-            WindowAPI::GLFW, [](WindowInfo window_info) { return std::make_unique<GLFWWindow>(window_info); });
-}
-
 void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
     INFO_LOG("Loading engine arguments...");
     argparse::ArgumentParser program("TaixuEngineRuntime");
@@ -35,8 +26,6 @@ void EngineArgs::initWithArgs(const std::vector<std::string>& args) {
         std::cerr << program;
         std::exit(1);
     }
-
-    registerWithArgs();
 
 #ifdef TX_DEBUG
     this->_is_debug = true;

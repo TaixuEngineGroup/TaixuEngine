@@ -213,4 +213,5 @@ CheckOptions:
   readability-identifier-naming.TypedefCase: CamelCase
   readability-identifier-naming.UnionCase: CamelCase
   readability-identifier-naming.UsingCase: CamelCase
-  misc-non-private-member-variables-in-classes: IgnorePublicMemberVariables
+  misc-non-private-member-variables-in-classes.IgnorePublicMemberVariables: true
+  cppcoreguidelines-rvalue-reference-param-not-moved.IgnoreNonDeducedTemplateTypes: true

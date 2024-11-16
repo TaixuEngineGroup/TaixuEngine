@@ -208,9 +208,9 @@ void TXSceneRenderer::imguiForGraphicsAPIInit() {
 }
 
 void TXSceneRenderer::initForGraphicsAPI(Window* window, RenderAPI render_api) {
-    ResValT<std::unique_ptr<TXContext>> res = TXContext::create(window, render_api);
+    ResValT<std::unique_ptr<TXGfxContext>> res = TXGfxContext::create(window, render_api);
     if (!res.has_value()) {
-        FATAL_LOG("Failed to create TXContext");
+        FATAL_LOG("Failed to create TXGfxContext");
         return;
     }
     this->_context = std::move(res.value());

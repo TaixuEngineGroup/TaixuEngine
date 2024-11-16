@@ -43,7 +43,7 @@ struct ImguiStyleGroup {
 
 class TXSceneRenderer final : public Noncopyable {
 private:
-    std::unique_ptr<TXContext> _context;
+    std::unique_ptr<TXGfxContext> _context;
 
     TXShaderModuleManager _shader_module_manager;
 
@@ -66,6 +66,7 @@ private:
 public:
     void init(Window* window, RenderAPI render_api);
     void update(float delta_time, Scene* scene);
+    void fixedUpdate(float delta_time);
     void destroy();
 
     void enableImgui(const std::function<void()>& update_func);

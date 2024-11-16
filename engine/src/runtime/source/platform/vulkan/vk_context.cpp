@@ -175,15 +175,85 @@ ResValT<vk::raii::PhysicalDevice> createPhysicsDevice(vk::raii::Instance const& 
     return best_device;
 }
 
-ResValT<vk::raii::Device> createDevice(vk::raii::PhysicalDevice const& physical_device) {
-    tx_vector<tx_string> enabled_dev_extensions{};
+struct NeededQueueResult {
+    std::uint32_t            graphics_family_index{0};
+    std::uint32_t            present_family_index{0};
+    tx_vector<std::uint32_t> queue_indices{};
+};
+NeededQueueResult getNeedQueueIndices(vk::raii::PhysicalDevice const& physical_device,
+                                      vk::raii::SurfaceKHR const&     surface) {
+    tx_vector<uint32_t> queue_family_indices{};
+    auto const          queue_family_props = physical_device.getQueueFamilyProperties();
+
+    NeededQueueResult ret;
+
+    if (auto const index =
+                findQueueFamily(physical_device, surface, queue_family_props, vk::QueueFlagBits::eGraphics)) {
+        ret.graphics_family_index = *index;
+        queue_family_indices.emplace_back(*index);
+    } else {
+        auto graphics =
+                findQueueFamily(physical_device, VK_NULL_HANDLE, queue_family_props, vk::QueueFlagBits::eGraphics);
+        auto present = findQueueFamily(physical_device, surface, queue_family_props, std::nullopt);
+
+        assert(graphics && present);
+
+        ret.graphics_family_index = *graphics;
+        ret.present_family_index  = *present;
+
+        queue_family_indices.emplace_back(*graphics);
+        if (*graphics != *present) {
+            queue_family_indices.emplace_back(*present);
+        }
+    }
+
+    return ret;
+}
+
+ResValT<std::tuple<vk::raii::Device, NeededQueueResult>> createDevice(vk::raii::PhysicalDevice const& physical_device,
+                                                                      vk::raii::SurfaceKHR const&     surface) {
+    tx_vector<const char*> enabled_dev_extensions{};
     enabled_dev_extensions.emplace_back(VK_KHR_SWAPCHAIN_EXTENSION_NAME);
 #if defined(TX_APPLE)
     enabled_dev_extensions.emplace_back("VK_KHR_portability_subset");
 #endif
     INFO_LOG("Enabled device extensions: {}", enabled_dev_extensions);
 
-    return UNEXPECTED(RetCode::UNIMPL_ERROR);
+    auto res = getNeedQueueIndices(physical_device, surface);
+
+    if (res.queue_indices.empty()) {
+        ERROR_LOG("No queues requested");
+        return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
+    }
+
+    std::array<float, 1> queue_priorities = {1.f};
+
+    tx_vector<vk::DeviceQueueCreateInfo> queue_infos(res.queue_indices.size());
+    for (std::size_t i = 0; i < res.queue_indices.size(); ++i) {
+        auto& queue_info = queue_infos[i];
+        queue_info.setQueueFamilyIndex(res.queue_indices[i])
+                .setQueueCount(1)
+                .setPQueuePriorities(queue_priorities.data());
+    }
+
+    vk::PhysicalDeviceFeatures features;
+    features.samplerAnisotropy = VK_TRUE;
+
+    vk::DeviceCreateInfo create_info{};
+    create_info.setQueueCreateInfoCount(1)
+            .setQueueCreateInfos(queue_infos)
+            .setPEnabledExtensionNames(enabled_dev_extensions)
+            .setPEnabledFeatures(&features);
+
+    auto device = physical_device.createDevice(create_info);
+    if (!device.has_value()) {
+        ERROR_LOG("Failed to create device: {}", vk::to_string(device.error()));
+        return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
+    }
+
+    vk::raii::Device device_raii{std::move(device.value())};
+
+    return std::make_tuple(std::move(device_raii), std::move(res));
 }
 
 ResValT<tx_unordered_set<tx_string>> getInstanceSupportedLayers() {
@@ -269,7 +339,6 @@ getExtensionsAndLayers(tx_vector<const char*>& enabled_layers, tx_vector<const c
 
     if (enable_debug_utils) {
         vk::DebugUtilsMessengerCreateInfoEXT debug_utils_messenger_create_info{};
-        debug_utils_messenger_create_info.sType           = vk::StructureType::eDebugUtilsMessengerCreateInfoEXT;
         debug_utils_messenger_create_info.messageSeverity = vk::DebugUtilsMessageSeverityFlagBitsEXT::eVerbose |
                                                             vk::DebugUtilsMessageSeverityFlagBitsEXT::eWarning |
                                                             vk::DebugUtilsMessageSeverityFlagBitsEXT::eError;
@@ -369,41 +438,6 @@ ResValT<vk::raii::SurfaceKHR> createSurface(vk::raii::Instance const& instance, 
     return vk::raii::SurfaceKHR{instance, surface_strct};
 }
 
-struct NeededQueueResult {
-    std::uint32_t            graphics_family_index{0};
-    std::uint32_t            present_family_index{0};
-    tx_vector<std::uint32_t> queue_indices{};
-};
-NeededQueueResult getNeedQueueIndices(vk::raii::PhysicalDevice const& physical_device,
-                                      vk::raii::SurfaceKHR const&     surface) {
-    tx_vector<uint32_t> queue_family_indices{};
-    auto const          queue_family_props = physical_device.getQueueFamilyProperties();
-
-    NeededQueueResult ret;
-
-    if (auto const index =
-                findQueueFamily(physical_device, surface, queue_family_props, vk::QueueFlagBits::eGraphics)) {
-        ret.graphics_family_index = *index;
-        queue_family_indices.emplace_back(*index);
-    } else {
-        auto graphics =
-                findQueueFamily(physical_device, VK_NULL_HANDLE, queue_family_props, vk::QueueFlagBits::eGraphics);
-        auto present = findQueueFamily(physical_device, surface, queue_family_props, std::nullopt);
-
-        assert(graphics && present);
-
-        ret.graphics_family_index = *graphics;
-        ret.present_family_index  = *present;
-
-        queue_family_indices.emplace_back(*graphics);
-        if (*graphics != *present) {
-            queue_family_indices.emplace_back(*present);
-        }
-    }
-
-    return ret;
-}
-
 void initDynamicDispatchLoader() {
     // initialize minimal set of function pointers
     VULKAN_HPP_DEFAULT_DISPATCHER.init();
@@ -417,7 +451,7 @@ void initDynamicDispatchLoader() {
     VULKAN_HPP_DEFAULT_DISPATCHER.init(get_instance_proc_addr);
 }
 
-ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window* window) {
+ResValT<pro::proxy<TXGfxProxy>> VKContext::createVulkanContext(const Window* window) {
     initDynamicDispatchLoader();
 
     if (!window) {
@@ -450,6 +484,32 @@ ResValT<std::unique_ptr<VKContext>> VKContext::createVulkanContext(const Window*
     }
     context->_physical_device = std::move(physical_devices.value());
 
+    auto device_tuple = createDevice(context->_physical_device, context->_surface);
+    if (!device_tuple.has_value()) {
+        return UNEXPECTED(device_tuple.error());
+    }
+    auto&& [device, needed_queue]   = device_tuple.value();
+    context->_graphics_family_index = needed_queue.graphics_family_index;
+    context->_present_family_index  = needed_queue.present_family_index;
+    context->_device                = std::move(device);
+
+    // 获取queues
+    auto gfx_quque = context->_device.getQueue(context->_graphics_family_index, 0);
+    if (!gfx_quque.has_value()) {
+        ERROR_LOG("Failed to get graphics queue: {}", vk::to_string(gfx_quque.error()));
+        return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
+    }
+    context->_graphics_queue = std::move(gfx_quque.value());
+    if (needed_queue.queue_indices.size() >= 2) {
+        auto present_queue = context->_device.getQueue(context->_present_family_index, 0);
+        if (!present_queue.has_value()) {
+            ERROR_LOG("Failed to get present queue: {}", vk::to_string(present_queue.error()));
+            return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
+        }
+        context->_present_queue = std::move(present_queue.value());
+    } else {
+        context->_use_graphics_as_present = true;
+    }
 
     return context;
 }

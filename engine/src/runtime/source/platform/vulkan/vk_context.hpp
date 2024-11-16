@@ -12,12 +12,12 @@
 #include "management/gfx/tx_context.hpp"
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/base/result.hpp"
+#include "taixu/gameplay/gui/window.hpp"
 
 #include "vk_surface.hpp"
-
 TX_NAMESPACE_BEGIN
 
-class VKContext final : public TXContext {
+class VKContext final : private Noncopyable {
 private:
     vk::raii::Instance               _instance{VK_NULL_HANDLE};
     vk::raii::DebugUtilsMessengerEXT _debug_messenger{VK_NULL_HANDLE};
@@ -31,13 +31,12 @@ private:
     // - otherwise: one GRAPHICS queue and any queue that can present
     std::uint32_t   _graphics_family_index{0};
     vk::raii::Queue _graphics_queue{VK_NULL_HANDLE};
+    bool            _use_graphics_as_present{false};
     std::uint32_t   _present_family_index{0};
     vk::raii::Queue _present_queue{VK_NULL_HANDLE};
 
-    VKSurface _surface_impl{};
-
 public:
-    static ResValT<std::unique_ptr<VKContext>> createVulkanContext(const Window* window);
+    static ResValT<pro::proxy<TXGfxProxy>> createVulkanContext(const Window* window);
 };
 
 TX_NAMESPACE_END

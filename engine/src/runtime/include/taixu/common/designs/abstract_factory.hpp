@@ -7,21 +7,28 @@
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/log/logger.hpp"
 
-#include <functional>
-#include <memory>
-
 TX_NAMESPACE_BEGIN
 
-template<typename RegisterKeyT, typename ProductionT, typename... CreateArgsT>
+/**
+ * @brief
+ *
+ * @tparam RegisterKeyT
+ * @tparam CreateFunctorT
+ * @note This Return type must is pointer and CreateFunctor must invokable
+ */
+template<typename RegisterKeyT, typename ReturnT, typename CreateInfoT>
 class AbstractFactory {
-private:
-    using creation_func_t = std::function<std::unique_ptr<ProductionT>(CreateArgsT...)>;
+public:
+    using RegisterKeyTTrait = RegisterKeyT;
+    using CreateFunctorT    = std::function<ReturnT(CreateInfoT&&)>;
+    using CreateInfoTTrait  = CreateInfoT;
+    using ReturnTTrait      = ReturnT;
 
 protected:
-    TX_INLINE static std::unordered_map<RegisterKeyT, creation_func_t> creation_func_map{};
+    TX_INLINE static std::unordered_map<RegisterKeyT, CreateFunctorT> creation_func_map{};
 
 public:
-    static bool registerCreationFunc(RegisterKeyT key, creation_func_t func) {
+    static bool registerCreationFunc(RegisterKeyT key, CreateFunctorT func) {
         TX_ASSERT_MSG(func, "func is nullptr");
         auto iter = creation_func_map.find(key);
 
@@ -37,15 +44,23 @@ public:
         return false;
     }
 
-    static std::unique_ptr<ProductionT> createProduct(RegisterKeyT key, CreateArgsT&&... args) {
+    static ReturnT createProduct(RegisterKeyT  key,
+                                 CreateInfoT&& args) {// NOLINT
         decltype(auto) iter = creation_func_map.find(key);
 
         if (creation_func_map.end() == iter) {
             FATAL_LOG("Cannot create the unsupported {}", typeid(RegisterKeyT).name());
             return nullptr;
         }
-        return iter->second(std::forward<CreateArgsT>(args)...);
+        return iter->second(std::forward<CreateInfoT>(args));
     }
 };
+
+#define TX_FACTORY_REGISTER(FACTORY_NAME, NAME, KEY_NAME, CREATE_FUNC_NAME)                                            \
+    static const struct __register_##FACTORY_NAME##NAME {                                                              \
+        __register_##FACTORY_NAME##NAME() {                                                                            \
+            FACTORY_NAME::registerCreationFunc(KEY_NAME, CREATE_FUNC_NAME);                                            \
+        }                                                                                                              \
+    } __register_##FACTORY_NAME##NAME##_inst;
 
 TX_NAMESPACE_END

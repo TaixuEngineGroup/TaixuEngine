@@ -53,8 +53,10 @@ include(FindJoltPhysics)
 include(FindMimalloc)
 # add reflcpp
 include(FindReflcpp)
-#add taskflow
+# add taskflow
 include(FindTaskflow)
+# add proxy
+include(FindProxy)
 
 # add threads
 find_package(Threads REQUIRED)

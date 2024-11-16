@@ -11,15 +11,12 @@
 
 #include "tx_context.hpp"
 
-#include "platform/vulkan/vk_context.hpp"
-
 #include "common/log/custom_fmt.hpp"
 #include "taixu/common/log/logger.hpp"
-
-
 TX_NAMESPACE_BEGIN
 
-std::unique_ptr<TXContext> TXContext::create(const Window* window, RenderAPI api) {
+
+pro::proxy<TXGfxProxy> create(const Window* window, RenderAPI api) {
     switch (api) {
         case RenderAPI::VULKAN: {
             auto res = VKContext::createVulkanContext(window);
@@ -32,7 +29,6 @@ std::unique_ptr<TXContext> TXContext::create(const Window* window, RenderAPI api
 
         } break;
     }
-    return nullptr;
 }
 
 TX_NAMESPACE_END

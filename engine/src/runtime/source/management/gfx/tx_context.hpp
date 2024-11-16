@@ -11,17 +11,33 @@
 
 #pragma once
 
-#include "taixu/common/designs/noncopyable.hpp"
+#include <proxy.h>
+
+#include "taixu/common/designs/abstract_factory.hpp"
 #include "taixu/gameplay/gui/window.hpp"
 
 namespace taixu {
 
-class TXContext : public Noncopyable, public std::enable_shared_from_this<TXContext> {
-private:
-    RenderAPI _api{RenderAPI::VULKAN};
+PRO_DEF_MEM_DISPATCH(ImguiInitImpl, imguiInit);
 
-public:
-    static std::unique_ptr<TXContext> create(const Window* window, RenderAPI api);
+struct TXGfxProxy : pro::facade_builder::add_convention<ImguiInitImpl, void()>::build {};
+
+struct TXGfxCreateInfo {
+    const Window* window{nullptr};
 };
+
+class TXGFXContextFactory final : public AbstractFactory<RenderAPI, pro::proxy<TXGfxProxy>, TXGfxCreateInfo> {};
+
+#define TX_GFX_CONTEXT_FACTORY_REGISTER(PRODUCT_CLASS_NAME, WINDOW_API)                                                \
+    static TXGFXContextFactory::ReturnTTrait __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME(                      \
+            TXGFXContextFactory::CreateInfoTTrait&& info) {                                                            \
+        auto res = PRODUCT_CLASS_NAME::createContext(std::forward<TXGFXContextFactory::CreateInfoTTrait>(info));       \
+        if (res.has_value()) {                                                                                         \
+            ERROR_LOG("Failed to create vulkan context: {}", res.error());                                             \
+        }                                                                                                              \
+        return std::move(res.value());                                                                                 \
+    }                                                                                                                  \
+    TX_FACTORY_REGISTER(TXGFXContextFactory, PRODUCT_CLASS_NAME, WINDOW_API,                                           \
+                        __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME)
 
 }// namespace taixu
