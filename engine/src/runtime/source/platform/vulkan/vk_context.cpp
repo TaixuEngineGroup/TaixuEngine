@@ -451,9 +451,10 @@ void initDynamicDispatchLoader() {
     VULKAN_HPP_DEFAULT_DISPATCHER.init(get_instance_proc_addr);
 }
 
-ResValT<pro::proxy<TXGfxProxy>> VKContext::createVulkanContext(const Window* window) {
+ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& window_ctx) {
     initDynamicDispatchLoader();
 
+    const auto window = window_ctx.window;
     if (!window) {
         ERROR_LOG("Window is not support vulkan");
         return UNEXPECTED(RetCode::UNSUPPORTED_VULKAN_ERROR);
@@ -467,9 +468,9 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createVulkanContext(const Window* win
 
     auto&& [instance, debug_messenger] = instance_tuple.value();
 
-    std::unique_ptr context   = std::make_unique<VKContext>();
-    context->_instance        = std::move(instance);
-    context->_debug_messenger = std::move(debug_messenger);
+    std::unique_ptr<VKContext> context = std::make_unique<VKContext>();
+    context->_instance                 = std::move(instance);
+    context->_debug_messenger          = std::move(debug_messenger);
 
     auto surface = createSurface(context->_instance, window);
     if (!surface.has_value()) {

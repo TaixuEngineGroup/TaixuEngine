@@ -20,7 +20,7 @@ namespace taixu {
 
 PRO_DEF_MEM_DISPATCH(ImguiInitImpl, imguiInit);
 
-struct TXGfxProxy : pro::facade_builder::add_convention<ImguiInitImpl, void()>::build {};
+struct TXGfxProxy : pro::facade_builder::build {};
 
 struct TXGfxCreateInfo {
     const Window* window{nullptr};

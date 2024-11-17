@@ -24,7 +24,8 @@ concept FmtStringLikeT = std::is_same_v<std::decay_t<T>, fmt::basic_string_view<
 
 // Generic fmt::formatter for any enum
 template<typename T>
-struct fmt::formatter<T, std::enable_if_t<std::is_enum_v<T>, char>> {
+    requires std::is_enum_v<T>
+struct fmt::formatter<T> {
     constexpr auto parse(fmt::format_parse_context& ctx) -> decltype(ctx.begin()) {
         return ctx.end();
     }

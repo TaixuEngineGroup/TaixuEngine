@@ -43,7 +43,7 @@ struct ImguiStyleGroup {
 
 class TXSceneRenderer final : public Noncopyable {
 private:
-    std::unique_ptr<TXGfxContext> _context;
+    pro::proxy<TXGfxProxy> _context;
 
     TXShaderModuleManager _shader_module_manager;
 

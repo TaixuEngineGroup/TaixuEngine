@@ -4,6 +4,7 @@
 
 #include <argparse/argparse.hpp>
 
+#include "common/log/custom_fmt.hpp"
 #include "taixu/common/log/logger.hpp"
 #include "taixu/engine/engine_args.hpp"
 

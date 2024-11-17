@@ -208,12 +208,7 @@ void TXSceneRenderer::imguiForGraphicsAPIInit() {
 }
 
 void TXSceneRenderer::initForGraphicsAPI(Window* window, RenderAPI render_api) {
-    ResValT<std::unique_ptr<TXGfxContext>> res = TXGfxContext::create(window, render_api);
-    if (!res.has_value()) {
-        FATAL_LOG("Failed to create TXGfxContext");
-        return;
-    }
-    this->_context = std::move(res.value());
+    this->_context = TXGFXContextFactory::createProduct(render_api, TXGfxCreateInfo{window});
 }
 
 void TXSceneRenderer::imguiGraphicsPreUpdate() {

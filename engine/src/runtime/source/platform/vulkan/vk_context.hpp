@@ -36,7 +36,7 @@ private:
     vk::raii::Queue _present_queue{VK_NULL_HANDLE};
 
 public:
-    static ResValT<pro::proxy<TXGfxProxy>> createVulkanContext(const Window* window);
+    static ResValT<pro::proxy<TXGfxProxy>> createContext(const TXGfxCreateInfo& window_ctx);
 };
 
 TX_NAMESPACE_END
