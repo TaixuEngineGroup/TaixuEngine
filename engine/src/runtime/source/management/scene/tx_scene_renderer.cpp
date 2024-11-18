@@ -17,6 +17,8 @@
 #include "imgui.h"
 #include "imgui/icons/IconsLucide.h"
 
+#include "platform/vulkan/vk_context.hpp"
+
 namespace taixu {
 
 using namespace literals;
@@ -209,6 +211,9 @@ void TXSceneRenderer::imguiForGraphicsAPIInit() {
 
 void TXSceneRenderer::initForGraphicsAPI(Window* window, RenderAPI render_api) {
     this->_context = TXGFXContextFactory::createProduct(render_api, TXGfxCreateInfo{window});
+    if (!this->_context.has_value()) {
+        ERROR_LOG("Failed to create graphics context");
+    }
 }
 
 void TXSceneRenderer::imguiGraphicsPreUpdate() {

@@ -19,7 +19,7 @@ std::optional<uint32_t> findQueueFamily(vk::raii::PhysicalDevice const& device, 
 
     auto flags = flag_opt.value();
 
-    for (size_t i = 0; i < props.size(); i++) {
+    for (uint32_t i = 0; i < props.size(); i++) {
         auto& prop = props.at(i);
         if ((prop.queueCount > 0) && (!flag_opt.has_value() || (flags == (prop.queueFlags & flags)))) {
             if (flag_opt.has_value() && (flags & REQUIRED_QUEUE_FLAGS)) {

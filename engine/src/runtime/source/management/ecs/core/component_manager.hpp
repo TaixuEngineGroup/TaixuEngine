@@ -7,6 +7,8 @@
 
 #include "component_array.hpp"
 
+#include <ranges>
+
 namespace taixu {
 class ComponentManager {
 public:
@@ -14,16 +16,14 @@ public:
     void registerComponent() {
         const char* type_name = typeid(T).name();
 
-        TX_ASSERT_MSG(_component_types.contains(type_name),
-                      "Registering component type more than once.");
+        TX_ASSERT_MSG(_component_types.contains(type_name), "Registering component type more than once.");
 
         // Add this component type to the component type map
         _component_types.insert({type_name, _next_component_type});
 
         // Create a ComponentArray pointer and add it to the component arrays
         // map
-        _component_arrays.insert(
-                {type_name, std::make_unique<ComponentArray<T>>()});
+        _component_arrays.insert({type_name, std::make_unique<ComponentArray<T>>()});
 
         // Increment the value so that the next component registered will be
         // different
@@ -34,8 +34,7 @@ public:
     ComponentType getComponentType() {
         const char* type_name = typeid(T).name();
 
-        TX_ASSERT_MSG(_component_types.contains(type_name),
-                      "Component not registered before use.");
+        TX_ASSERT_MSG(_component_types.contains(type_name), "Component not registered before use.");
 
         // Return this component's type - used for creating signatures
         return _component_types[type_name];
@@ -62,8 +61,7 @@ public:
     template<typename T>
     bool contains(Entity entity) {
         // Check if an entity has a component (based on component type)
-        TX_ASSERT_MSG(_component_types.contains(typeid(T).name()),
-                      "Component not registered before use.");
+        TX_ASSERT_MSG(_component_types.contains(typeid(T).name()), "Component not registered before use.");
         return getComponentArray<T>()->contains(entity);
     }
 
@@ -81,8 +79,7 @@ private:
     std::unordered_map<const char*, ComponentType> _component_types{};
 
     // Map from type string pointer to a component array
-    std::unordered_map<const char*, std::unique_ptr<IComponentArray>>
-            _component_arrays{};
+    std::unordered_map<const char*, std::unique_ptr<IComponentArray>> _component_arrays{};
 
     // The component type to be assigned to the next registered component -
     // starting at 0
@@ -94,11 +91,9 @@ private:
     ComponentArray<T>* getComponentArray() {
         const char* type_name = typeid(T).name();
 
-        TX_ASSERT_MSG(_component_types.contains(type_name),
-                      "Component not registered before use.");
+        TX_ASSERT_MSG(_component_types.contains(type_name), "Component not registered before use.");
 
-        return static_cast<ComponentArray<T>*>(
-                _component_arrays[type_name].get());
+        return static_cast<ComponentArray<T>*>(_component_arrays[type_name].get());
     }
 };
 

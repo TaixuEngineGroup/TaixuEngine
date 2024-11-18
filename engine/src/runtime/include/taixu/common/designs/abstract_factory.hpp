@@ -7,6 +7,8 @@
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/log/logger.hpp"
 
+#include <iostream>
+
 TX_NAMESPACE_BEGIN
 
 /**
@@ -25,19 +27,22 @@ public:
     using ReturnTTrait      = ReturnT;
 
 protected:
-    TX_INLINE static std::unordered_map<RegisterKeyT, CreateFunctorT> creation_func_map{};
+    TX_INLINE static std::unique_ptr<std::unordered_map<RegisterKeyT, CreateFunctorT>> creation_func_map{};
 
 public:
     static bool registerCreationFunc(RegisterKeyT key, CreateFunctorT func) {
         TX_ASSERT_MSG(func, "func is nullptr");
-        auto iter = creation_func_map.find(key);
+        if (creation_func_map == nullptr) {
+            creation_func_map = std::make_unique<std::unordered_map<RegisterKeyT, CreateFunctorT>>();
+        }
 
-        if (iter != creation_func_map.end()) {
-            WARN_LOG("This _window have already registered");
-            iter->second = std::move(func);
+        auto iter = creation_func_map->find(key);
+
+        if (iter != creation_func_map->end()) {
+            std::cout << fmt::format("This {} have already registered.\n", typeid(RegisterKeyT).name());
             return true;
         } else {
-            creation_func_map.emplace(key, std::move(func));
+            creation_func_map->emplace(key, std::move(func));
             return true;
         }
 
@@ -46,10 +51,14 @@ public:
 
     static ReturnT createProduct(RegisterKeyT  key,
                                  CreateInfoT&& args) {// NOLINT
-        decltype(auto) iter = creation_func_map.find(key);
+        if (creation_func_map == nullptr) {
+            std::cerr << "You need to register the creation function first.\n";
+            return nullptr;
+        }
 
-        if (creation_func_map.end() == iter) {
-            FATAL_LOG("Cannot create the unsupported {}", typeid(RegisterKeyT).name());
+        decltype(auto) iter = creation_func_map->find(key);
+        if (creation_func_map->end() == iter) {
+            std::cerr << fmt::format("Cannot create the unsupported {}.\n", typeid(RegisterKeyT).name());
             return nullptr;
         }
         return iter->second(std::forward<CreateInfoT>(args));

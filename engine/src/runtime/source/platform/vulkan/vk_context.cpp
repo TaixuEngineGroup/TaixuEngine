@@ -24,6 +24,7 @@
 
 #include "gameplay/gui/glfw_window.hpp"
 
+#include <ranges>
 
 /**
  * @brief Globale dynamic dispatch loader, only need write once

@@ -12,6 +12,10 @@
 #include "management/gfx/tx_context.hpp"
 #include "management/gpu/shaders/shader_manager.hpp"
 
+#ifdef VULKAN_HPP
+    #include "platform/vulkan/vk_context.hpp"
+#endif
+
 namespace taixu {
 
 class Scene;

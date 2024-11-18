@@ -13,10 +13,11 @@
 
 #include <proxy.h>
 
+#include "common/log/custom_fmt.hpp"
 #include "taixu/common/designs/abstract_factory.hpp"
 #include "taixu/gameplay/gui/window.hpp"
 
-namespace taixu {
+TX_NAMESPACE_BEGIN
 
 PRO_DEF_MEM_DISPATCH(ImguiInitImpl, imguiInit);
 
@@ -28,16 +29,17 @@ struct TXGfxCreateInfo {
 
 class TXGFXContextFactory final : public AbstractFactory<RenderAPI, pro::proxy<TXGfxProxy>, TXGfxCreateInfo> {};
 
-#define TX_GFX_CONTEXT_FACTORY_REGISTER(PRODUCT_CLASS_NAME, WINDOW_API)                                                \
+#define TX_GFX_CONTEXT_FACTORY_REGISTER(PRODUCT_CLASS_NAME, RENDER_API)                                                \
     static TXGFXContextFactory::ReturnTTrait __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME(                      \
             TXGFXContextFactory::CreateInfoTTrait&& info) {                                                            \
         auto res = PRODUCT_CLASS_NAME::createContext(std::forward<TXGFXContextFactory::CreateInfoTTrait>(info));       \
-        if (res.has_value()) {                                                                                         \
+        if (!res.has_value()) {                                                                                        \
             ERROR_LOG("Failed to create vulkan context: {}", res.error());                                             \
+            return nullptr;                                                                                            \
         }                                                                                                              \
         return std::move(res.value());                                                                                 \
     }                                                                                                                  \
-    TX_FACTORY_REGISTER(TXGFXContextFactory, PRODUCT_CLASS_NAME, WINDOW_API,                                           \
+    TX_FACTORY_REGISTER(TXGFXContextFactory, PRODUCT_CLASS_NAME, RENDER_API,                                           \
                         __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME)
 
-}// namespace taixu
+TX_NAMESPACE_END
