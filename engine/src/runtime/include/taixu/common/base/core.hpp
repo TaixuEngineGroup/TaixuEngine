@@ -35,12 +35,13 @@ enum class WindowType : std::uint8_t { WINDOWED, FULLSCREEN, FULLSCREEN_DESKTOP 
 /**
  * @brief Whole return code / status code enum class.
  */
-enum class RetCode : std::uint32_t {
+enum class RetCode : std::uint16_t {
     SUCCESS       = 0,// success
     UNKNOWN_ERROR = 1,// unknow error
     UNIMPL_ERROR  = 2,// unimplement error
 
     COMMON_ERROR = (1 << 10),
+    NULLPTR_ERROR,// unexpected nullptr
 
     GAMEPLAY_ERROR = (1 << 10) * 2,
 

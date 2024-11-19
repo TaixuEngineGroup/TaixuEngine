@@ -177,21 +177,20 @@ ResValT<vk::raii::PhysicalDevice> createPhysicsDevice(vk::raii::Instance const& 
 }
 
 struct NeededQueueResult {
-    std::uint32_t            graphics_family_index{0};
-    std::uint32_t            present_family_index{0};
-    tx_vector<std::uint32_t> queue_indices{};
+    uint32_t            graphics_family_index{0};
+    uint32_t            present_family_index{0};
+    tx_vector<uint32_t> queue_family_indices{};
 };
 NeededQueueResult getNeedQueueIndices(vk::raii::PhysicalDevice const& physical_device,
                                       vk::raii::SurfaceKHR const&     surface) {
-    tx_vector<uint32_t> queue_family_indices{};
-    auto const          queue_family_props = physical_device.getQueueFamilyProperties();
+    auto const queue_family_props = physical_device.getQueueFamilyProperties();
 
     NeededQueueResult ret;
 
     if (auto const index =
                 findQueueFamily(physical_device, surface, queue_family_props, vk::QueueFlagBits::eGraphics)) {
         ret.graphics_family_index = *index;
-        queue_family_indices.emplace_back(*index);
+        ret.queue_family_indices.emplace_back(*index);
     } else {
         auto graphics =
                 findQueueFamily(physical_device, VK_NULL_HANDLE, queue_family_props, vk::QueueFlagBits::eGraphics);
@@ -202,9 +201,9 @@ NeededQueueResult getNeedQueueIndices(vk::raii::PhysicalDevice const& physical_d
         ret.graphics_family_index = *graphics;
         ret.present_family_index  = *present;
 
-        queue_family_indices.emplace_back(*graphics);
+        ret.queue_family_indices.emplace_back(*graphics);
         if (*graphics != *present) {
-            queue_family_indices.emplace_back(*present);
+            ret.queue_family_indices.emplace_back(*present);
         }
     }
 
@@ -222,17 +221,17 @@ ResValT<std::tuple<vk::raii::Device, NeededQueueResult>> createDevice(vk::raii::
 
     auto res = getNeedQueueIndices(physical_device, surface);
 
-    if (res.queue_indices.empty()) {
+    if (res.queue_family_indices.empty()) {
         ERROR_LOG("No queues requested");
         return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
     }
 
     std::array<float, 1> queue_priorities = {1.f};
 
-    tx_vector<vk::DeviceQueueCreateInfo> queue_infos(res.queue_indices.size());
-    for (std::size_t i = 0; i < res.queue_indices.size(); ++i) {
+    tx_vector<vk::DeviceQueueCreateInfo> queue_infos(res.queue_family_indices.size());
+    for (std::size_t i = 0; i < res.queue_family_indices.size(); ++i) {
         auto& queue_info = queue_infos[i];
-        queue_info.setQueueFamilyIndex(res.queue_indices[i])
+        queue_info.setQueueFamilyIndex(res.queue_family_indices[i])
                 .setQueueCount(1)
                 .setPQueuePriorities(queue_priorities.data());
     }
@@ -371,6 +370,12 @@ getExtensionsAndLayers(tx_vector<const char*>& enabled_layers, tx_vector<const c
     return RetCode::SUCCESS;
 }
 
+struct SwapchainResult {
+    vk::raii::SwapchainKHR swapchain{VK_NULL_HANDLE};
+    vk::Format             format{};
+    vk::Extent2D           extent{};
+};
+
 ResValT<std::tuple<vk::raii::Instance, vk::raii::DebugUtilsMessengerEXT>> createInstance() {
     tx_vector<const char*>                              enabled_layers{};
     tx_vector<const char*>                              enabled_extensions{};
@@ -502,7 +507,7 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
     }
     context->_graphics_queue = std::move(gfx_quque.value());
-    if (needed_queue.queue_indices.size() >= 2) {
+    if (needed_queue.queue_family_indices.size() >= 2) {
         auto present_queue = context->_device.getQueue(context->_present_family_index, 0);
         if (!present_queue.has_value()) {
             ERROR_LOG("Failed to get present queue: {}", vk::to_string(present_queue.error()));
@@ -511,6 +516,19 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
         context->_present_queue = std::move(present_queue.value());
     } else {
         context->_use_graphics_as_present = true;
+    }
+
+    // TODO: register Resize event，recreate swapchain
+    DEBUG_LOG("Test enum log?{}", WindowAPI::GLFW);
+    DEBUG_LOG("Test enum log2?{}", RetCode::VULKAN_INIT_ERROR);
+
+    auto swapchain_res = VKSwapchain::createSwapchain(context->_physical_device, context->_surface, context->_device,
+                                                      window, needed_queue.queue_family_indices);
+    if (swapchain_res.has_value()) {
+        context->_swapchain = std::move(swapchain_res.value());
+    } else {
+        ERROR_LOG("Failed to create swapchain: {}", swapchain_res.error());
+        return UNEXPECTED(swapchain_res.error());
     }
 
     return context;

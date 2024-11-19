@@ -7,7 +7,7 @@
 #include "taixu/common/dispatch/handler.hpp"
 #include "taixu/common/log/logger.hpp"
 
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 
 namespace taixu::editor {
 

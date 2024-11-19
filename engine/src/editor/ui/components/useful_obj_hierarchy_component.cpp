@@ -7,7 +7,7 @@
 #include <imgui/icons/IconsLucide.h>
 
 #include <imgui.h>
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 
 #include <taixu/common/log/logger.hpp>
 

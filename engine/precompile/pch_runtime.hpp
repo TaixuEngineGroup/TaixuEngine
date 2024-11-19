@@ -38,8 +38,6 @@
     #define NOMINMAX
 #endif
 
-#include <magic_enum.hpp>
-
 #include <Jolt/Jolt.h>
 
 #include <rfl.hpp>
@@ -61,7 +59,7 @@
 
 #include <imgui/tools/imgui_freetype.h>
 
-#include <magic_enum.hpp>
+#include <magic_enum/magic_enum.hpp>
 
 #include <freetype/freetype.h>
 

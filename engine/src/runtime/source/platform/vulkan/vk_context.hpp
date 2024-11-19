@@ -13,7 +13,7 @@
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/base/result.hpp"
 
-#include "vk_surface.hpp"
+#include "vk_swapchain.hpp"
 TX_NAMESPACE_BEGIN
 
 /**
@@ -37,6 +37,8 @@ private:
     bool            _use_graphics_as_present{false};
     std::uint32_t   _present_family_index{0};
     vk::raii::Queue _present_queue{VK_NULL_HANDLE};
+
+    VKSwapchain _swapchain;
 
 public:
     static ResValT<pro::proxy<TXGfxProxy>> createContext(const TXGfxCreateInfo& window_ctx);
