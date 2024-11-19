@@ -20,11 +20,10 @@
 #include "common/utils/type_utils.hpp"
 #include "taixu/common/base/core.hpp"
 
-// ?This will cost 40G memory in building, guess remove it.
 template<>
 struct magic_enum::customize::enum_range<taixu::RetCode> {
-    static constexpr int min = 0;         // NOLINT
-    static constexpr int max = UINT16_MAX;// NOLINT
+    static constexpr int min = 0;      // NOLINT
+    static constexpr int max = 1 << 10;// NOLINT
 };
 
 template<typename T>

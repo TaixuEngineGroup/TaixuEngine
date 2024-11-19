@@ -40,20 +40,20 @@ enum class RetCode : std::uint16_t {
     UNKNOWN_ERROR = 1,// unknow error
     UNIMPL_ERROR  = 2,// unimplement error
 
-    COMMON_ERROR = (1 << 10),
+    COMMON_ERROR = (1 << 7),
     NULLPTR_ERROR,// unexpected nullptr
 
-    GAMEPLAY_ERROR = (1 << 10) * 2,
+    GAMEPLAY_ERROR = (1 << 7) * 2,
 
-    MANAGEMENT_ERROR = (1 << 10) * 3,
+    MANAGEMENT_ERROR = (1 << 7) * 3,
     UNSUPPORTED_VULKAN_ERROR,
     VULKAN_INIT_ERROR,
     VULKAN_INSTANCE_CREATE_ERROR,
     VULKAN_DEVICE_CREATE_ERROR,
 
-    PLATFORM_ERROR = (1 << 10) * 4,
+    PLATFORM_ERROR = (1 << 7) * 4,
 
-    RESOURCE_ERROR = (1 << 10) * 5,
+    RESOURCE_ERROR = (1 << 7) * 5,
 };
 
 }// namespace taixu
