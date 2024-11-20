@@ -518,10 +518,6 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
         context->_use_graphics_as_present = true;
     }
 
-    // TODO: register Resize event，recreate swapchain
-    DEBUG_LOG("Test enum log?{}", WindowAPI::GLFW);
-    DEBUG_LOG("Test enum log2?{}", RetCode::VULKAN_INIT_ERROR);
-
     auto swapchain_res = VKSwapchain::createSwapchain(context->_physical_device, context->_surface, context->_device,
                                                       window, needed_queue.queue_family_indices);
     if (swapchain_res.has_value()) {

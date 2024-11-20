@@ -19,24 +19,27 @@ class VKSwapchain final {
 public:
     vk::raii::SwapchainKHR swapchain{VK_NULL_HANDLE};
     vk::Extent2D           extent;
-    vk::Format             swapchain_format;
+    vk::SurfaceFormatKHR   swapchain_format;
     vk::PresentModeKHR     present_mode;
 
-    std::vector<vk::raii::Image>     images;
+    tx_vector<vk::raii::Image>       images;
     std::vector<vk::raii::ImageView> image_views;
-
-    // RetCode initSwapchain(vk::raii::PhysicalDevice const& physical_device, vk::raii::SurfaceKHR const& surface,
-    //                       vk::raii::Device const& device, const Window* window,
-    //                       const tx_vector<uint32_t>& queue_family_indices, vk::PresentModeKHR present_mode);
-
-    // RetCode recreateSwapchain(vk::raii::PhysicalDevice const& physical_device, vk::raii::SurfaceKHR const& surface,
-    //                           vk::raii::Device const& device, const Window* window,
-    //                           const tx_vector<uint32_t>& queue_family_indices, vk::PresentModeKHR present_mode);
 
     static ResValT<VKSwapchain> createSwapchain(vk::raii::PhysicalDevice const& physical_device,
                                                 vk::raii::SurfaceKHR const& surface, vk::raii::Device const& device,
                                                 const Window* window, const tx_vector<uint32_t>& queue_family_indices,
                                                 vk::PresentModeKHR present_mode = vk::PresentModeKHR::eFifo);
+
+private:
+    RetCode initSwapchain(vk::raii::PhysicalDevice const& physical_device, vk::raii::SurfaceKHR const& surface,
+                          vk::raii::Device const& device, const Window* window,
+                          const tx_vector<uint32_t>& queue_family_indices, vk::PresentModeKHR present_mode);
+
+    RetCode initSwapchainImagesAndViews(vk::raii::Device const& device);
+
+    RetCode recreateSwapchain(vk::raii::PhysicalDevice const& physical_device, vk::raii::Device const& device,
+                              const Window* window, const tx_vector<uint32_t>& queue_family_indices,
+                              vk::PresentModeKHR present_mode);
 };
 
 TX_NAMESPACE_END
