@@ -474,7 +474,7 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
 
     auto&& [instance, debug_messenger] = instance_tuple.value();
 
-    std::unique_ptr<VKContext> context = std::make_unique<VKContext>();
+    std::shared_ptr<VKContext> context = std::make_shared<VKContext>();
     context->_instance                 = std::move(instance);
     context->_debug_messenger          = std::move(debug_messenger);
 
@@ -526,6 +526,13 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
         ERROR_LOG("Failed to create swapchain: {}", swapchain_res.error());
         return UNEXPECTED(swapchain_res.error());
     }
+
+    auto allocator_ret = VKAllocator::createAllocator(context->_physical_device, context->_device, context->_instance);
+    if (!allocator_ret.has_value()) {
+        ERROR_LOG("Failed to create allocator: {}", allocator_ret.error());
+        return UNEXPECTED(allocator_ret.error());
+    }
+    context->_allocator = std::move(allocator_ret.value());
 
     return context;
 }

@@ -10,16 +10,19 @@
 #pragma once
 
 #include "taixu/common/base/macro.hpp"
+#include "taixu/common/base/result.hpp"
 #include "taixu/common/designs/noncopyable.hpp"
 
-#define VMA_IMPLEMENTATION
 #include <vk_mem_alloc.h>
 
 TX_NAMESPACE_BEGIN
 
 class VKAllocator final : public Noncopyable {
 public:
-    VKAllocator() = delete;
+    VKAllocator() = default;
+
+    explicit VKAllocator(VmaAllocator allocator) : _allocator(allocator) {
+    }
 
     VKAllocator(const VKAllocator&)            = delete;
     VKAllocator& operator=(const VKAllocator&) = delete;
@@ -30,14 +33,12 @@ public:
         return *this;
     };
 
-    explicit VKAllocator(VmaAllocator allocator) : _allocator(allocator) {
-    }
-
     ~VKAllocator() override {
         vmaDestroyAllocator(_allocator);
     }
 
-    static VKAllocator createAllocator();
+    static ResValT<VKAllocator> createAllocator(vk::raii::PhysicalDevice& physical_device, vk::raii::Device& device,
+                                                vk::raii::Instance const& instance);
 
 private:
     VmaAllocator _allocator{VK_NULL_HANDLE};

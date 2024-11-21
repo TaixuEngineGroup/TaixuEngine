@@ -13,7 +13,10 @@
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/base/result.hpp"
 
+#include "vk_allocator.hpp"
 #include "vk_swapchain.hpp"
+
+
 TX_NAMESPACE_BEGIN
 
 /**
@@ -38,7 +41,8 @@ private:
     std::uint32_t   _present_family_index{0};
     vk::raii::Queue _present_queue{VK_NULL_HANDLE};
 
-    VKSwapchain _swapchain;
+    VKSwapchain _swapchain{};
+    VKAllocator _allocator{};
 
 public:
     static ResValT<pro::proxy<TXGfxProxy>> createContext(const TXGfxCreateInfo& window_ctx);

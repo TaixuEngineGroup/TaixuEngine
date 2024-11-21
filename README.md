@@ -1,7 +1,3 @@
-<p align="center">
-  <a href="taixuengine.fivezha.cn"><img src="" width="200" height="200" alt="taixuengine"></a>
-</p>
-
 <div align="center">
 
 # TaixuEngine
@@ -50,7 +46,7 @@ make
 | :----: | :------------------------------------: |
 | OpenGL | Deprecated(old version in main branch) |
 | Vulkan |                  WIP                  |
-|  WGPU  |               In Future                |
+|  WGPU  |               In Future               |
 
 ## Architecture
 
