@@ -5,7 +5,6 @@
 #pragma once
 
 #include <cstdint>
-#include <memory>
 
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/designs/noncopyable.hpp"
@@ -25,14 +24,6 @@ enum class EnumShaderStage : uint8_t {
 
 enum class EnumShaderSourceType : uint8_t { NONE = 0, GLSL, SPIRV, HLSL };
 
-enum class EnumAttributeFormat : uint8_t {
-    R8G8B8A8_FLOAT,
-    R32G32B32A32_FLOAT,
-    R32G32B32_FLOAT,
-    R32G32_FLOAT,
-    R32_FLOAT,
-};
-
 struct TXShaderModuleCreateInfo {
     tx_string_view       name{};
     const uint8_t*       binaries{nullptr};
@@ -41,13 +32,18 @@ struct TXShaderModuleCreateInfo {
     EnumShaderStage      stage{};
 };
 
-class TXShaderModule : public std::enable_shared_from_this<TXShaderModule>, public Noncopyable {
+class TXShaderModule {
     PROTOTYPE_ONLY_GETTER_VALPASS(protected, tx_string_view, name);
     PROTOTYPE_ONLY_GETTER_VALPASS(protected, EnumShaderStage, stage);
 
 public:
+    TXShaderModule(const TXShaderModule&)            = delete;
+    TXShaderModule(TXShaderModule&&)                 = delete;
+    TXShaderModule& operator=(const TXShaderModule&) = delete;
+    TXShaderModule& operator=(TXShaderModule&&)      = delete;
+
     explicit TXShaderModule(TXShaderModuleCreateInfo const& info) : _name(info.name), _stage{info.stage} {};
-    ~TXShaderModule() override = default;
+    virtual ~TXShaderModule() = default;
 };
 
 }// namespace taixu

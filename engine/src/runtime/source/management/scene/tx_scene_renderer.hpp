@@ -12,7 +12,7 @@
 #include "management/gfx/tx_context.hpp"
 #include "management/gpu/shaders/shader_manager.hpp"
 
-#ifdef VULKAN_HPP
+#ifdef USE_VULKAN
     #include "platform/vulkan/vk_context.hpp"
 #endif
 
@@ -48,8 +48,7 @@ struct ImguiStyleGroup {
 class TXSceneRenderer final : public Noncopyable {
 private:
     pro::proxy<TXGfxProxy> _context;
-
-    TXShaderModuleManager _shader_module_manager;
+    TXShaderModuleManager  _shader_module_manager;
 
     ///
     /// ImGui使用的变量

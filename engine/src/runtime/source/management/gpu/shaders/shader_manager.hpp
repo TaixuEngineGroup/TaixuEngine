@@ -3,12 +3,13 @@
 //
 #pragma once
 
+#include "management/gfx/tx_context.hpp"
+#include "management/gfx/tx_shader.hpp"
+#include "taixu/common/base/hash.hpp"
+
 #include <array>
 
 #include <magic_enum/magic_enum.hpp>
-
-#include "management/gfx/tx_shader.hpp"
-#include "taixu/common/base/hash.hpp"
 
 namespace taixu {
 
@@ -23,12 +24,12 @@ using TXBuiltinShaderCreateInfoArrT = std::array<TXShaderModuleCreateInfo, TX_BU
 using TXBuiltinShaderModulePtrArrT  = std::array<std::shared_ptr<TXShaderModule>, TX_BUILTIN_SHADER_SIZE>;
 
 
-#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO(name_, binaries_, size, type, stage_, infos)                            \
+#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO(name_, binaries_ptr, type, stage_, infos)                               \
     {                                                                                                                  \
         auto& info         = (infos)[static_cast<size_t>(name_)];                                                      \
         info.name          = magic_enum::enum_name(name_);                                                             \
-        info.binaries      = binaries_;                                                                                \
-        info.binaries_size = size;                                                                                     \
+        info.binaries      = binaries_ptr;                                                                             \
+        info.binaries_size = sizeof(binaries_ptr) / sizeof((binaries_ptr)[0]);                                         \
         info.source_type   = type;                                                                                     \
         info.stage         = (stage_);                                                                                 \
     }
@@ -40,10 +41,12 @@ private:
 
     std::unordered_map<hash32_t, std::shared_ptr<TXShaderModule>> _custom_modules;
 
+    pro::proxy<TXGfxProxy> _gfx_proxy{};
+
     [[nodiscard]] std::shared_ptr<TXShaderModule> createShaderModuleInner(TXShaderModuleCreateInfo const& info) const;
 
 public:
-    void init();
+    void init(pro::proxy<TXGfxProxy> const& gfx_proxy);
 
     [[nodiscard]] std::shared_ptr<TXShaderModule> createCustomShaderModule(const TXShaderModuleCreateInfo& info) const;
 

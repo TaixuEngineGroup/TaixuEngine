@@ -39,9 +39,9 @@ enum class RetCode : std::uint16_t {
     SUCCESS       = 0,// success
     UNKNOWN_ERROR = 1,// unknow error
     UNIMPL_ERROR  = 2,// unimplement error
+    NULLPTR_ERROR,    // unexpected nullptr
 
     COMMON_ERROR = (1 << 7),
-    NULLPTR_ERROR,// unexpected nullptr
 
     GAMEPLAY_ERROR = (1 << 7) * 2,
 
@@ -54,6 +54,7 @@ enum class RetCode : std::uint16_t {
     VULKAN_DEVICE_CREATE_ERROR,
     VULKAN_SURFACE_FORMAT_EMPTY_ERROR,
     VULKAN_SWAPCHAIN_CREATE_FAILED_ERROR,
+    VMA_CREATE_FAILED_ERROR,
 
     RESOURCE_ERROR = (1 << 7) * 5,
 };

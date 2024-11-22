@@ -6,7 +6,6 @@
 #include "common/math/math.hpp"
 #include "gameplay/gui/glfw_window.hpp"
 #include "management/gfx/tx_context.hpp"
-#include "taixu/common/base/result.hpp"
 #include "taixu/common/log/logger.hpp"
 #include "taixu/gameplay/gui/window.hpp"
 
@@ -16,8 +15,6 @@
 #include "backends/imgui_impl_glfw.h"
 #include "imgui.h"
 #include "imgui/icons/IconsLucide.h"
-
-#include "platform/vulkan/vk_context.hpp"
 
 namespace taixu {
 
@@ -32,6 +29,9 @@ static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
 
 void TXSceneRenderer::init(Window* window, RenderAPI render_api) {
     initForGraphicsAPI(window, render_api);
+
+    _shader_module_manager.init(_context);
+
     initImgui(window);
 }
 

@@ -16,12 +16,29 @@
 #include "common/log/custom_fmt.hpp"
 #include "taixu/common/designs/abstract_factory.hpp"
 #include "taixu/gameplay/gui/window.hpp"
+#include "tx_shader.hpp"
 
 TX_NAMESPACE_BEGIN
 
+/**
+ * @brief Imgui init function
+ *
+ */
 PRO_DEF_MEM_DISPATCH(ImguiInitImpl, imguiInit);
+/**
+ * @brief Shader create function
+ *
+ */
+PRO_DEF_MEM_DISPATCH(CreateShaderModuleImpl, createShaderModule);
 
-struct TXGfxProxy : pro::facade_builder::build {};
+/**
+ * @brief Graphics proxy
+ *
+ */
+struct TXGfxProxy
+    : pro::facade_builder::add_convention<CreateShaderModuleImpl,
+                                          std::shared_ptr<TXShaderModule>(TXShaderModuleCreateInfo const&)
+                                                  const>::support_copy<pro::constraint_level::nontrivial>::build {};
 
 struct TXGfxCreateInfo {
     const Window* window{nullptr};

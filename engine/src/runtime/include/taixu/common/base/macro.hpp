@@ -105,6 +105,7 @@
 #define TX_NAMESPACE_USING_ALL_FROM(ns)                                                                                \
     using namespace ns;                                                                                                \
     using namespace ns::detail;
+#define TX_NAMESPACE_LIMIT taixu::
 
 /**
  * @brief Export macro

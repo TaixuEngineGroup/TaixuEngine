@@ -16,8 +16,8 @@
 #include "taixu/common/base/lib_info.hpp"
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/log/logger.hpp"
+#include "vk_shader.hpp"
 #include "vk_utils.hpp"
-
 
 #include <vulkan/vk_enum_string_helper.h>
 #include <vulkan/vulkan.hpp>
@@ -535,6 +535,10 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
     context->_allocator = std::move(allocator_ret.value());
 
     return context;
+}
+
+std::shared_ptr<TXShaderModule> VKContext::createShaderModule(TXShaderModuleCreateInfo const& create_info) {
+    return VKShaderMod::createVKShaderModule(create_info);
 }
 
 TX_NAMESPACE_END

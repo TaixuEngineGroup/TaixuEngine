@@ -46,6 +46,8 @@ private:
 
 public:
     static ResValT<pro::proxy<TXGfxProxy>> createContext(const TXGfxCreateInfo& window_ctx);
+
+    [[nodiscard]] static std::shared_ptr<TXShaderModule> createShaderModule(TXShaderModuleCreateInfo const&);
 };
 
 TX_GFX_CONTEXT_FACTORY_REGISTER(VKContext,// NOLINT(cppcoreguidelines-rvalue-reference-param-not-moved)
