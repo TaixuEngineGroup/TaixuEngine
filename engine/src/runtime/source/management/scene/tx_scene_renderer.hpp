@@ -9,8 +9,8 @@
 
 #include "common/hal/tx_string.hpp"
 #include "common/math/color.hpp"
+#include "management/gfx/shaders/shader_manager.hpp"
 #include "management/gfx/tx_context.hpp"
-#include "management/gpu/shaders/shader_manager.hpp"
 
 #ifdef USE_VULKAN
     #include "platform/vulkan/vk_context.hpp"
@@ -85,12 +85,6 @@ private:
 
 protected:
     void updateScene(float delta_time, Scene* scene);
-
-    /**
-     * @brief 初始化imgui API
-     *
-     */
-    void imguiForGraphicsAPIInit();
 
     /**
      * @brief 初始化图形API

@@ -136,6 +136,10 @@ RetCode VKSwapchain::initSwapchainImagesAndViews(vk::raii::Device const& device)
     return RetCode::SUCCESS;
 }
 
+RetCode VKSwapchain::initSwapchainFramebuffer() {
+    return RetCode::SUCCESS;
+}
+
 ResValT<VKSwapchain> VKSwapchain::createSwapchain(vk::raii::PhysicalDevice const& physical_device,
                                                   vk::raii::SurfaceKHR const& surface, vk::raii::Device const& device,
                                                   const Window* window, const tx_vector<uint32_t>& queue_family_indices,

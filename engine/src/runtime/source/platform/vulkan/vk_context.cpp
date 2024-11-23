@@ -307,13 +307,12 @@ getExtensionsAndLayers(tx_vector<const char*>& enabled_layers, tx_vector<const c
 
 #if defined(TX_DEBUG)
     #define DEBUG_LAYER_NAME "VK_LAYER_KHRONOS_validation"
-    #define DEBUG_EXTENSION_NAME "VK_EXT_debug_utils"
 
     if (supported_layers.value().contains(tx_string(DEBUG_LAYER_NAME)) &&
-        supported_extensions.value().contains(tx_string(DEBUG_EXTENSION_NAME))) {
+        supported_extensions.value().contains(tx_string(VK_EXT_DEBUG_UTILS_EXTENSION_NAME))) {
 
         enabled_layers.emplace_back(DEBUG_LAYER_NAME);
-        enabled_extensions.emplace_back(DEBUG_EXTENSION_NAME);
+        enabled_extensions.emplace_back(VK_EXT_DEBUG_UTILS_EXTENSION_NAME);
         enable_debug_utils = true;
     }
 #endif
@@ -537,8 +536,8 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
     return context;
 }
 
-std::shared_ptr<TXShaderModule> VKContext::createShaderModule(TXShaderModuleCreateInfo const& create_info) {
-    return VKShaderMod::createVKShaderModule(create_info);
+std::shared_ptr<TXShaderModule> VKContext::createShaderModule(TXShaderModuleCreateInfo const& create_info) const {
+    return VKShaderMod::createVKShaderModule(create_info, _device);
 }
 
 TX_NAMESPACE_END

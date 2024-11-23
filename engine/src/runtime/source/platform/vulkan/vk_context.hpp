@@ -19,27 +19,30 @@
 
 TX_NAMESPACE_BEGIN
 
+namespace vkraii = vk::raii;
+
 /**
  * @brief Vulkan Context, create resources or vk objects.
  *
  */
 class VKContext final : private Noncopyable {
 private:
-    vk::raii::Instance               _instance{VK_NULL_HANDLE};
-    vk::raii::DebugUtilsMessengerEXT _debug_messenger{VK_NULL_HANDLE};
-    vk::raii::SurfaceKHR             _surface{VK_NULL_HANDLE};
+    vkraii::Instance   _instance{VK_NULL_HANDLE};
+    vkraii::SurfaceKHR _surface{VK_NULL_HANDLE};
 
-    vk::raii::Device         _device{VK_NULL_HANDLE};
-    vk::raii::PhysicalDevice _physical_device{VK_NULL_HANDLE};
+    vkraii::Device         _device{VK_NULL_HANDLE};
+    vkraii::PhysicalDevice _physical_device{VK_NULL_HANDLE};
 
     // We need one or two queues:
     // - best case: one GRAPHICS queue that can present
     // - otherwise: one GRAPHICS queue and any queue that can present
-    std::uint32_t   _graphics_family_index{0};
-    vk::raii::Queue _graphics_queue{VK_NULL_HANDLE};
-    bool            _use_graphics_as_present{false};
-    std::uint32_t   _present_family_index{0};
-    vk::raii::Queue _present_queue{VK_NULL_HANDLE};
+    std::uint32_t _graphics_family_index{0};
+    vkraii::Queue _graphics_queue{VK_NULL_HANDLE};
+    bool          _use_graphics_as_present{false};
+    std::uint32_t _present_family_index{0};
+    vkraii::Queue _present_queue{VK_NULL_HANDLE};
+
+    vkraii::DebugUtilsMessengerEXT _debug_messenger{VK_NULL_HANDLE};
 
     VKSwapchain _swapchain{};
     VKAllocator _allocator{};
@@ -47,7 +50,7 @@ private:
 public:
     static ResValT<pro::proxy<TXGfxProxy>> createContext(const TXGfxCreateInfo& window_ctx);
 
-    [[nodiscard]] static std::shared_ptr<TXShaderModule> createShaderModule(TXShaderModuleCreateInfo const&);
+    [[nodiscard]] std::shared_ptr<TXShaderModule> createShaderModule(TXShaderModuleCreateInfo const&) const;
 };
 
 TX_GFX_CONTEXT_FACTORY_REGISTER(VKContext,// NOLINT(cppcoreguidelines-rvalue-reference-param-not-moved)

@@ -9,6 +9,7 @@
  */
 
 #include "vk_utils.hpp"
+#include "taixu/common/log/logger.hpp"
 
 TX_NAMESPACE_BEGIN
 
@@ -33,6 +34,19 @@ std::optional<uint32_t> findQueueFamily(vk::raii::PhysicalDevice const& device, 
     }
 
     return std::nullopt;
+}
+
+vk::raii::Fence createFence(vk::raii::Device const& device, vk::FenceCreateFlags flags) noexcept {
+    vk::FenceCreateInfo fence_info{};
+    fence_info.setFlags(flags);
+
+    auto ret = device.createFence(fence_info);
+    if (!ret.has_value()) {
+        ERROR_LOG("create fence failed: {}", vk::to_string(ret.error()));
+        return VK_NULL_HANDLE;
+    }
+
+    return std::move(ret.value());
 }
 
 TX_NAMESPACE_END

@@ -174,7 +174,6 @@ void TXSceneRenderer::initImgui(const Window* window) {
     loadStyle(window->dpi_scale());
 
     initImguiForWindow(window);
-    imguiForGraphicsAPIInit();
 }
 
 void TXSceneRenderer::imguiUpdate() {
@@ -204,9 +203,6 @@ void TXSceneRenderer::imguiDestroy() {
 }
 
 void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {
-}
-
-void TXSceneRenderer::imguiForGraphicsAPIInit() {
 }
 
 void TXSceneRenderer::initForGraphicsAPI(Window* window, RenderAPI render_api) {

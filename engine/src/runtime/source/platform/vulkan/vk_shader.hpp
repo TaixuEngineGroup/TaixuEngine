@@ -13,6 +13,8 @@
 #include "management/gfx/tx_shader.hpp"
 #include "taixu/common/base/macro.hpp"
 
+namespace vkraii = vk::raii;
+
 TX_NAMESPACE_BEGIN
 
 class VKShaderMod : public TXShaderModule {
@@ -20,7 +22,18 @@ private:
     vk::raii::ShaderModule _shader_module{VK_NULL_HANDLE};
 
 public:
-    static std::shared_ptr<TXShaderModule> createVKShaderModule(TXShaderModuleCreateInfo const& info);
+    explicit VKShaderMod(TXShaderModuleCreateInfo const& create_info) : TXShaderModule(create_info) {
+    }
+
+    /**
+     * @brief create vulkan shader module.
+     *
+     * @param info
+     * @param device
+     * @return std::shared_ptr<TXShaderModule>
+     */
+    static std::shared_ptr<VKShaderMod> createVKShaderModule(TXShaderModuleCreateInfo const& info,
+                                                             vkraii::Device const&           device);
 };
 
 TX_NAMESPACE_END

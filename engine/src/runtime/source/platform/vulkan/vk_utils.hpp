@@ -33,4 +33,6 @@ std::optional<uint32_t> findQueueFamily(vk::raii::PhysicalDevice const& device, 
                                         std::vector<vk::QueueFamilyProperties> const& props,
                                         std::optional<vk::QueueFlagBits>              flag_opt) noexcept;
 
+vk::raii::Fence createFence(vk::raii::Device const& device, vk::FenceCreateFlags flags) noexcept;
+
 TX_NAMESPACE_END

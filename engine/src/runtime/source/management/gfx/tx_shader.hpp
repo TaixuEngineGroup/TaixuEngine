@@ -22,27 +22,23 @@ enum class EnumShaderStage : uint8_t {
     COMPUTE,
 };
 
-enum class EnumShaderSourceType : uint8_t { NONE = 0, GLSL, SPIRV, HLSL };
 
 struct TXShaderModuleCreateInfo {
-    tx_string_view       name{};
-    const uint8_t*       binaries{nullptr};
-    size_t               binaries_size{0};
-    EnumShaderSourceType source_type{EnumShaderSourceType::NONE};
-    EnumShaderStage      stage{};
+    tx_string_view  name{};
+    const uint32_t* binaries{nullptr};
+    size_t          binaries_size{0};
 };
 
 class TXShaderModule {
     PROTOTYPE_ONLY_GETTER_VALPASS(protected, tx_string_view, name);
-    PROTOTYPE_ONLY_GETTER_VALPASS(protected, EnumShaderStage, stage);
 
 public:
     TXShaderModule(const TXShaderModule&)            = delete;
-    TXShaderModule(TXShaderModule&&)                 = delete;
+    TXShaderModule(TXShaderModule&&)                 = default;
     TXShaderModule& operator=(const TXShaderModule&) = delete;
-    TXShaderModule& operator=(TXShaderModule&&)      = delete;
+    TXShaderModule& operator=(TXShaderModule&&)      = default;
 
-    explicit TXShaderModule(TXShaderModuleCreateInfo const& info) : _name(info.name), _stage{info.stage} {};
+    explicit TXShaderModule(TXShaderModuleCreateInfo const& info) : _name(info.name) {};
     virtual ~TXShaderModule() = default;
 };
 

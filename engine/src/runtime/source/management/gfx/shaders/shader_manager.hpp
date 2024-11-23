@@ -24,14 +24,12 @@ using TXBuiltinShaderCreateInfoArrT = std::array<TXShaderModuleCreateInfo, TX_BU
 using TXBuiltinShaderModulePtrArrT  = std::array<std::shared_ptr<TXShaderModule>, TX_BUILTIN_SHADER_SIZE>;
 
 
-#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO(name_, binaries_ptr, type, stage_, infos)                               \
+#define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO(name_, binaries_ptr, infos)                                             \
     {                                                                                                                  \
-        auto& info         = (infos)[static_cast<size_t>(name_)];                                                      \
+        auto& info         = (infos).at(static_cast<size_t>(name_));                                                   \
         info.name          = magic_enum::enum_name(name_);                                                             \
         info.binaries      = binaries_ptr;                                                                             \
         info.binaries_size = sizeof(binaries_ptr) / sizeof((binaries_ptr)[0]);                                         \
-        info.source_type   = type;                                                                                     \
-        info.stage         = (stage_);                                                                                 \
     }
 
 class TXShaderModuleManager final {

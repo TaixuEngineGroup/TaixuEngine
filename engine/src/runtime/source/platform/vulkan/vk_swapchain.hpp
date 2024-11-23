@@ -36,6 +36,7 @@ private:
                           const tx_vector<uint32_t>& queue_family_indices, vk::PresentModeKHR present_mode);
 
     RetCode initSwapchainImagesAndViews(vk::raii::Device const& device);
+    RetCode initSwapchainFramebuffer();
 
     RetCode recreateSwapchain(vk::raii::PhysicalDevice const& physical_device, vk::raii::Device const& device,
                               const Window* window, const tx_vector<uint32_t>& queue_family_indices,
