@@ -29,7 +29,7 @@ function(embed_resource resource_file_name source_file_name variable_name)
         set(array_definition "static constexpr unsigned char ${variable_name}[] =\n{\n${content}\n};")
 
         get_filename_component(file_name ${source_file_name} NAME)
-        set(source "/**\n * @file ${file_name}\n * @brief Auto generated file.\n */\n${array_definition}\n")
+        set(source "/**\n * @file ${file_name}\n * @brief Auto generated file.\n */\n#pragma once\n\n${array_definition}\n")
 
         file(WRITE "${source_file_name}" "${source}")
     else()
