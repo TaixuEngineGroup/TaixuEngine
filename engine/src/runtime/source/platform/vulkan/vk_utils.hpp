@@ -35,4 +35,6 @@ std::optional<uint32_t> findQueueFamily(vk::raii::PhysicalDevice const& device, 
 
 vk::raii::Fence createFence(vk::raii::Device const& device, vk::FenceCreateFlags flags) noexcept;
 
+vk::raii::Semaphore createSemaphore(vk::raii::Device const& device) noexcept;
+
 TX_NAMESPACE_END

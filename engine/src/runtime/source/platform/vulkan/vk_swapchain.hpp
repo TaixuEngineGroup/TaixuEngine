@@ -15,21 +15,24 @@
 #include "taixu/gameplay/gui/window.hpp"
 
 #include "vk_framebuffer.hpp"
+#include "vk_renderpass.hpp"
 
 TX_NAMESPACE_BEGIN
 
 class VKSwapchain final {
+private:
+    vk::raii::SwapchainKHR _swapchain{VK_NULL_HANDLE};
+    vk::Extent2D           _extent;
+    vk::SurfaceFormatKHR   _swapchain_format;
+    vk::PresentModeKHR     _present_mode;
+
+    tx_vector<vk::raii::Image>       _images;
+    std::vector<vk::raii::ImageView> _image_views;
+
+    std::vector<VKFramebuffer> _framebuffers;
+    VKRenderPass               _present_renderpass{};
+
 public:
-    vk::raii::SwapchainKHR swapchain{VK_NULL_HANDLE};
-    vk::Extent2D           extent;
-    vk::SurfaceFormatKHR   swapchain_format;
-    vk::PresentModeKHR     present_mode;
-
-    tx_vector<vk::raii::Image>       images;
-    std::vector<vk::raii::ImageView> image_views;
-
-    std::vector<VKFramebuffer> framebuffers;
-
     static ResValT<VKSwapchain> createSwapchain(vk::raii::PhysicalDevice const& physical_device,
                                                 vk::raii::SurfaceKHR const& surface, vk::raii::Device const& device,
                                                 const Window* window, const tx_vector<uint32_t>& queue_family_indices,
@@ -41,7 +44,7 @@ private:
                           const tx_vector<uint32_t>& queue_family_indices, vk::PresentModeKHR present_mode);
 
     RetCode initSwapchainImagesAndViews(vk::raii::Device const& device);
-    RetCode initSwapchainFramebuffer();
+    RetCode initSwapchainFramebuffer(vk::raii::Device const& device);
 
     RetCode recreateSwapchain(vk::raii::PhysicalDevice const& physical_device, vk::raii::Device const& device,
                               const Window* window, const tx_vector<uint32_t>& queue_family_indices,

@@ -7,7 +7,6 @@
 #include <cstdint>
 
 #include "taixu/common/base/macro.hpp"
-#include "taixu/common/designs/noncopyable.hpp"
 
 #include "common/hal/tx_string.hpp"
 

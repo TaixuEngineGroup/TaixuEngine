@@ -80,6 +80,11 @@ public:
     [[nodiscard]] virtual bool      shouldClose() const  = 0;
     [[nodiscard]] virtual WindowAPI getWindowAPI() const = 0;
 
+    // TODO: 使用proxy重构
+    virtual void initForImgui() const    = 0;
+    virtual void destroyForImgui() const = 0;
+    virtual void newFrame() const        = 0;
+
     void    update();
     RetCode setTitle(std::string_view title);
 

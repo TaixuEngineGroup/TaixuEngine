@@ -10,19 +10,20 @@
 #include "vk_context.hpp"
 
 #include "common/hal/tx_container.hpp"
-
 #include "common/hal/tx_string.hpp"
 #include "common/log/custom_fmt.hpp"
+#include "gameplay/gui/glfw_window.hpp"
 #include "taixu/common/base/lib_info.hpp"
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/log/logger.hpp"
 #include "vk_shader.hpp"
 #include "vk_utils.hpp"
 
+
 #include <vulkan/vk_enum_string_helper.h>
 #include <vulkan/vulkan.hpp>
 
-#include "gameplay/gui/glfw_window.hpp"
+#include "backends/imgui_impl_vulkan.h"
 
 #include <ranges>
 
@@ -462,7 +463,7 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
     const auto window = window_ctx.window;
     if (!window) {
         ERROR_LOG("Window is not support vulkan");
-        return UNEXPECTED(RetCode::UNSUPPORTED_VULKAN_ERROR);
+        return UNEXPECTED(RetCode::VULKAN_UNSUPPORTED_ERROR);
     }
 
     auto instance_tuple = createInstance();
@@ -534,6 +535,28 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
     context->_allocator = std::move(allocator_ret.value());
 
     return context;
+}
+
+namespace {
+void checkImguiVKResult(VkResult error) {
+    if (error == 0) {
+        return;
+    }
+    ERROR_LOG("[vulkan imgui]Error: {}", string_VkResult(error));
+}
+}// namespace
+
+void VKContext::imguiInit() {
+}
+
+void VKContext::imguiDestroy() {
+    // ImGui_ImplVulkan_Shutdown();
+}
+
+void VKContext::imguiPreUpdate() {
+}
+
+void VKContext::imguiUpdate() {
 }
 
 std::shared_ptr<TXShaderModule> VKContext::createShaderModule(TXShaderModuleCreateInfo const& create_info) const {

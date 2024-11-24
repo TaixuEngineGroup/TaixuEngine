@@ -66,6 +66,8 @@ private:
     std::function<void()> _imgui_update{nullptr};
     bool                  _enable_imgui{true};
 
+    const Window* _window{nullptr};
+
 public:
     void init(Window* window, RenderAPI render_api);
     void update(float delta_time, Scene* scene);
@@ -76,12 +78,11 @@ public:
     void disableImgui();
 
 private:
-    void        loadFont(DPIScale const& dpi_scale) const;
-    void        loadStyle(DPIScale const& dpi_scale);
-    static void initImguiForWindow(const Window* window);
-    void        initImgui(const Window* window);
-    void        imguiUpdate();
-    void        imguiDestroy();
+    void loadFont(DPIScale const& dpi_scale) const;
+    void loadStyle(DPIScale const& dpi_scale);
+    void initImgui(const Window* window);
+    void imguiUpdate();
+    void imguiDestroy();
 
 protected:
     void updateScene(float delta_time, Scene* scene);
@@ -92,10 +93,6 @@ protected:
      * @param window GLFW窗口
      */
     void initForGraphicsAPI(Window* window, RenderAPI render_api);
-
-    void imguiGraphicsPreUpdate();
-    void imguiGraphicsUpdate();
-    void imguiGraphicsDestroy();
 
     void clearWindow();
     void presentToWindow();

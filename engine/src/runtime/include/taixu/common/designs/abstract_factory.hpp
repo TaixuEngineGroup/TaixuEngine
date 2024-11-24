@@ -5,9 +5,10 @@
 #pragma once
 
 #include "taixu/common/base/macro.hpp"
-#include "taixu/common/log/logger.hpp"
 
 #include <iostream>
+
+#include <fmt/format.h>
 
 TX_NAMESPACE_BEGIN
 
@@ -16,7 +17,7 @@ TX_NAMESPACE_BEGIN
  *
  * @tparam RegisterKeyT
  * @tparam CreateFunctorT
- * @note This Return type must is pointer and CreateFunctor must invokable
+ * @note This CreateFunctor must invokable
  */
 template<typename RegisterKeyT, typename ReturnT, typename CreateInfoT>
 class AbstractFactory {

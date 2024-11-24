@@ -38,24 +38,24 @@ RetCode VKSwapchain::initSwapchain(vk::raii::PhysicalDevice const& physical_devi
         return RetCode::VULKAN_SURFACE_FORMAT_EMPTY_ERROR;
     }
 
-    swapchain_format = formats[0];
+    _swapchain_format = formats[0];
     for (auto const& format : formats) {
         if (vk::Format::eR8G8B8A8Srgb == format.format && vk::ColorSpaceKHR::eSrgbNonlinear == format.colorSpace) {
-            swapchain_format = format;
+            _swapchain_format = format;
             break;
         }
 
         if (vk::Format::eB8G8R8A8Srgb == format.format && vk::ColorSpaceKHR::eSrgbNonlinear == format.colorSpace) {
-            swapchain_format = format;
+            _swapchain_format = format;
             break;
         }
     }
 
-    this->present_mode = present_mode;
+    this->_present_mode = present_mode;
 
     if (std::find(present_modes.begin(), present_modes.end(), vk::PresentModeKHR::eFifoRelaxed) !=
         present_modes.end()) {
-        present_mode = vk::PresentModeKHR::eFifoRelaxed;
+        _present_mode = vk::PresentModeKHR::eFifoRelaxed;
     }
 
     auto caps = physical_device.getSurfaceCapabilitiesKHR(*surface);
@@ -68,24 +68,24 @@ RetCode VKSwapchain::initSwapchain(vk::raii::PhysicalDevice const& physical_devi
         image_count = caps.maxImageCount;
     }
 
-    extent = caps.currentExtent;
-    if (std::numeric_limits<uint32_t>::max() == extent.width) {
+    _extent = caps.currentExtent;
+    if (std::numeric_limits<uint32_t>::max() == _extent.width) {
         auto& window_info = window->window_info();
-        extent.setWidth(window_info.width).setHeight(window_info.height);
+        _extent.setWidth(window_info.width).setHeight(window_info.height);
     }
 
     vk::SwapchainCreateInfoKHR swapchain_info{};
-    swapchain_info.setOldSwapchain(*swapchain)
+    swapchain_info.setOldSwapchain(*_swapchain)
             .setSurface(*surface)
             .setMinImageCount(image_count)
-            .setImageFormat(swapchain_format.format)
-            .setImageColorSpace(swapchain_format.colorSpace)
-            .setImageExtent(extent)
+            .setImageFormat(_swapchain_format.format)
+            .setImageColorSpace(_swapchain_format.colorSpace)
+            .setImageExtent(_extent)
             .setImageArrayLayers(1)
             .setImageUsage(vk::ImageUsageFlagBits::eColorAttachment)
             .setPreTransform(caps.currentTransform)
             .setCompositeAlpha(vk::CompositeAlphaFlagBitsKHR::eOpaque)
-            .setPresentMode(present_mode)
+            .setPresentMode(_present_mode)
             .setClipped(VK_TRUE);
 
     if (queue_family_indices.size() < 2) {
@@ -98,7 +98,7 @@ RetCode VKSwapchain::initSwapchain(vk::raii::PhysicalDevice const& physical_devi
     if (!res.has_value()) {
         return RetCode::VULKAN_SWAPCHAIN_CREATE_FAILED_ERROR;
     }
-    swapchain = std::move(res.value());
+    _swapchain = std::move(res.value());
 
     initSwapchainImagesAndViews(device);
 
@@ -106,21 +106,21 @@ RetCode VKSwapchain::initSwapchain(vk::raii::PhysicalDevice const& physical_devi
 }
 
 RetCode VKSwapchain::initSwapchainImagesAndViews(vk::raii::Device const& device) {
-    TX_ASSERT(images.empty());
-    TX_ASSERT(image_views.empty());
+    TX_ASSERT(_images.empty());
+    TX_ASSERT(_image_views.empty());
 
-    auto swapchain_images = swapchain.getImages();
-    images.reserve(swapchain_images.size());
+    auto swapchain_images = _swapchain.getImages();
+    _images.reserve(swapchain_images.size());
     for (auto const& image : swapchain_images) {
-        images.emplace_back(device, static_cast<VkImage>(image));
+        _images.emplace_back(device, static_cast<VkImage>(image));
     }
 
-    image_views.reserve(images.size());
-    for (auto const& image : images) {
+    _image_views.reserve(_images.size());
+    for (auto const& image : _images) {
         vk::ImageViewCreateInfo create_info;
         create_info.setImage(*image)
                 .setViewType(vk::ImageViewType::e2D)
-                .setFormat(swapchain_format.format)
+                .setFormat(_swapchain_format.format)
                 .setComponents(vk::ComponentMapping{vk::ComponentSwizzle::eIdentity, vk::ComponentSwizzle::eIdentity,
                                                     vk::ComponentSwizzle::eIdentity, vk::ComponentSwizzle::eIdentity})
                 .setSubresourceRange(vk::ImageSubresourceRange{vk::ImageAspectFlagBits::eColor, 0, 1, 0, 1});
@@ -129,14 +129,39 @@ RetCode VKSwapchain::initSwapchainImagesAndViews(vk::raii::Device const& device)
             ERROR_LOG("Failed to create image view: {}", vk::to_string(res.error()));
             return RetCode::VULKAN_SWAPCHAIN_CREATE_FAILED_ERROR;
         }
-        image_views.emplace_back(std::move(res.value()));
+        _image_views.emplace_back(std::move(res.value()));
     }
 
-    TX_ASSERT(image_views.size() == images.size());
+    TX_ASSERT(_image_views.size() == _images.size());
     return RetCode::SUCCESS;
 }
 
-RetCode VKSwapchain::initSwapchainFramebuffer() {
+RetCode VKSwapchain::initSwapchainFramebuffer(vk::raii::Device const& device) {
+    _framebuffers.reserve(_image_views.size());
+
+    _present_renderpass = VKRenderPass::createPresentRenderPass(device);
+    if (*_present_renderpass.getVKRenderPass() == VK_NULL_HANDLE) {
+        return RetCode::VULKAN_SWAPCHAIN_RENDERPASS_CREATE_FAILED_ERROR;
+    }
+
+    for (auto const& image_view : _image_views) {
+        vk::FramebufferCreateInfo create_info;
+        create_info.setRenderPass(*_present_renderpass.getVKRenderPass())
+                .setAttachments(*image_view)
+                .setWidth(_extent.width)
+                .setHeight(_extent.height)
+                .setLayers(1);
+
+        auto res = VKFramebuffer::createFramebuffer(device, _present_renderpass.getVKRenderPass(), *image_view,
+                                                    _extent.width, _extent.height);
+        if (!res.has_value()) {
+            ERROR_LOG("Failed to create framebuffer: {}", res.error());
+            return RetCode::VULKAN_SWAPCHAIN_CREATE_FAILED_ERROR;
+        }
+        _framebuffers.emplace_back(std::move(res.value()));
+    }
+
+    TX_ASSERT(_framebuffers.size() == _image_views.size());
     return RetCode::SUCCESS;
 }
 

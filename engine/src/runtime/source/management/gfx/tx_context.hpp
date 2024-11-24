@@ -15,8 +15,10 @@
 
 #include "common/log/custom_fmt.hpp"
 #include "taixu/common/designs/abstract_factory.hpp"
+#include "taixu/common/log/logger.hpp"
 #include "taixu/gameplay/gui/window.hpp"
 #include "tx_shader.hpp"
+
 
 TX_NAMESPACE_BEGIN
 
@@ -26,19 +28,36 @@ TX_NAMESPACE_BEGIN
  */
 PRO_DEF_MEM_DISPATCH(ImguiInitImpl, imguiInit);
 /**
+ * @brief Imgui destroy function
+ *
+ */
+PRO_DEF_MEM_DISPATCH(ImguiDestroyImpl, imguiDestroy);
+/**
+ * @brief Imgui preupdate function
+ *
+ */
+PRO_DEF_MEM_DISPATCH(ImguiPreUpdateImpl, imguiPreUpdate);
+/**
+ * @brief Imgui update function
+ *
+ */
+PRO_DEF_MEM_DISPATCH(ImguiUpdateImpl, imguiUpdate);
+
+/**
  * @brief Shader create function
  *
  */
 PRO_DEF_MEM_DISPATCH(CreateShaderModuleImpl, createShaderModule);
 
 /**
- * @brief Graphics proxy
+ * @brief Graphics proxy, like a interface define all needed functions.
  *
  */
 struct TXGfxProxy
-    : pro::facade_builder::add_convention<CreateShaderModuleImpl,
-                                          std::shared_ptr<TXShaderModule>(TXShaderModuleCreateInfo const&)
-                                                  const>::support_copy<pro::constraint_level::nontrivial>::build {};
+    : pro::facade_builder::add_convention<ImguiInitImpl, void()>::add_convention<ImguiDestroyImpl, void()>::
+              add_convention<ImguiPreUpdateImpl, void()>::add_convention<ImguiUpdateImpl, void()>::add_convention<
+                      CreateShaderModuleImpl, std::shared_ptr<TXShaderModule>(TXShaderModuleCreateInfo const&)
+                                                      const>::support_copy<pro::constraint_level::nontrivial>::build {};
 
 struct TXGfxCreateInfo {
     const Window* window{nullptr};

@@ -1,5 +1,6 @@
 #include "glfw_window.hpp"
 
+#include "backends/imgui_impl_glfw.h"
 #include "taixu/common/log/logger.hpp"
 #include "taixu/gameplay/gui/window.hpp"
 
@@ -60,6 +61,20 @@ bool GLFWWindow::shouldClose() const {
 
 WindowAPI GLFWWindow::getWindowAPI() const {
     return WindowAPI::GLFW;
+}
+
+void GLFWWindow::initForImgui() const {
+#ifdef USE_VULKAN
+    ImGui_ImplGlfw_InitForVulkan(_window, true);
+#endif
+}
+
+void GLFWWindow::destroyForImgui() const {
+    ImGui_ImplGlfw_Shutdown();
+}
+
+void GLFWWindow::newFrame() const {
+    ImGui_ImplGlfw_NewFrame();
 }
 
 void GLFWWindow::updateTitle(const char* title) {

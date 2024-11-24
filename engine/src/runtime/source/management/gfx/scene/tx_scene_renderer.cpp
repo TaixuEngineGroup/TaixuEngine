@@ -4,7 +4,6 @@
 #include "tx_scene_renderer.hpp"
 
 #include "common/math/math.hpp"
-#include "gameplay/gui/glfw_window.hpp"
 #include "management/gfx/tx_context.hpp"
 #include "taixu/common/log/logger.hpp"
 #include "taixu/gameplay/gui/window.hpp"
@@ -12,7 +11,6 @@
 #include "generated/fonts/lucide_iconfont.hpp"
 #include "generated/fonts/source_han_sans_cn_font.hpp"
 
-#include "backends/imgui_impl_glfw.h"
 #include "imgui.h"
 #include "imgui/icons/IconsLucide.h"
 
@@ -28,6 +26,8 @@ static constexpr ImguiStyleGroup DEFAULT_STYLE_GROUP{
         Color{0_uc, 0_uc, 0_uc, 255_uc}};
 
 void TXSceneRenderer::init(Window* window, RenderAPI render_api) {
+    _window = window;
+
     initForGraphicsAPI(window, render_api);
 
     _shader_module_manager.init(_context);
@@ -154,12 +154,6 @@ void TXSceneRenderer::loadStyle(DPIScale const& dpi_scale) {
     _style->ScaleAllSizes(dpi_scale.x_scale);
 }
 
-void TXSceneRenderer::initImguiForWindow(const Window* window) {
-    if (window->getWindowAPI() == WindowAPI::GLFW) {
-        ImGui_ImplGlfw_InitForVulkan(dynamic_cast<const GLFWWindow*>(window)->getRawWindow(), true);
-    }
-}
-
 void TXSceneRenderer::initImgui(const Window* window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
@@ -173,12 +167,12 @@ void TXSceneRenderer::initImgui(const Window* window) {
     loadFont(window->dpi_scale());
     loadStyle(window->dpi_scale());
 
-    initImguiForWindow(window);
+    _window->initForImgui();
 }
 
 void TXSceneRenderer::imguiUpdate() {
-    imguiGraphicsPreUpdate();
-    ImGui_ImplGlfw_NewFrame();
+    _context->imguiPreUpdate();
+    _window->newFrame();
     ImGui::NewFrame();
 
     const ImGuiViewport* viewport = ImGui::GetMainViewport();
@@ -189,7 +183,7 @@ void TXSceneRenderer::imguiUpdate() {
     _imgui_update();
 
     ImGui::Render();
-    imguiGraphicsUpdate();
+    _context->imguiUpdate();
     if (_io->ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
         ImGui::UpdatePlatformWindows();
         ImGui::RenderPlatformWindowsDefault();
@@ -197,8 +191,8 @@ void TXSceneRenderer::imguiUpdate() {
 }
 
 void TXSceneRenderer::imguiDestroy() {
-    imguiGraphicsDestroy();
-    ImGui_ImplGlfw_Shutdown();
+    _context->imguiDestroy();
+    _window->destroyForImgui();
     ImGui::DestroyContext();
 }
 
@@ -210,15 +204,6 @@ void TXSceneRenderer::initForGraphicsAPI(Window* window, RenderAPI render_api) {
     if (!this->_context.has_value()) {
         ERROR_LOG("Failed to create graphics context");
     }
-}
-
-void TXSceneRenderer::imguiGraphicsPreUpdate() {
-}
-
-void TXSceneRenderer::imguiGraphicsUpdate() {
-}
-
-void TXSceneRenderer::imguiGraphicsDestroy() {
 }
 
 void TXSceneRenderer::clearWindow() {

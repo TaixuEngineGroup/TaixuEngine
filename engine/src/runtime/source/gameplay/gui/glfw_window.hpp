@@ -48,9 +48,14 @@ public:
     [[nodiscard]] bool      shouldClose() const override;
     [[nodiscard]] WindowAPI getWindowAPI() const override;
 
+    void initForImgui() const override;
+    void destroyForImgui() const override;
+    void newFrame() const override;
+
     [[nodiscard]] GLFWwindow*             getRawWindow() const;
     [[nodiscard]] static bool             isSupportVulkanImpl();
     [[nodiscard]] static VkGlfwExtensions getVulkanInstanceExtensions();
+
 
 #ifdef TX_WINDOWS
     [[nodiscard]] HWND getHWND() const {

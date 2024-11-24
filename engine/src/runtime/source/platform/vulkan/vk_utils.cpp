@@ -49,4 +49,18 @@ vk::raii::Fence createFence(vk::raii::Device const& device, vk::FenceCreateFlags
     return std::move(ret.value());
 }
 
+
+vk::raii::Semaphore createSemaphore(vk::raii::Device const& device) noexcept {
+    vk::SemaphoreCreateInfo create_info{};
+
+    auto ret = device.createSemaphore(create_info);
+    if (!ret.has_value()) {
+        ERROR_LOG("create semaphore failed: {}", vk::to_string(ret.error()));
+        return VK_NULL_HANDLE;
+    }
+
+    return std::move(ret.value());
+}
+
+
 TX_NAMESPACE_END

@@ -50,6 +50,10 @@ private:
 public:
     static ResValT<pro::proxy<TXGfxProxy>> createContext(const TXGfxCreateInfo& window_ctx);
 
+    static void                                   imguiInit();
+    static void                                   imguiDestroy();
+    static void                                   imguiPreUpdate();
+    static void                                   imguiUpdate();
     [[nodiscard]] std::shared_ptr<TXShaderModule> createShaderModule(TXShaderModuleCreateInfo const&) const;
 };
 
