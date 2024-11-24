@@ -10,11 +10,15 @@
 #pragma once
 
 #include "taixu/common/base/macro.hpp"
+#include "taixu/common/base/result.hpp"
 
 TX_NAMESPACE_BEGIN
 
 class VKRenderPass {
     vk::raii::RenderPass _render_pass{VK_NULL_HANDLE};
+
+public:
+    static ResValT<VKRenderPass> createMinimalRenderPass();
 };
 
 TX_NAMESPACE_END

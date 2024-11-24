@@ -1,7 +1,7 @@
 //
 // Created by xmmmmmovo on 1/7/2024.
 //
-#include "management/scene/tx_scene_renderer.hpp"
+#include "tx_scene_renderer.hpp"
 
 #include "common/math/math.hpp"
 #include "gameplay/gui/glfw_window.hpp"

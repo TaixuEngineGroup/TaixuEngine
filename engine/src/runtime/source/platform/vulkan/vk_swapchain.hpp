@@ -13,6 +13,9 @@
 #include "common/hal/tx_container.hpp"
 #include "taixu/common/base/result.hpp"
 #include "taixu/gameplay/gui/window.hpp"
+
+#include "vk_framebuffer.hpp"
+
 TX_NAMESPACE_BEGIN
 
 class VKSwapchain final {
@@ -24,6 +27,8 @@ public:
 
     tx_vector<vk::raii::Image>       images;
     std::vector<vk::raii::ImageView> image_views;
+
+    std::vector<VKFramebuffer> framebuffers;
 
     static ResValT<VKSwapchain> createSwapchain(vk::raii::PhysicalDevice const& physical_device,
                                                 vk::raii::SurfaceKHR const& surface, vk::raii::Device const& device,
