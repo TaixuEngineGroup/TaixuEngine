@@ -74,6 +74,7 @@ void GLFWWindow::destroyForImgui() const {
 }
 
 void GLFWWindow::newFrame() const {
+    DEBUG_LOG("NewFrame for imgui with GLFW.");
     ImGui_ImplGlfw_NewFrame();
 }
 

@@ -13,4 +13,11 @@
 TX_NAMESPACE_BEGIN
 
 
+VKPipeline VKPipeline::createQuadPipeline(vk::raii::Device const& device, vk::raii::RenderPass const& render_pass,
+                                          TXPipelineCreateInfo const& info) noexcept {
+
+
+    return {};
+}
+
 TX_NAMESPACE_END

@@ -9,7 +9,9 @@
  */
 #pragma once
 
+#include "management/gfx/tx_pipeline.hpp"
 #include "taixu/common/base/macro.hpp"
+
 
 TX_NAMESPACE_BEGIN
 
@@ -29,8 +31,8 @@ public:
      * @param render_pass
      * @return VKPipeline
      */
-    static VKPipeline createQuadPipeline(vk::raii::Device const&     device,
-                                         vk::raii::RenderPass const& render_pass) noexcept;
+    static VKPipeline createQuadPipeline(vk::raii::Device const& device, vk::raii::RenderPass const& render_pass,
+                                         TXPipelineCreateInfo const& info) noexcept;
 };
 
 TX_NAMESPACE_END

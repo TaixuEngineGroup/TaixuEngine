@@ -192,8 +192,8 @@ void TXSceneRenderer::imguiUpdate() {
 }
 
 void TXSceneRenderer::imguiDestroy() {
-    _context->imguiDestroy();
     _window->destroyForImgui();
+    _context->imguiDestroy();
     ImGui::DestroyContext();
 }
 
