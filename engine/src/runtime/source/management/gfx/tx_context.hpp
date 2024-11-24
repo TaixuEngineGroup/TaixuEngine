@@ -48,6 +48,11 @@ PRO_DEF_MEM_DISPATCH(ImguiUpdateImpl, imguiUpdate);
  *
  */
 PRO_DEF_MEM_DISPATCH(CreateShaderModuleImpl, createShaderModule);
+/**
+ * @brief Create Pipeline
+ *
+ */
+PRO_DEF_MEM_DISPATCH(CreateQuadPipelineImpl, createShaderModule);
 
 /**
  * @brief Graphics proxy, like a interface define all needed functions.

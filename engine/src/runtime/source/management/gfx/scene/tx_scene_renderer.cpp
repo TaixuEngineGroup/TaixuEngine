@@ -168,6 +168,7 @@ void TXSceneRenderer::initImgui(const Window* window) {
     loadStyle(window->dpi_scale());
 
     _window->initForImgui();
+    _context->imguiInit();
 }
 
 void TXSceneRenderer::imguiUpdate() {

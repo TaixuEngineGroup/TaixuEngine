@@ -547,16 +547,20 @@ void checkImguiVKResult(VkResult error) {
 }// namespace
 
 void VKContext::imguiInit() {
+    INFO_LOG("Init for imgui with Vulkan.");
 }
 
 void VKContext::imguiDestroy() {
+    INFO_LOG("Destroy for imgui with Vulkan.");
     // ImGui_ImplVulkan_Shutdown();
 }
 
 void VKContext::imguiPreUpdate() {
+    DEBUG_LOG("PreUpdate for imgui with Vulkan.");
 }
 
 void VKContext::imguiUpdate() {
+    DEBUG_LOG("Update for imgui with Vulkan.");
 }
 
 std::shared_ptr<TXShaderModule> VKContext::createShaderModule(TXShaderModuleCreateInfo const& create_info) const {
