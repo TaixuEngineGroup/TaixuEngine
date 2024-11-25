@@ -251,7 +251,7 @@ ResValT<std::tuple<vk::raii::Device, NeededQueueResult>> createDevice(vk::raii::
         ERROR_LOG("Failed to create device: {}", vk::to_string(device.error()));
         return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
     }
-
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(device.value());
     vk::raii::Device device_raii{std::move(device.value())};
 
     return std::make_tuple(std::move(device_raii), std::move(res));
@@ -485,7 +485,6 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
     context->_surface = std::move(surface.value());
 
     auto physical_devices = createPhysicsDevice(context->_instance, context->_surface);
-
     if (!physical_devices.has_value()) {
         return UNEXPECTED(physical_devices.error());
     }
