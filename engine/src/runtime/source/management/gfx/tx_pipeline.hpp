@@ -21,8 +21,11 @@ struct TXShaderDescriptor {
     EnumShaderStage                 stage{};
 };
 
+class TXPipelineLayout {};
+
 struct TXPipelineCreateInfo {
-    tx_vector<TXShaderDescriptor> shaders;
+    tx_vector<TXShaderDescriptor>     shaders;
+    std::shared_ptr<TXPipelineLayout> pipeline_layout{};
 };
 
 TX_NAMESPACE_END

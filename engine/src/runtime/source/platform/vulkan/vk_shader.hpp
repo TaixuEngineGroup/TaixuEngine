@@ -25,6 +25,10 @@ public:
     explicit VKShaderMod(TXShaderModuleCreateInfo const& create_info) : TXShaderModule(create_info) {
     }
 
+    [[nodiscard]] vk::raii::ShaderModule const& getVKShaderModule() const noexcept {
+        return _shader_module;
+    }
+
     /**
      * @brief create vulkan shader module.
      *

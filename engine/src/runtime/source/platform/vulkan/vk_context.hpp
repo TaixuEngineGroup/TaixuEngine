@@ -47,6 +47,8 @@ private:
     VKSwapchain _swapchain{};
     VKAllocator _allocator{};
 
+    vk::raii::CommandPool _command_pool{VK_NULL_HANDLE};
+
 public:
     static ResValT<pro::proxy<TXGfxProxy>> createContext(const TXGfxCreateInfo& window_ctx);
 

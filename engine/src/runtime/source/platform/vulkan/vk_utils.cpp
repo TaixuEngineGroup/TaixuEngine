@@ -36,6 +36,22 @@ std::optional<uint32_t> findQueueFamily(vk::raii::PhysicalDevice const& device, 
     return std::nullopt;
 }
 
+vk::raii::CommandPool createCommandPool(vk::raii::Device const& device, uint32_t queue_family_index,
+                                        vk::CommandPoolCreateFlags flags) noexcept {
+
+    vk::CommandPoolCreateInfo command_pool_info{};
+    command_pool_info.setQueueFamilyIndex(queue_family_index).setFlags(flags);
+
+    auto ret = device.createCommandPool(command_pool_info);
+    if (!ret.has_value()) {
+        ERROR_LOG("create command pool failed: {}", vk::to_string(ret.error()));
+        return VK_NULL_HANDLE;
+    }
+
+    return std::move(ret.value());
+}
+
+
 vk::raii::Fence createFence(vk::raii::Device const& device, vk::FenceCreateFlags flags) noexcept {
     vk::FenceCreateInfo fence_info{};
     fence_info.setFlags(flags);

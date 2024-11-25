@@ -534,6 +534,13 @@ ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& 
     }
     context->_allocator = std::move(allocator_ret.value());
 
+    context->_command_pool = createCommandPool(context->_device, context->_graphics_family_index,
+                                               vk::CommandPoolCreateFlagBits::eTransient |
+                                                       vk::CommandPoolCreateFlagBits::eResetCommandBuffer);
+    if (*context->_command_pool == VK_NULL_HANDLE) {
+        return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
+    }
+
     return context;
 }
 

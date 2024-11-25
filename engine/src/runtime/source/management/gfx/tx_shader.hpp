@@ -16,8 +16,6 @@ enum class EnumShaderStage : uint8_t {
     FRAGMENT,
     VERTEX,
     GEOMETRY,
-    HULL,
-    DOMAINS,
     COMPUTE,
 };
 

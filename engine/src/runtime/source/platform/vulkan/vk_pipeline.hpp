@@ -15,6 +15,11 @@
 
 TX_NAMESPACE_BEGIN
 
+class VKPipelineLayout : public TXPipelineLayout {
+public:
+    vk::raii::PipelineLayout pipeline_layout{VK_NULL_HANDLE};
+};
+
 class VKPipeline {
 private:
     vk::raii::Pipeline _pipeline{VK_NULL_HANDLE};
@@ -32,7 +37,7 @@ public:
      * @return VKPipeline
      */
     static VKPipeline createQuadPipeline(vk::raii::Device const& device, vk::raii::RenderPass const& render_pass,
-                                         TXPipelineCreateInfo const& info) noexcept;
+                                         vk::Extent2D const& extent, TXPipelineCreateInfo const& info) noexcept;
 };
 
 TX_NAMESPACE_END

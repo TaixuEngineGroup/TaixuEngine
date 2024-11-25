@@ -33,6 +33,9 @@ std::optional<uint32_t> findQueueFamily(vk::raii::PhysicalDevice const& device, 
                                         std::vector<vk::QueueFamilyProperties> const& props,
                                         std::optional<vk::QueueFlagBits>              flag_opt) noexcept;
 
+vk::raii::CommandPool createCommandPool(vk::raii::Device const& device, uint32_t queue_family_index,
+                                        vk::CommandPoolCreateFlags flags) noexcept;
+
 vk::raii::Fence createFence(vk::raii::Device const& device, vk::FenceCreateFlags flags) noexcept;
 
 vk::raii::Semaphore createSemaphore(vk::raii::Device const& device) noexcept;
