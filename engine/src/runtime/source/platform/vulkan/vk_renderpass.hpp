@@ -1,0 +1,34 @@
+/**
+ * @file vk_renderpass.hpp
+ * @author xmmmmmovo (ma_fivezha@163.com)
+ * @brief
+ * @date 2024-11-23
+ *
+ * Copyright (c) 2024 xmmmmmovo
+ *
+ */
+#pragma once
+
+#include "taixu/common/base/macro.hpp"
+
+TX_NAMESPACE_BEGIN
+
+class VKRenderPass {
+private:
+    vk::raii::RenderPass _render_pass{VK_NULL_HANDLE};
+
+public:
+    [[nodiscard]] vk::raii::RenderPass const& getVKRenderPass() const noexcept {
+        return _render_pass;
+    }
+
+    /**
+     * @brief Create a Present Render Pass object, no depth buffer
+     *
+     * @param device
+     * @return VKRenderPass
+     */
+    static VKRenderPass createPresentRenderPass(vk::raii::Device const& device) noexcept;
+};
+
+TX_NAMESPACE_END

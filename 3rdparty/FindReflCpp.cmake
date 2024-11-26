@@ -1,7 +1,10 @@
+# reflcpp
 CPMAddPackage(
-        NAME refl-cpp
-        VERSION 0.12.4
-        GITHUB_REPOSITORY veselink1/refl-cpp
+        NAME reflcpp
+        GITHUB_REPOSITORY getml/reflect-cpp
+        GIT_TAG 716de7b6fdce722f0a09d338349d968a39d5ae9e
         OPTIONS
-        "BUILD_EXAMPLES OFF"
+        "SPDLOG_BUILD_EXAMPLE Off"
+        "SPDLOG_FMT_EXTERNAL ON"
+        "SPDLOG_FMT_EXTERNAL_HO OFF"
 )
