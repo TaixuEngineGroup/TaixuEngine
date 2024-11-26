@@ -1,13 +1,17 @@
 var searchData=
 [
-  ['stb_5f_5fhc_2244',['stb__hc',['../binary__to__compressed__c_8cpp.html#acd1fce3f60bc7c947d9573b40d96fcfb',1,'binary_to_compressed_c.cpp']]],
-  ['stb_5f_5fhc2_2245',['stb__hc2',['../binary__to__compressed__c_8cpp.html#aa3edeaa860cd62a039589c5ff0d12d0f',1,'binary_to_compressed_c.cpp']]],
-  ['stb_5f_5fhc3_2246',['stb__hc3',['../binary__to__compressed__c_8cpp.html#a02566557d0083f38ae2f7e6ea2959120',1,'binary_to_compressed_c.cpp']]],
-  ['stb_5f_5fnc_2247',['stb__nc',['../binary__to__compressed__c_8cpp.html#ae6915b97c7af5c0c4214a03d594df9a5',1,'binary_to_compressed_c.cpp']]],
-  ['stb_5f_5fscramble_2248',['STB__SCRAMBLE',['../binary__to__compressed__c_8cpp.html#a6e9742e8f211104eefc65b20057084a6',1,'binary_to_compressed_c.cpp']]],
-  ['stb_5f_5ftry_2249',['STB__TRY',['../binary__to__compressed__c_8cpp.html#ae9ced4aef3a241149211d367c67454ab',1,'binary_to_compressed_c.cpp']]],
-  ['stb_5fdxt_5fimplementation_2250',['STB_DXT_IMPLEMENTATION',['../image__helper_8cpp.html#afcbcd60f2e015bdd8c18cbe579603534',1,'image_helper.cpp']]],
-  ['stb_5fimage_5fimplementation_2251',['STB_IMAGE_IMPLEMENTATION',['../image__helper_8cpp.html#a18372412ad2fc3ce1e3240b3cf0efe78',1,'image_helper.cpp']]],
-  ['stb_5fimage_5fresize_5fimplementation_2252',['STB_IMAGE_RESIZE_IMPLEMENTATION',['../image__helper_8cpp.html#aa6a7b41350a14f718b619164bc2b8fdf',1,'image_helper.cpp']]],
-  ['stb_5fout_2253',['stb_out',['../binary__to__compressed__c_8cpp.html#ae7362593109573f7e5a8fad1b9837840',1,'binary_to_compressed_c.cpp']]]
+  ['prototype_2389',['PROTOTYPE',['../macro_8hpp.html#a02ebf389c5cdf477bdf26b5b45291428',1,'macro.hpp']]],
+  ['prototype_5fconst_5fgetter_5fref_2390',['PROTOTYPE_CONST_GETTER_REF',['../macro_8hpp.html#a920f5f97aedd7c7b3470ae9db4b001cb',1,'macro.hpp']]],
+  ['prototype_5fdft_2391',['PROTOTYPE_DFT',['../macro_8hpp.html#a5ad0e5338bd0a51229df2f3799e77f12',1,'macro.hpp']]],
+  ['prototype_5fdft_5fonly_5fgetter_2392',['PROTOTYPE_DFT_ONLY_GETTER',['../macro_8hpp.html#a983c4c116e3a43061bcea5c7e967ed20',1,'macro.hpp']]],
+  ['prototype_5fdft_5fonly_5fgetter_5fconst_2393',['PROTOTYPE_DFT_ONLY_GETTER_CONST',['../macro_8hpp.html#ac96435b4bf3af189f119c12bda0260f1',1,'macro.hpp']]],
+  ['prototype_5fdft_5fonly_5fgetter_5fvalpass_2394',['PROTOTYPE_DFT_ONLY_GETTER_VALPASS',['../macro_8hpp.html#a32f2d78b448d9c0fab501f5e9469dbbd',1,'macro.hpp']]],
+  ['prototype_5fdft_5fvalpass_2395',['PROTOTYPE_DFT_VALPASS',['../macro_8hpp.html#a27ccb04ea6afadbcf6fb8cc45aaf0d9d',1,'macro.hpp']]],
+  ['prototype_5fgetter_5fref_2396',['PROTOTYPE_GETTER_REF',['../macro_8hpp.html#aa03b1ed43e535c73503370a63968bbc1',1,'macro.hpp']]],
+  ['prototype_5fgetter_5fval_2397',['PROTOTYPE_GETTER_VAL',['../macro_8hpp.html#a3ed3f0df6b83237e984ba5b363091ce5',1,'macro.hpp']]],
+  ['prototype_5fonly_5fgetter_2398',['PROTOTYPE_ONLY_GETTER',['../macro_8hpp.html#aee709daea4c5df824018c1d3feb0cf25',1,'macro.hpp']]],
+  ['prototype_5fonly_5fgetter_5fconst_2399',['PROTOTYPE_ONLY_GETTER_CONST',['../macro_8hpp.html#a586d84e8a0c350d9464cc0d930b7916a',1,'macro.hpp']]],
+  ['prototype_5fonly_5fgetter_5fvalpass_2400',['PROTOTYPE_ONLY_GETTER_VALPASS',['../macro_8hpp.html#a734b485653239e33949fdf936e8b03b8',1,'macro.hpp']]],
+  ['prototype_5fsetter_2401',['PROTOTYPE_SETTER',['../macro_8hpp.html#a8709c93363bbee6d95acb01906759a68',1,'macro.hpp']]],
+  ['prototype_5fvalpass_2402',['PROTOTYPE_VALPASS',['../macro_8hpp.html#a5d4f6a0677d6264036ef54b352d8b9e5',1,'macro.hpp']]]
 ];

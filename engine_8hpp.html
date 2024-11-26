@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/src/runtime/include/engine/engine.hpp File Reference</title>
+<title>TaixuEngine: engine/src/runtime/include/taixu/engine/engine.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,73 +83,48 @@ $(document).ready(function(){initNavTree('engine_8hpp.html',''); initResizable()
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">engine.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="cpu__clock_8hpp_source.html">common/base/cpu_clock.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="noncopyable_8hpp_source.html">common/designs/noncopyable.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="engine__args_8hpp_source.html">engine/engine_args.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="tx__scene__renderer_8hpp_source.html">management/scene/tx_scene_renderer.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="project__json_8hpp_source.html">resource/json_data/project_json.hpp</a>&quot;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &quot;<a class="el" href="core_8hpp_source.html">taixu/common/base/core.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="cpu__clock_8hpp_source.html">taixu/common/base/cpu_clock.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="noncopyable_8hpp_source.html">taixu/common/designs/noncopyable.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="engine__args_8hpp_source.html">taixu/engine/engine_args.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="window_8hpp_source.html">taixu/gameplay/gui/window.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="management_2project_2project_8hpp_source.html">taixu/management/project/project.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for engine.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="engine_8hpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2include_2engine_2engine_8hpp" alt=""/></div>
-<map name="aengine_2src_2runtime_2include_2engine_2engine_8hpp" id="aengine_2src_2runtime_2include_2engine_2engine_8hpp">
-<area shape="rect" title=" " alt="" coords="1148,5,1345,47"/>
-<area shape="rect" href="cpu__clock_8hpp.html" title=" " alt="" coords="5,102,216,129"/>
-<area shape="rect" href="noncopyable_8hpp.html" title=" " alt="" coords="205,363,453,389"/>
-<area shape="rect" href="engine__args_8hpp.html" title=" " alt="" coords="1686,281,1863,307"/>
-<area shape="rect" href="tx__scene__renderer_8hpp.html" title=" " alt="" coords="723,95,891,136"/>
-<area shape="rect" href="project__json_8hpp.html" title=" " alt="" coords="2013,95,2158,136"/>
-<area shape="rect" title=" " alt="" coords="1985,281,2044,307"/>
-<area shape="rect" title=" " alt="" coords="77,191,144,218"/>
-<area shape="rect" href="core_8hpp.html" title=" " alt="" coords="1494,363,1669,389"/>
-<area shape="rect" href="macro_8hpp.html" title=" " alt="" coords="1153,363,1340,389"/>
-<area shape="rect" title=" " alt="" coords="1726,363,1823,389"/>
-<area shape="rect" href="color_8hpp.html" title=" " alt="" coords="1393,191,1573,218"/>
-<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="589,281,781,307"/>
-<area shape="rect" href="shader__manager_8hpp.html" title=" " alt="" coords="781,184,966,225"/>
-<area shape="rect" href="tx__context_8hpp.html" title=" " alt="" coords="437,184,609,225"/>
-<area shape="rect" href="literal_8hpp.html" title=" " alt="" coords="1045,281,1133,307"/>
-<area shape="rect" href="vec_8hpp.html" title=" " alt="" coords="1887,281,1961,307"/>
-<area shape="rect" title=" " alt="" coords="1359,281,1515,307"/>
-<area shape="rect" title=" " alt="" coords="1539,281,1610,307"/>
-<area shape="rect" title=" " alt="" coords="951,363,1017,389"/>
-<area shape="rect" title=" " alt="" coords="1872,363,1976,389"/>
-<area shape="rect" title=" " alt="" coords="1042,363,1129,389"/>
-<area shape="rect" title=" " alt="" coords="630,363,741,389"/>
-<area shape="rect" title=" " alt="" coords="965,281,1021,307"/>
-<area shape="rect" title=" " alt="" coords="806,281,941,307"/>
-<area shape="rect" href="hash_8hpp.html" title=" " alt="" coords="1158,281,1335,307"/>
-<area shape="rect" href="tx__shader_8hpp.html" title=" " alt="" coords="393,273,565,315"/>
-<area shape="rect" title=" " alt="" coords="1365,363,1435,389"/>
-<area shape="rect" title=" " alt="" coords="477,363,555,389"/>
-<area shape="rect" href="tx__device_8hpp.html" title=" " alt="" coords="102,281,215,307"/>
-<area shape="rect" title=" " alt="" coords="13,363,181,389"/>
-<area shape="rect" href="manifest__json_8hpp.html" title=" " alt="" coords="1943,191,2086,218"/>
-<area shape="rect" title=" " alt="" coords="2111,191,2201,218"/>
-<area shape="rect" title=" " alt="" coords="2226,191,2289,218"/>
-<area shape="rect" href="json__serializable_8hpp.html" title=" " alt="" coords="2069,273,2209,315"/>
-<area shape="rect" title=" " alt="" coords="2103,363,2174,389"/>
+<div class="center"><img src="engine_8hpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2include_2taixu_2engine_2engine_8hpp" alt=""/></div>
+<map name="aengine_2src_2runtime_2include_2taixu_2engine_2engine_8hpp" id="aengine_2src_2runtime_2include_2taixu_2engine_2engine_8hpp">
+<area shape="rect" title=" " alt="" coords="345,5,503,61"/>
+<area shape="rect" title=" " alt="" coords="25,117,84,143"/>
+<area shape="rect" href="core_8hpp.html" title=" " alt="" coords="5,206,216,233"/>
+<area shape="rect" href="cpu__clock_8hpp.html" title=" " alt="" coords="335,109,513,151"/>
+<area shape="rect" href="noncopyable_8hpp.html" title=" " alt="" coords="691,199,861,240"/>
+<area shape="rect" href="engine__args_8hpp.html" title=" " alt="" coords="159,109,310,151"/>
+<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="538,109,686,151"/>
+<area shape="rect" href="management_2project_2project_8hpp.html" title=" " alt="" coords="761,109,956,151"/>
+<area shape="rect" title=" " alt="" coords="240,206,307,233"/>
+<area shape="rect" href="macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="331,206,555,233"/>
+<area shape="rect" title=" " alt="" coords="579,206,666,233"/>
+<area shape="rect" title=" " alt="" coords="885,206,976,233"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="engine_8hpp__dep__incl.png" border="0" usemap="#aengine_2src_2runtime_2include_2engine_2engine_8hppdep" alt=""/></div>
-<map name="aengine_2src_2runtime_2include_2engine_2engine_8hppdep" id="aengine_2src_2runtime_2include_2engine_2engine_8hppdep">
-<area shape="rect" title=" " alt="" coords="602,5,799,47"/>
-<area shape="rect" href="src_2editor_2application_2main_8cpp.html" title=" " alt="" coords="5,102,212,143"/>
-<area shape="rect" href="file__watcher_8cpp.html" title=" " alt="" coords="237,102,429,143"/>
-<area shape="rect" href="file__component_8cpp.html" title=" " alt="" coords="453,102,690,143"/>
-<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="713,102,949,143"/>
-<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="974,102,1166,143"/>
-<area shape="rect" href="tx__scene__renderer_8cpp.html" title=" " alt="" coords="1190,95,1393,151"/>
+<div class="center"><img src="engine_8hpp__dep__incl.png" border="0" usemap="#aengine_2src_2runtime_2include_2taixu_2engine_2engine_8hppdep" alt=""/></div>
+<map name="aengine_2src_2runtime_2include_2taixu_2engine_2engine_8hppdep" id="aengine_2src_2runtime_2include_2taixu_2engine_2engine_8hppdep">
+<area shape="rect" title=" " alt="" coords="492,5,651,61"/>
+<area shape="rect" href="src_2editor_2application_2main_8cpp.html" title=" " alt="" coords="5,109,212,151"/>
+<area shape="rect" href="file__watcher_8cpp.html" title=" " alt="" coords="237,109,429,151"/>
+<area shape="rect" href="file__component_8cpp.html" title=" " alt="" coords="453,109,690,151"/>
+<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="713,109,949,151"/>
+<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="974,109,1166,151"/>
 </map>
 </div>
 </div>
@@ -157,25 +132,48 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1Engine.html">taixu::Engine</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacetaixu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html">taixu</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classEngine.html">Engine</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:aa49e325c60c5edfb4acf73509b44003a"><td class="memItemLeft" align="right" valign="top">Engine&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa49e325c60c5edfb4acf73509b44003a">taixu::g_engine</a></td></tr>
-<tr class="separator:aa49e325c60c5edfb4acf73509b44003a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a111909e9dfc3642c275f7fe687942f36"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classEngine.html">Engine</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="engine_8hpp.html#a111909e9dfc3642c275f7fe687942f36">g_engine</a></td></tr>
+<tr class="separator:a111909e9dfc3642c275f7fe687942f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>xmmmmmovo </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2024-10-20</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 xmmmmmovo </dd></dl>
+</div><h2 class="groupheader">Variable Documentation</h2>
+<a id="a111909e9dfc3642c275f7fe687942f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a111909e9dfc3642c275f7fe687942f36">&#9670;&nbsp;</a></span>g_engine</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classEngine.html">Engine</a> g_engine</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_15b7d93d018afc48ffa252f2b1bd5247.html">engine</a></li><li class="navelem"><a class="el" href="engine_8hpp.html">engine.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_e881e8d9b44218c86e0c1fa5d29ebf9b.html">taixu</a></li><li class="navelem"><a class="el" href="dir_a524c25b2abc1d44587de6d239873a26.html">engine</a></li><li class="navelem"><a class="el" href="engine_8hpp.html">engine.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/src/runtime/include/management/render/tx_command_queue.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/management/gfx/tx_command_queue.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,13 +85,39 @@ $(document).ready(function(){initNavTree('tx__command__queue_8hpp_source.html','
 <div class="title">tx_command_queue.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="tx__command__queue_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<a href="tx__command__queue_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ring__buffer_8hpp.html">common/container/ring_buffer.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="macro_8hpp.html">taixu/common/base/macro.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tx__command_8hpp.html">tx_command.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<a class="code" href="macro_8hpp.html#add16c3c78e48493088b9c816031dd94c">TX_NAMESPACE_BEGIN</a></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structTXCommandQueue.html">   22</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structTXCommandQueue.html">TXCommandQueue</a> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structTXCommandQueue.html#ad86f078905c317ba6bcc21262a900dae">   24</a></span>&#160;    <span class="keyword">static</span> constexpr uint16_t              <a class="code" href="structTXCommandQueue.html#ad86f078905c317ba6bcc21262a900dae">MAX_COMMAND_QUEUE_SIZE</a> = 256;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structTXCommandQueue.html#ac0afe1dffa0dce16d416603222b6447c">   25</a></span>&#160;    <a class="code" href="classRingBuffer.html">RingBuffer&lt;pro::proxy&lt;TXCommandProxy&gt;</a>&gt; <a class="code" href="structTXCommandQueue.html#ac0afe1dffa0dce16d416603222b6447c">_command_queue</a>{<a class="code" href="structTXCommandQueue.html#ad86f078905c317ba6bcc21262a900dae">MAX_COMMAND_QUEUE_SIZE</a>};</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<a class="code" href="macro_8hpp.html#a2c44b8f554ef02a37487571776bdf381">TX_NAMESPACE_END</a></div>
+<div class="ttc" id="aclassRingBuffer_html"><div class="ttname"><a href="classRingBuffer.html">RingBuffer</a></div><div class="ttdoc">A circle queue.</div><div class="ttdef"><b>Definition:</b> ring_buffer.hpp:23</div></div>
+<div class="ttc" id="amacro_8hpp_html"><div class="ttname"><a href="macro_8hpp.html">macro.hpp</a></div><div class="ttdoc">Copyright (c) 2024 xmmmmmovo.</div></div>
+<div class="ttc" id="amacro_8hpp_html_a2c44b8f554ef02a37487571776bdf381"><div class="ttname"><a href="macro_8hpp.html#a2c44b8f554ef02a37487571776bdf381">TX_NAMESPACE_END</a></div><div class="ttdeci">#define TX_NAMESPACE_END</div><div class="ttdef"><b>Definition:</b> macro.hpp:99</div></div>
+<div class="ttc" id="amacro_8hpp_html_add16c3c78e48493088b9c816031dd94c"><div class="ttname"><a href="macro_8hpp.html#add16c3c78e48493088b9c816031dd94c">TX_NAMESPACE_BEGIN</a></div><div class="ttdeci">#define TX_NAMESPACE_BEGIN</div><div class="ttdef"><b>Definition:</b> macro.hpp:98</div></div>
+<div class="ttc" id="aring__buffer_8hpp_html"><div class="ttname"><a href="ring__buffer_8hpp.html">ring_buffer.hpp</a></div></div>
+<div class="ttc" id="astructTXCommandQueue_html"><div class="ttname"><a href="structTXCommandQueue.html">TXCommandQueue</a></div><div class="ttdoc">CommandQueue.</div><div class="ttdef"><b>Definition:</b> tx_command_queue.hpp:22</div></div>
+<div class="ttc" id="astructTXCommandQueue_html_ac0afe1dffa0dce16d416603222b6447c"><div class="ttname"><a href="structTXCommandQueue.html#ac0afe1dffa0dce16d416603222b6447c">TXCommandQueue::_command_queue</a></div><div class="ttdeci">RingBuffer&lt; pro::proxy&lt; TXCommandProxy &gt; &gt; _command_queue</div><div class="ttdef"><b>Definition:</b> tx_command_queue.hpp:25</div></div>
+<div class="ttc" id="astructTXCommandQueue_html_ad86f078905c317ba6bcc21262a900dae"><div class="ttname"><a href="structTXCommandQueue.html#ad86f078905c317ba6bcc21262a900dae">TXCommandQueue::MAX_COMMAND_QUEUE_SIZE</a></div><div class="ttdeci">static constexpr uint16_t MAX_COMMAND_QUEUE_SIZE</div><div class="ttdef"><b>Definition:</b> tx_command_queue.hpp:24</div></div>
+<div class="ttc" id="atx__command_8hpp_html"><div class="ttname"><a href="tx__command_8hpp.html">tx_command.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_327714c5b147a50948c4cc2b9248097b.html">management</a></li><li class="navelem"><a class="el" href="dir_fac2414cc82e640d5c8eed219370bf89.html">render</a></li><li class="navelem"><a class="el" href="tx__command__queue_8hpp.html">tx_command_queue.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_c43fa6ee8b9194a57dc2220ae96e12ce.html">management</a></li><li class="navelem"><a class="el" href="dir_3f88cf2360a731abc1d4e7459bb7f9c1.html">gfx</a></li><li class="navelem"><a class="el" href="tx__command__queue_8hpp.html">tx_command_queue.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

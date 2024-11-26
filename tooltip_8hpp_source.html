@@ -95,27 +95,29 @@ $(document).ready(function(){initNavTree('tooltip_8hpp_source.html',''); initRes
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;imgui.h&gt;</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;imgui_internal.h&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;string&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="macro_8hpp.html">taixu/common/base/macro.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1editor.html">taixu::editor</a> {</div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">   15</a></span>&#160;constexpr <span class="keywordtype">float</span> <a class="code" href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">TOOLTIP_TRESH_HOLD</a> = 0.5f;</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1editor.html#aaad9d8fcc946edc6d28afd1c26316ad5">   17</a></span>&#160;<a class="code" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> <span class="keywordtype">void</span> <a class="code" href="namespacetaixu_1_1editor.html#aaad9d8fcc946edc6d28afd1c26316ad5">buildTooltip</a>(<span class="keyword">const</span> std::string&amp; tooltip,</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                            <span class="keywordtype">float</span> tresh_hold = <a class="code" href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">TOOLTIP_TRESH_HOLD</a>) {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">if</span> (ImGui::IsItemHovered() &amp;&amp; GImGui-&gt;HoveredIdTimer &gt; tresh_hold) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        ImGui::BeginTooltip();</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        ImGui::TextUnformatted(tooltip.c_str());</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        ImGui::PopTextWrapPos();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        ImGui::EndTooltip();</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_EDITOR_UI_WIDGETS_TOOLTIP_HPP</span></div>
-<div class="ttc" id="amacro_8hpp_html_abbaf58075a603033083f752778286e4a"><div class="ttname"><a href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a></div><div class="ttdeci">#define TX_INLINE</div><div class="ttdef"><b>Definition:</b> macro.hpp:49</div></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1editor.html#aaad9d8fcc946edc6d28afd1c26316ad5">   17</a></span>&#160;<a class="code" href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a> <span class="keywordtype">void</span> <a class="code" href="namespacetaixu_1_1editor.html#aaad9d8fcc946edc6d28afd1c26316ad5">buildTooltip</a>(<span class="keyword">const</span> std::string&amp; tooltip, <span class="keywordtype">float</span> tresh_hold = <a class="code" href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">TOOLTIP_TRESH_HOLD</a>) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">static</span> constexpr <span class="keywordtype">float</span> WRAP_POS_SHIFT = 35.0f;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span> (ImGui::IsItemHovered() &amp;&amp; GImGui-&gt;HoveredIdTimer &gt; tresh_hold) {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        ImGui::BeginTooltip();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        ImGui::PushTextWrapPos(ImGui::GetFontSize() * WRAP_POS_SHIFT);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        ImGui::TextUnformatted(tooltip.c_str());</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        ImGui::PopTextWrapPos();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        ImGui::EndTooltip();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}<span class="comment">// namespace taixu::editor</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// ENGINE_EDITOR_UI_WIDGETS_TOOLTIP_HPP</span></div>
+<div class="ttc" id="amacro_8hpp_html"><div class="ttname"><a href="macro_8hpp.html">macro.hpp</a></div><div class="ttdoc">Copyright (c) 2024 xmmmmmovo.</div></div>
+<div class="ttc" id="amacro_8hpp_html_abbaf58075a603033083f752778286e4a"><div class="ttname"><a href="macro_8hpp.html#abbaf58075a603033083f752778286e4a">TX_INLINE</a></div><div class="ttdeci">#define TX_INLINE</div><div class="ttdef"><b>Definition:</b> macro.hpp:68</div></div>
 <div class="ttc" id="anamespacetaixu_1_1editor_html"><div class="ttname"><a href="namespacetaixu_1_1editor.html">taixu::editor</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
 <div class="ttc" id="anamespacetaixu_1_1editor_html_aa412c1c3f621b74c151908f409d1aa6c"><div class="ttname"><a href="namespacetaixu_1_1editor.html#aa412c1c3f621b74c151908f409d1aa6c">taixu::editor::TOOLTIP_TRESH_HOLD</a></div><div class="ttdeci">constexpr float TOOLTIP_TRESH_HOLD</div><div class="ttdef"><b>Definition:</b> tooltip.hpp:15</div></div>
 <div class="ttc" id="anamespacetaixu_1_1editor_html_aaad9d8fcc946edc6d28afd1c26316ad5"><div class="ttname"><a href="namespacetaixu_1_1editor.html#aaad9d8fcc946edc6d28afd1c26316ad5">taixu::editor::buildTooltip</a></div><div class="ttdeci">TX_INLINE void buildTooltip(const std::string &amp;tooltip, float tresh_hold=TOOLTIP_TRESH_HOLD)</div><div class="ttdef"><b>Definition:</b> tooltip.hpp:17</div></div>

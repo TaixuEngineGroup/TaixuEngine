@@ -1,11 +1,10 @@
 var shader__manager_8hpp =
 [
     [ "TXShaderModuleManager", "classtaixu_1_1TXShaderModuleManager.html", "classtaixu_1_1TXShaderModuleManager" ],
-    [ "INIT_BUILTIN_SHADER_MODULE_CREATE_INFO", "shader__manager_8hpp.html#a86022d3d890f76096a71dcc9779e7716", null ],
-    [ "TXBuiltinShaderCreateInfoArrT", "shader__manager_8hpp.html#abeae149b7f163f68414b725315b382cd", null ],
+    [ "INIT_BUILTIN_SHADER_MODULE_CREATE_INFO", "shader__manager_8hpp.html#aa85073c5c247a2fa9f249f3bcd094b68", null ],
     [ "TXBuiltinShaderModulePtrArrT", "shader__manager_8hpp.html#addf6fb95b9be615457c63ef66a0874b4", null ],
     [ "TXBuiltinShader", "shader__manager_8hpp.html#a4cfabc21dbdb7087179f8a3560a40995", [
-      [ "FORWARD_VERT", "shader__manager_8hpp.html#a4cfabc21dbdb7087179f8a3560a40995a05b4d99c8bf0d6151d5091e7a85ad02f", null ],
-      [ "FORWARD_FRAG", "shader__manager_8hpp.html#a4cfabc21dbdb7087179f8a3560a40995a26f267ef439fd50d8851495f0171be78", null ]
+      [ "TRIANGLE_VERT_SHADER", "shader__manager_8hpp.html#a4cfabc21dbdb7087179f8a3560a40995a0bf4c3549501959b5664860222712e5f", null ],
+      [ "TRIANGLE_FRAG_SHADER", "shader__manager_8hpp.html#a4cfabc21dbdb7087179f8a3560a40995a28f94732e1bcdd62ae06e36394dc8fde", null ]
     ] ]
 ];

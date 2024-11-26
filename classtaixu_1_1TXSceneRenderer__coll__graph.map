@@ -1,7 +1,10 @@
 <map id="taixu::TXSceneRenderer" name="taixu::TXSceneRenderer">
-<area shape="rect" id="node1" title=" " alt="" coords="27,588,236,988"/>
-<area shape="rect" id="node2" href="$classtaixu_1_1Noncopyable.html" title="inherit this class in private method" alt="" coords="5,5,153,127"/>
-<area shape="rect" id="node3" href="$classtaixu_1_1TXContext.html" title=" " alt="" coords="66,404,197,481"/>
-<area shape="rect" id="node4" href="$classtaixu_1_1TXDevice.html" title=" " alt="" coords="117,176,289,297"/>
-<area shape="rect" id="node5" href="$classtaixu_1_1TXShaderModuleManager.html" title=" " alt="" coords="221,360,452,525"/>
+<area shape="rect" id="node1" title=" " alt="" coords="319,1437,498,1793"/>
+<area shape="rect" id="node2" href="$classtaixu_1_1Noncopyable.html" title="inherit this class in private method" alt="" coords="5,879,153,1001"/>
+<area shape="rect" id="node3" href="$classtaixu_1_1TXShaderModuleManager.html" title=" " alt="" coords="177,865,408,1015"/>
+<area shape="rect" id="node4" href="$structTXCommandQueue.html" title="CommandQueue." alt="" coords="433,901,662,979"/>
+<area shape="rect" id="node5" href="$classRingBuffer.html" title=" " alt="" coords="454,248,641,443"/>
+<area shape="rect" id="node6" href="$classRingBuffer.html" title="A circle queue." alt="" coords="483,5,611,185"/>
+<area shape="rect" id="node7" href="$classWindow.html" title="Window base class, for processing events and window utils." alt="" coords="686,505,913,1375"/>
+<area shape="rect" id="node8" title=" " alt="" coords="746,307,853,384"/>
 </map>

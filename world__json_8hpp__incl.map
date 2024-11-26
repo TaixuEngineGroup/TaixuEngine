@@ -1,6 +1,10 @@
 <map id="engine/src/runtime/source/resource/json_data/world_json.hpp" name="engine/src/runtime/source/resource/json_data/world_json.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="5,5,165,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="78,199,149,225"/>
-<area shape="rect" id="node3" title=" " alt="" coords="54,117,117,143"/>
-<area shape="rect" id="node4" href="$json__serializable_8hpp.html" title=" " alt="" coords="141,109,281,151"/>
+<area shape="rect" id="node1" title=" " alt="" coords="37,5,197,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="17,109,79,136"/>
+<area shape="rect" id="node3" href="$tx__string_8hpp.html" title=" " alt="" coords="155,109,347,136"/>
+<area shape="rect" id="node4" href="$macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="5,184,229,211"/>
+<area shape="rect" id="node5" href="$tx__allocator_8hpp.html" title=" " alt="" coords="254,184,381,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="167,259,254,285"/>
+<area shape="rect" id="node7" title=" " alt="" coords="279,259,356,285"/>
+<area shape="rect" id="node8" title=" " alt="" coords="381,259,475,285"/>
 </map>

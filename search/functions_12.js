@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['texturetypefromassimptype_1667',['textureTypeFromAssimpType',['../namespacetaixu.html#a95a8853c69eeaee4e7bc024b35c7958b',1,'taixu']]],
-  ['threadpool_1668',['ThreadPool',['../classtaixu_1_1ThreadPool.html#a13bbe087d866d2b22cdac382ee4c6b17',1,'taixu::ThreadPool']]],
-  ['toimvec4_1669',['toImVec4',['../classtaixu_1_1Color.html#a8b043efaae4b0cc62525a39b8e3b520b',1,'taixu::Color']]],
-  ['touint32_1670',['toUint32',['../classtaixu_1_1Color.html#a99fb749b99845464cfc34b4336013cb8',1,'taixu::Color']]],
-  ['transformcomponent_1671',['TransformComponent',['../classtaixu_1_1TransformComponent.html#ae8fc15f9199e3605f7c6c8fd90407dca',1,'taixu::TransformComponent::TransformComponent()=default'],['../classtaixu_1_1TransformComponent.html#a82c4718cb2e353eb8bd601febb19c04e',1,'taixu::TransformComponent::TransformComponent(T &amp;&amp;pos, T &amp;&amp;scale, RT &amp;&amp;rotate)']]],
-  ['txobject_1672',['TXObject',['../classtaixu_1_1TXObject.html#aa68c9b8248d93926b9e856056a57de43',1,'taixu::TXObject::TXObject()=default'],['../classtaixu_1_1TXObject.html#a34bac1917d098d9a7e329e975fb60a82',1,'taixu::TXObject::TXObject(HandleT handle, ParentT parent)']]],
-  ['txruntimeerror_1673',['TXRuntimeError',['../classtaixu_1_1TXRuntimeError.html#aacd871cc20bbc18c400234d88ed95a01',1,'taixu::TXRuntimeError']]],
-  ['txshadermodule_1674',['TXShaderModule',['../classtaixu_1_1TXShaderModule.html#a570a98389d009cf04df6e6f6948f37b7',1,'taixu::TXShaderModule']]]
+  ['update_1819',['update',['../classtaixu_1_1editor_1_1FileComponent.html#a7ceaa494a7b0de935ff626b572d4ef4b',1,'taixu::editor::FileComponent::update()'],['../classtaixu_1_1TXSceneRenderer.html#a60c7742ae30bca30018632b51c8d02dc',1,'taixu::TXSceneRenderer::update()'],['../classtaixu_1_1ECSCoordinator.html#ae99829f564e10863f2548c96489863e0',1,'taixu::ECSCoordinator::update()'],['../classWindow.html#a59515fc5a56e86d5a46d771595daac55',1,'Window::update()'],['../classEngine.html#ad2ff110d5a86c1cd60b541d65915ac48',1,'Engine::update()'],['../classCpuClock.html#a0121938d71bdba57ece6de361efa635f',1,'CpuClock::update()'],['../classtaixu_1_1editor_1_1MainWindow.html#a4ac4479689690a6bfb81fea8d2251e96',1,'taixu::editor::MainWindow::update()'],['../classtaixu_1_1editor_1_1UsefulObjectComponent.html#a8f08db3247b640ea55d91266491597c1',1,'taixu::editor::UsefulObjectComponent::update()'],['../classtaixu_1_1editor_1_1SceneGraphComponent.html#a0b7ddef7f8ebbfa324c31acdb6fbbd5b',1,'taixu::editor::SceneGraphComponent::update()'],['../classtaixu_1_1editor_1_1RenderComponent.html#a3a38532b96ad9084703fd29d6a27bad7',1,'taixu::editor::RenderComponent::update()'],['../classtaixu_1_1editor_1_1MenuComponent.html#ae4f19d2db82ec013f0f84f1cc19a0b6a',1,'taixu::editor::MenuComponent::update()'],['../classtaixu_1_1editor_1_1DetailComponent.html#a78371e546b760978afa9b330f47f6fd0',1,'taixu::editor::DetailComponent::update()']]],
+  ['updatecameravectorsortho_1820',['updateCameraVectorsOrtho',['../classtaixu_1_1EulerCamera.html#ab579d792311534c7f806c7857a01d89e',1,'taixu::EulerCamera']]],
+  ['updatecameravectorsperspective_1821',['updateCameraVectorsPerspective',['../classtaixu_1_1EulerCamera.html#a64c825fbf07e28a701a5d46886ce5ab6',1,'taixu::EulerCamera']]],
+  ['updatescene_1822',['updateScene',['../classtaixu_1_1TXSceneRenderer.html#a4499caac948b065413cea32f8c22ebc3',1,'taixu::TXSceneRenderer']]],
+  ['updatetitle_1823',['updateTitle',['../classWindow.html#aa523d2a6038b348a99fe0625e5f3ee94',1,'Window::updateTitle()'],['../classtaixu_1_1GLFWWindow.html#a44967ab802ed2eecf59dc9109c23abe6',1,'taixu::GLFWWindow::updateTitle()']]],
+  ['updateviewmat_1824',['updateViewMat',['../classtaixu_1_1EulerCamera.html#a1853967c1b7e710dcf104f01c89d7679',1,'taixu::EulerCamera']]],
+  ['usefulobjectcomponent_1825',['UsefulObjectComponent',['../classtaixu_1_1editor_1_1UsefulObjectComponent.html#aff1ed1b6097783461df9c47b3963b061',1,'taixu::editor::UsefulObjectComponent']]],
+  ['utf8decode_1826',['utf8Decode',['../namespacetaixu.html#aa85b4c4cf5d0280e5ad6391fce3c03bb',1,'taixu']]],
+  ['utf8encode_1827',['utf8Encode',['../namespacetaixu.html#a03b5a388667038401187fd1428c98b50',1,'taixu']]]
 ];

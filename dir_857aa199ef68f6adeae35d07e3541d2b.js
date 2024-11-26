@@ -12,7 +12,9 @@ var dir_857aa199ef68f6adeae35d07e3541d2b =
       [ "MenuComponent", "classtaixu_1_1editor_1_1MenuComponent.html", "classtaixu_1_1editor_1_1MenuComponent" ]
     ] ],
     [ "render_component.cpp", "render__component_8cpp.html", "render__component_8cpp" ],
-    [ "render_component.hpp", "render__component_8hpp.html", "render__component_8hpp" ],
+    [ "render_component.hpp", "render__component_8hpp.html", [
+      [ "RenderComponent", "classtaixu_1_1editor_1_1RenderComponent.html", "classtaixu_1_1editor_1_1RenderComponent" ]
+    ] ],
     [ "scene_graph_component.hpp", "scene__graph__component_8hpp.html", [
       [ "SceneGraphComponent", "classtaixu_1_1editor_1_1SceneGraphComponent.html", "classtaixu_1_1editor_1_1SceneGraphComponent" ]
     ] ],

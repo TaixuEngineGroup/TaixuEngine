@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['operator_21_3d_2182',['operator!=',['../classtaixu_1_1Color.html#a05f999bf3fcadc30a3f81112ba6bb058',1,'taixu::Color']]],
-  ['operator_3d_3d_2183',['operator==',['../classtaixu_1_1Color.html#aa09b529dd5d916f3e5fd2676c336e1c9',1,'taixu::Color']]]
+  ['glfwwindow_2336',['GLFWWindow',['../classWindow.html#a0accf8cfff3131ca809514b0e2a387c8',1,'Window']]]
 ];

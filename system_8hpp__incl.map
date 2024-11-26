@@ -1,9 +1,9 @@
 <map id="engine/src/runtime/source/management/ecs/system/system.hpp" name="engine/src/runtime/source/management/ecs/system/system.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="289,5,476,61"/>
-<area shape="rect" id="node2" href="$macro_8hpp.html" title=" " alt="" coords="5,117,192,143"/>
-<area shape="rect" id="node3" href="$ecs__types_8hpp.html" title=" " alt="" coords="217,109,383,151"/>
-<area shape="rect" id="node6" title=" " alt="" coords="408,117,523,143"/>
-<area shape="rect" id="node7" title=" " alt="" coords="547,117,610,143"/>
-<area shape="rect" id="node4" title=" " alt="" coords="227,199,285,225"/>
-<area shape="rect" id="node5" title=" " alt="" coords="309,199,376,225"/>
+<area shape="rect" id="node1" title=" " alt="" coords="165,5,352,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,117,120,143"/>
+<area shape="rect" id="node3" title=" " alt="" coords="145,117,207,143"/>
+<area shape="rect" id="node4" href="$macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="231,117,455,143"/>
+<area shape="rect" id="node5" href="$ecs__types_8hpp.html" title=" " alt="" coords="478,109,645,151"/>
+<area shape="rect" id="node6" title=" " alt="" coords="488,199,547,225"/>
+<area shape="rect" id="node7" title=" " alt="" coords="571,199,637,225"/>
 </map>

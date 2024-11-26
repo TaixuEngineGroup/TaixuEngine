@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/src/runtime/include/management/render/tx_context.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/management/gfx/tx_context.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,37 +88,74 @@ $(document).ready(function(){initNavTree('tx__context_8hpp_source.html',''); ini
 <a href="tx__context_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8hpp.html">common/designs/noncopyable.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8hpp.html">gameplay/gui/window.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tx__device_8hpp.html">tx_device.hpp</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXContext.html">   20</a></span>&#160;<span class="keyword">class </span><a class="code" href="classtaixu_1_1TXContext.html">TXContext</a> final : <span class="keyword">public</span> <a class="code" href="classtaixu_1_1Noncopyable.html">Noncopyable</a> {</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">   21</a></span>&#160;    vk::raii::Instance <a class="code" href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">_instance</a>{VK_NULL_HANDLE};</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;proxy.h&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="custom__fmt_8hpp.html">common/log/custom_fmt.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="abstract__factory_8hpp.html">taixu/common/designs/abstract_factory.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="logger_8hpp.html">taixu/common/log/logger.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="window_8hpp.html">taixu/gameplay/gui/window.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tx__shader_8hpp.html">tx_shader.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classtaixu_1_1TXContext.html#a318562ad2452511581987791d0c78f27">   23</a></span>&#160;    <a class="code" href="classtaixu_1_1TXDevice.html">TXDevice</a> <a class="code" href="classtaixu_1_1TXContext.html#a318562ad2452511581987791d0c78f27">_device</a>{};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;std::optional&lt;TXContext&gt; <a class="code" href="namespacetaixu.html#a20a515bd6597c60418c88bfbcd7ac69f">createContext</a>(Window* window);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="ttc" id="aclasstaixu_1_1Noncopyable_html"><div class="ttname"><a href="classtaixu_1_1Noncopyable.html">taixu::Noncopyable</a></div><div class="ttdoc">inherit this class in private method</div><div class="ttdef"><b>Definition:</b> noncopyable.hpp:14</div></div>
-<div class="ttc" id="aclasstaixu_1_1TXContext_html"><div class="ttname"><a href="classtaixu_1_1TXContext.html">taixu::TXContext</a></div><div class="ttdef"><b>Definition:</b> tx_context.hpp:20</div></div>
-<div class="ttc" id="aclasstaixu_1_1TXContext_html_a318562ad2452511581987791d0c78f27"><div class="ttname"><a href="classtaixu_1_1TXContext.html#a318562ad2452511581987791d0c78f27">taixu::TXContext::_device</a></div><div class="ttdeci">TXDevice _device</div><div class="ttdef"><b>Definition:</b> tx_context.hpp:23</div></div>
-<div class="ttc" id="aclasstaixu_1_1TXContext_html_aa803cc52d0f0a3ff93fe64282c923d70"><div class="ttname"><a href="classtaixu_1_1TXContext.html#aa803cc52d0f0a3ff93fe64282c923d70">taixu::TXContext::_instance</a></div><div class="ttdeci">vk::raii::Instance _instance</div><div class="ttdef"><b>Definition:</b> tx_context.hpp:21</div></div>
-<div class="ttc" id="aclasstaixu_1_1TXDevice_html"><div class="ttname"><a href="classtaixu_1_1TXDevice.html">taixu::TXDevice</a></div><div class="ttdef"><b>Definition:</b> tx_device.hpp:20</div></div>
-<div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
-<div class="ttc" id="anamespacetaixu_html_a20a515bd6597c60418c88bfbcd7ac69f"><div class="ttname"><a href="namespacetaixu.html#a20a515bd6597c60418c88bfbcd7ac69f">taixu::createContext</a></div><div class="ttdeci">std::optional&lt; TXContext &gt; createContext(Window *window)</div><div class="ttdef"><b>Definition:</b> tx_context.cpp:22</div></div>
-<div class="ttc" id="anoncopyable_8hpp_html"><div class="ttname"><a href="noncopyable_8hpp.html">noncopyable.hpp</a></div></div>
-<div class="ttc" id="atx__device_8hpp_html"><div class="ttname"><a href="tx__device_8hpp.html">tx_device.hpp</a></div></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<a class="code" href="macro_8hpp.html#add16c3c78e48493088b9c816031dd94c">TX_NAMESPACE_BEGIN</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">   29</a></span>&#160;<a class="code" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a>(ImguiInitImpl, imguiInit);</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#a23fa5972e8f28de0285d19f5444274dd">   34</a></span>&#160;<a class="code" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a>(ImguiDestroyImpl, imguiDestroy);</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#aabce22263e0bf8228b943ae9b339d318">   39</a></span>&#160;<a class="code" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a>(ImguiPreUpdateImpl, imguiPreUpdate);</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#a63fdb23b285d837fcf4561fe2abbd8a6">   44</a></span>&#160;<a class="code" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a>(ImguiUpdateImpl, imguiUpdate);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#a1e1dcd251e9434a38942edd41f4a53ca">   50</a></span>&#160;<a class="code" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a>(CreateShaderModuleImpl, createShaderModule);</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#af1f78d0600524554258e05ed64c6810e">   55</a></span>&#160;<a class="code" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a>(CreateQuadPipelineImpl, createShaderModule);</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#af85d9a73fd04526a06e6e67b35041a69">   60</a></span>&#160;<a class="code" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a>(CreateCommandImpl, createCommand);</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#a2d2aea6c0e621f63740f584fab8fda93">   65</a></span>&#160;<a class="code" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a>(Present2SwapchainImpl, present2Swapchain);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structTXGFXProxy.html">   72</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structTXGFXProxy.html">TXGFXProxy</a></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    : pro::facade_builder::add_convention&lt;ImguiInitImpl, void()&gt;::add_convention&lt;ImguiDestroyImpl, void()&gt;::</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              add_convention&lt;ImguiPreUpdateImpl, void()&gt;::add_convention&lt;ImguiUpdateImpl, void()&gt;::add_convention&lt;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                      CreateShaderModuleImpl, std::shared_ptr&lt;TXShaderModule&gt;(TXShaderModuleCreateInfo const&amp;)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                                                      const&gt;::support_copy&lt;pro::constraint_level::nontrivial&gt;::build {};</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structTXGFXCreateInfo.html">   78</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structTXGFXCreateInfo.html">TXGFXCreateInfo</a> {</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structTXGFXCreateInfo.html#afda57cb02ae3199740c484e1e5f93e94">   79</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="classWindow.html">Window</a>* <a class="code" href="structTXGFXCreateInfo.html#afda57cb02ae3199740c484e1e5f93e94">window</a>{<span class="keyword">nullptr</span>};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classTXGFXContextFactory.html">   82</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTXGFXContextFactory.html">TXGFXContextFactory</a> final : <span class="keyword">public</span> <a class="code" href="classAbstractFactory.html">AbstractFactory</a>&lt;RenderAPI, pro::proxy&lt;TXGFXProxy&gt;, TXGFXCreateInfo&gt; {};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="tx__context_8hpp.html#a39a70e2bfb3ed710cf3071689a56264e">   84</a></span>&#160;<span class="preprocessor">#define TX_GFX_CONTEXT_FACTORY_REGISTER(PRODUCT_CLASS_NAME, RENDER_API)                                                \</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">    static TXGFXContextFactory::ReturnTTrait __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME(                      \</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">            TXGFXContextFactory::CreateInfoTTrait&amp;&amp; info) {                                                            \</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">        auto res = PRODUCT_CLASS_NAME::createContext(std::forward&lt;TXGFXContextFactory::CreateInfoTTrait&gt;(info));       \</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">        if (!res.has_value()) {                                                                                        \</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">            ERROR_LOG(&quot;Failed to create vulkan context: {}&quot;</span>, res.error());                                             \</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            return nullptr;                                                                                            \</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        }                                                                                                              \</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        return std::move(res.value());                                                                                 \</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }                                                                                                                  \</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    TX_FACTORY_REGISTER(TXGFXContextFactory, PRODUCT_CLASS_NAME, RENDER_API,                                           \</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                        __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME)</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<a class="code" href="macro_8hpp.html#a2c44b8f554ef02a37487571776bdf381">TX_NAMESPACE_END</a></div>
+<div class="ttc" id="aabstract__factory_8hpp_html"><div class="ttname"><a href="abstract__factory_8hpp.html">abstract_factory.hpp</a></div></div>
+<div class="ttc" id="aclassAbstractFactory_html"><div class="ttname"><a href="classAbstractFactory.html">AbstractFactory</a></div><div class="ttdef"><b>Definition:</b> abstract_factory.hpp:23</div></div>
+<div class="ttc" id="aclassTXGFXContextFactory_html"><div class="ttname"><a href="classTXGFXContextFactory.html">TXGFXContextFactory</a></div><div class="ttdef"><b>Definition:</b> tx_context.hpp:82</div></div>
+<div class="ttc" id="aclassWindow_html"><div class="ttname"><a href="classWindow.html">Window</a></div><div class="ttdoc">Window base class, for processing events and window utils.</div><div class="ttdef"><b>Definition:</b> window.hpp:36</div></div>
+<div class="ttc" id="acustom__fmt_8hpp_html"><div class="ttname"><a href="custom__fmt_8hpp.html">custom_fmt.hpp</a></div></div>
+<div class="ttc" id="alogger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div></div>
+<div class="ttc" id="amacro_8hpp_html_a2c44b8f554ef02a37487571776bdf381"><div class="ttname"><a href="macro_8hpp.html#a2c44b8f554ef02a37487571776bdf381">TX_NAMESPACE_END</a></div><div class="ttdeci">#define TX_NAMESPACE_END</div><div class="ttdef"><b>Definition:</b> macro.hpp:99</div></div>
+<div class="ttc" id="amacro_8hpp_html_add16c3c78e48493088b9c816031dd94c"><div class="ttname"><a href="macro_8hpp.html#add16c3c78e48493088b9c816031dd94c">TX_NAMESPACE_BEGIN</a></div><div class="ttdeci">#define TX_NAMESPACE_BEGIN</div><div class="ttdef"><b>Definition:</b> macro.hpp:98</div></div>
+<div class="ttc" id="astructTXGFXCreateInfo_html"><div class="ttname"><a href="structTXGFXCreateInfo.html">TXGFXCreateInfo</a></div><div class="ttdef"><b>Definition:</b> tx_context.hpp:78</div></div>
+<div class="ttc" id="astructTXGFXCreateInfo_html_afda57cb02ae3199740c484e1e5f93e94"><div class="ttname"><a href="structTXGFXCreateInfo.html#afda57cb02ae3199740c484e1e5f93e94">TXGFXCreateInfo::window</a></div><div class="ttdeci">const Window * window</div><div class="ttdef"><b>Definition:</b> tx_context.hpp:79</div></div>
+<div class="ttc" id="astructTXGFXProxy_html"><div class="ttname"><a href="structTXGFXProxy.html">TXGFXProxy</a></div><div class="ttdoc">Graphics proxy, like a interface define all needed functions.</div><div class="ttdef"><b>Definition:</b> tx_context.hpp:76</div></div>
+<div class="ttc" id="atx__context_8hpp_html_a7ce5dc5b7103a67e86659b58f662162e"><div class="ttname"><a href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a></div><div class="ttdeci">TX_NAMESPACE_BEGIN PRO_DEF_MEM_DISPATCH(ImguiInitImpl, imguiInit)</div><div class="ttdoc">Imgui init function.</div></div>
+<div class="ttc" id="atx__shader_8hpp_html"><div class="ttname"><a href="tx__shader_8hpp.html">tx_shader.hpp</a></div></div>
 <div class="ttc" id="awindow_8hpp_html"><div class="ttname"><a href="window_8hpp.html">window.hpp</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_327714c5b147a50948c4cc2b9248097b.html">management</a></li><li class="navelem"><a class="el" href="dir_fac2414cc82e640d5c8eed219370bf89.html">render</a></li><li class="navelem"><a class="el" href="tx__context_8hpp.html">tx_context.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_c43fa6ee8b9194a57dc2220ae96e12ce.html">management</a></li><li class="navelem"><a class="el" href="dir_3f88cf2360a731abc1d4e7459bb7f9c1.html">gfx</a></li><li class="navelem"><a class="el" href="tx__context_8hpp.html">tx_context.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

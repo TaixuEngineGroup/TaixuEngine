@@ -1,17 +1,11 @@
 <map id="engine/src/editor/ui/common/ui_component.hpp" name="engine/src/editor/ui/common/ui_component.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="205,5,411,47"/>
-<area shape="rect" id="node2" href="$noncopyable_8hpp.html" title=" " alt="" coords="79,95,327,121"/>
-<area shape="rect" id="node3" href="$view__model_8hpp.html" title=" " alt="" coords="350,95,479,121"/>
-<area shape="rect" id="node4" title=" " alt="" coords="5,169,96,196"/>
-<area shape="rect" id="node5" title=" " alt="" coords="121,169,191,196"/>
-<area shape="rect" id="node6" title=" " alt="" coords="215,169,406,196"/>
-<area shape="rect" id="node7" href="$hash_8hpp.html" title=" " alt="" coords="430,169,607,196"/>
-<area shape="rect" id="node12" href="$file__watcher_8hpp.html" title=" " alt="" coords="632,169,760,196"/>
-<area shape="rect" id="node13" href="$hierarchy__struct_8hpp.html" title=" " alt="" coords="797,244,952,271"/>
-<area shape="rect" id="node8" href="$macro_8hpp.html" title=" " alt="" coords="587,244,773,271"/>
-<area shape="rect" id="node9" title=" " alt="" coords="289,244,359,271"/>
-<area shape="rect" id="node10" title=" " alt="" coords="384,244,451,271"/>
-<area shape="rect" id="node11" title=" " alt="" coords="475,244,562,271"/>
-<area shape="rect" id="node14" title=" " alt="" coords="803,319,861,345"/>
-<area shape="rect" id="node15" title=" " alt="" coords="886,319,949,345"/>
+<area shape="rect" id="node1" title=" " alt="" coords="74,5,281,47"/>
+<area shape="rect" id="node2" href="$noncopyable_8hpp.html" title=" " alt="" coords="5,95,176,136"/>
+<area shape="rect" id="node3" href="$view__model_8hpp.html" title=" " alt="" coords="201,102,330,129"/>
+<area shape="rect" id="node4" title=" " alt="" coords="176,259,267,285"/>
+<area shape="rect" id="node5" title=" " alt="" coords="75,184,146,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="170,184,361,211"/>
+<area shape="rect" id="node7" href="$file__watcher_8hpp.html" title=" " alt="" coords="385,184,513,211"/>
+<area shape="rect" id="node8" href="$hierarchy__struct_8hpp.html" title=" " alt="" coords="423,259,577,285"/>
+<area shape="rect" id="node9" title=" " alt="" coords="469,333,531,360"/>
 </map>

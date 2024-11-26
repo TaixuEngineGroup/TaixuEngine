@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/src/runtime/include/common/math/angle.hpp Source File</title>
+<title>TaixuEngine: engine/src/runtime/source/common/math/angle.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -95,21 +95,19 @@ $(document).ready(function(){initNavTree('angle_8hpp_source.html',''); initResiz
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="trigonometric_8hpp.html">trigonometric.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1literal.html">   11</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1literal.html">taixu::literal</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu_1_1literals.html">taixu::literals</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1literal.html#aa3025909a9d3a7280e43616155fb2d72">   13</a></span>&#160;constexpr <span class="keyword">auto</span> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _radf(<span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> value) noexcept</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        -&gt; decltype(<a class="code" href="namespacetaixu.html#a7bc8d31d0ff0b5d33d40da13800f29f0">toRadians</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(value))) {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetaixu.html#a7bc8d31d0ff0b5d33d40da13800f29f0">toRadians</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(value));</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1literal.html#a2a2b143cd5ab2dff85fdc9f31836b5ff">   18</a></span>&#160;constexpr <span class="keyword">auto</span> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _degf(<span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> value) noexcept</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        -&gt; decltype(<a class="code" href="namespacetaixu.html#af55a151621da35599514b2ad56e09ab5">toDegrees</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(value))) {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetaixu.html#af55a151621da35599514b2ad56e09ab5">toDegrees</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(value));</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;}</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}<span class="comment">// namespace taixu::literal</span></div>
-<div class="ttc" id="anamespacetaixu_1_1literal_html"><div class="ttname"><a href="namespacetaixu_1_1literal.html">taixu::literal</a></div><div class="ttdef"><b>Definition:</b> angle.hpp:11</div></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1literals.html#aedf109db947e9e56bb34ecfff50fc7f0">   13</a></span>&#160;constexpr <span class="keyword">auto</span> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _radf(<span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> value) noexcept -&gt; decltype(<a class="code" href="namespacetaixu.html#a7bc8d31d0ff0b5d33d40da13800f29f0">toRadians</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(value))) {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetaixu.html#a7bc8d31d0ff0b5d33d40da13800f29f0">toRadians</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(value));</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacetaixu_1_1literals.html#aa414544b4d845f5be1d70d1cb8e292ab">   17</a></span>&#160;constexpr <span class="keyword">auto</span> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _degf(<span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span> value) noexcept -&gt; decltype(<a class="code" href="namespacetaixu.html#af55a151621da35599514b2ad56e09ab5">toDegrees</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(value))) {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="namespacetaixu.html#af55a151621da35599514b2ad56e09ab5">toDegrees</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(value));</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;}<span class="comment">// namespace taixu::literals</span></div>
+<div class="ttc" id="anamespacetaixu_1_1literals_html"><div class="ttname"><a href="namespacetaixu_1_1literals.html">taixu::literals</a></div><div class="ttdef"><b>Definition:</b> tx_string.hpp:43</div></div>
 <div class="ttc" id="anamespacetaixu_html_a7bc8d31d0ff0b5d33d40da13800f29f0"><div class="ttname"><a href="namespacetaixu.html#a7bc8d31d0ff0b5d33d40da13800f29f0">taixu::toRadians</a></div><div class="ttdeci">constexpr auto toRadians</div><div class="ttdef"><b>Definition:</b> trigonometric.hpp:12</div></div>
 <div class="ttc" id="anamespacetaixu_html_af55a151621da35599514b2ad56e09ab5"><div class="ttname"><a href="namespacetaixu.html#af55a151621da35599514b2ad56e09ab5">taixu::toDegrees</a></div><div class="ttdeci">constexpr auto toDegrees</div><div class="ttdef"><b>Definition:</b> trigonometric.hpp:14</div></div>
 <div class="ttc" id="atrigonometric_8hpp_html"><div class="ttname"><a href="trigonometric_8hpp.html">trigonometric.hpp</a></div></div>
@@ -118,7 +116,7 @@ $(document).ready(function(){initNavTree('angle_8hpp_source.html',''); initResiz
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_0d6f2005140f963448af64cb7b74383c.html">common</a></li><li class="navelem"><a class="el" href="dir_9166e2b634610933b8ae57654f47cca7.html">math</a></li><li class="navelem"><a class="el" href="angle_8hpp.html">angle.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_9795ed0ff49e6338b9c901bfa7b8d431.html">common</a></li><li class="navelem"><a class="el" href="dir_ab703fa7fff71459b29a5fb329be0880.html">math</a></li><li class="navelem"><a class="el" href="angle_8hpp.html">angle.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['vulkan_5fhpp_5fno_5fexceptions_2278',['VULKAN_HPP_NO_EXCEPTIONS',['../pch__vulkan_8hpp.html#a08d8e7f96ab7fd990645f24936d5e0d3',1,'pch_vulkan.hpp']]],
-  ['vulkan_5fhpp_5fraii_5fno_5fexceptions_2279',['VULKAN_HPP_RAII_NO_EXCEPTIONS',['../pch__vulkan_8hpp.html#a5d4f3583d56550260adf440f88635373',1,'pch_vulkan.hpp']]]
+  ['unexpected_2453',['UNEXPECTED',['../result_8hpp.html#a33ed6c61d07247de6740d898a9935984',1,'result.hpp']]],
+  ['use_5fvulkan_2454',['USE_VULKAN',['../pch__vulkan_8hpp.html#a495f22792b61720cb0ec84e429c09478',1,'pch_vulkan.hpp']]]
 ];

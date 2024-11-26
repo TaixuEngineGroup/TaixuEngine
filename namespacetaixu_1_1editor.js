@@ -20,7 +20,6 @@ var namespacetaixu_1_1editor =
     [ "UsefulObjectComponent", "classtaixu_1_1editor_1_1UsefulObjectComponent.html", "classtaixu_1_1editor_1_1UsefulObjectComponent" ],
     [ "MainWindow", "classtaixu_1_1editor_1_1MainWindow.html", "classtaixu_1_1editor_1_1MainWindow" ],
     [ "FileTreeNodeT", "namespacetaixu_1_1editor.html#aa41ba514c2eebe06957b8ebcb7547c2a", null ],
-    [ "SameT", "namespacetaixu_1_1editor.html#ab68f31e20392ffe7235c7ee80fff7b58", null ],
     [ "Callbacks", "namespacetaixu_1_1editor.html#ad989d5a11311ed5001f6b1b145ee19c1", [
       [ "MENU_FILE_NEW_PROJECT", "namespacetaixu_1_1editor.html#ad989d5a11311ed5001f6b1b145ee19c1a1eefa863c6964ea18d464171a8b2f85c", null ],
       [ "FILE_OPEN_PROJECT", "namespacetaixu_1_1editor.html#ad989d5a11311ed5001f6b1b145ee19c1affa7cdba8348cfcb427aae4531759200", null ],
@@ -35,8 +34,8 @@ var namespacetaixu_1_1editor =
       [ "SELECT", "namespacetaixu_1_1editor.html#a27235577ac59dd3f1971d77bf77cefb8a63225f19fccb18e7c709f1fa11bc738e", null ],
       [ "MOVING", "namespacetaixu_1_1editor.html#a27235577ac59dd3f1971d77bf77cefb8aaf5a690fd5ec6f789dbfc51ec6a891ba", null ]
     ] ],
-    [ "OpenFileType", "namespacetaixu_1_1editor.html#adede077dbc581cf31a61edd588720d55", [
-      [ "SCENE", "namespacetaixu_1_1editor.html#adede077dbc581cf31a61edd588720d55af151a543099185593a5a87339c552698", null ]
+    [ "OpenFileType", "namespacetaixu_1_1editor.html#ae64b2a60dfe56f04cf88e00e62f607c6", [
+      [ "SCENE", "namespacetaixu_1_1editor.html#ae64b2a60dfe56f04cf88e00e62f607c6af151a543099185593a5a87339c552698", null ]
     ] ],
     [ "UsefulObject", "namespacetaixu_1_1editor.html#a79983f79fc3401d77a15d2b3cb665674", [
       [ "CUBE", "namespacetaixu_1_1editor.html#a79983f79fc3401d77a15d2b3cb665674afbfd6568f88d940b586c9ddf8f68236d", null ],

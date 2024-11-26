@@ -1,4 +1,29 @@
 var searchData=
 [
-  ['noncopyable_1578',['Noncopyable',['../classtaixu_1_1Noncopyable.html#a0f87fcf0b1c93448d25c6d21d22e19dd',1,'taixu::Noncopyable::Noncopyable()=default'],['../classtaixu_1_1Noncopyable.html#ad228bf28f02a0c289fc29862d7e6de0e',1,'taixu::Noncopyable::Noncopyable(const Noncopyable &amp;)=delete']]]
+  ['onchar_1716',['onChar',['../classWindow.html#ae48366b8871066f588097334c72a626b',1,'Window']]],
+  ['oncharmods_1717',['onCharMods',['../classWindow.html#a10dcaaa082bc65a66cd52ebca4d125a9',1,'Window']]],
+  ['oncursorenter_1718',['onCursorEnter',['../classWindow.html#a50b61bfeb262235b4a9753392cc80a4f',1,'Window']]],
+  ['oncursorpos_1719',['onCursorPos',['../classWindow.html#aa10a00e0e6332a4c441efa88db34afd5',1,'Window']]],
+  ['ondrop_1720',['onDrop',['../classWindow.html#a44dec9847cbf83b9366c63845338051d',1,'Window']]],
+  ['onkey_1721',['onKey',['../classWindow.html#ac457874955096bd30cdf87b2266cdc30',1,'Window']]],
+  ['onmousebutton_1722',['onMouseButton',['../classWindow.html#a98074dd8d41efe18b6bad7dfcedf1e37',1,'Window']]],
+  ['onreset_1723',['onReset',['../classWindow.html#ac3d3db3aead1201d928a08ecc84dc5cd',1,'Window']]],
+  ['onscroll_1724',['onScroll',['../classWindow.html#af5c2111ae425615ff0600e3191f403a8',1,'Window']]],
+  ['onwindowclose_1725',['onWindowClose',['../classWindow.html#ae5b23342e411686245d18e4ce99b32e4',1,'Window']]],
+  ['onwindowdpichanged_1726',['onWindowDPIChanged',['../classWindow.html#ae90ebac2f2aea970f306e1f7af2b1385',1,'Window']]],
+  ['onwindowsize_1727',['onWindowSize',['../classWindow.html#a12833d4431e3467c3a4563e04f992c40',1,'Window']]],
+  ['openfile_1728',['openFile',['../namespacetaixu.html#ab8a6f66c3e9aa5cf6a63b3cddef321b7',1,'taixu']]],
+  ['openfiledialog_1729',['openFileDialog',['../namespacetaixu_1_1editor.html#a0d4823c239f7af9bc500bc471f9f3fea',1,'taixu::editor']]],
+  ['openfiletypechecker_1730',['openFileTypeChecker',['../namespacetaixu_1_1editor.html#a6d2049e2b78094f7874b324457c5d1aa',1,'taixu::editor']]],
+  ['openproject_1731',['openProject',['../namespacetaixu.html#a5260a81999867fe3a6797c7aaf9c59de',1,'taixu']]],
+  ['operator_22_22_5fdegf_1732',['operator&quot;&quot;_degf',['../namespacetaixu_1_1literals.html#aa414544b4d845f5be1d70d1cb8e292ab',1,'taixu::literals']]],
+  ['operator_22_22_5fhash32_1733',['operator&quot;&quot;_hash32',['../namespacetaixu.html#abdfe3d75b1088c3f365c0da3535efd86',1,'taixu']]],
+  ['operator_22_22_5fhash64_1734',['operator&quot;&quot;_hash64',['../namespacetaixu.html#a1f67abe83f4a2adb416a8b00aec3c185',1,'taixu']]],
+  ['operator_22_22_5fradf_1735',['operator&quot;&quot;_radf',['../namespacetaixu_1_1literals.html#aedf109db947e9e56bb34ecfff50fc7f0',1,'taixu::literals']]],
+  ['operator_22_22_5ftxs_1736',['operator&quot;&quot;_txs',['../namespacetaixu_1_1literals.html#afc8c9bdcbcfc1252dd6f9e9f3b3b0afe',1,'taixu::literals']]],
+  ['operator_22_22_5ftxsv_1737',['operator&quot;&quot;_txsv',['../namespacetaixu_1_1literals.html#a5b2c7e97dc842636a8dbacc0a2a13196',1,'taixu::literals']]],
+  ['operator_22_22_5ftxws_1738',['operator&quot;&quot;_txws',['../namespacetaixu_1_1literals.html#ac25769d8bf6883fbdaaa29a6613955fd',1,'taixu::literals']]],
+  ['operator_22_22_5fuc_1739',['operator&quot;&quot;_uc',['../namespacetaixu_1_1literals.html#a8f4256056c7143bc60e25a7c1cef6a04',1,'taixu::literals']]],
+  ['operator_28_29_1740',['operator()',['../classCreateWrapperFunctor.html#a697d1b114c655999ee3f6fae908f3835',1,'CreateWrapperFunctor::operator()()'],['../classCreateSharedPtrFunctor.html#ac66ffbf7adb6beb67f7f9bfb82336b4c',1,'CreateSharedPtrFunctor::operator()()'],['../classCreateUniquePtrFunctor.html#ae357f3cb73c8d763749ed208bed6054e',1,'CreateUniquePtrFunctor::operator()()'],['../classCreateFunctor.html#a46f271edb01929cbc98873dbe4cec980',1,'CreateFunctor::operator()()'],['../classtaixu_1_1Color.html#ac260466b5047f4e768522f28eb548604',1,'taixu::Color::operator()()'],['../structtaixu_1_1Handler.html#aa50346cf78ec4a1200310cc2e3e2a349',1,'taixu::Handler::operator()()']]],
+  ['operator_3d_1741',['operator=',['../classVKAllocator.html#aada1335797e862195f9264dadf921b25',1,'VKAllocator::operator=(VKAllocator &amp;&amp;other) noexcept'],['../classVKAllocator.html#aed081b5f9e210911aaeb1479cb21ed3f',1,'VKAllocator::operator=(const VKAllocator &amp;)=delete'],['../classtaixu_1_1TXShaderModule.html#ac4a6e8e5298ce22f9d4c12f00cd9b375',1,'taixu::TXShaderModule::operator=(TXShaderModule &amp;&amp;)=default'],['../classtaixu_1_1TXShaderModule.html#a05be50950dc6a460c15217efde8c7278',1,'taixu::TXShaderModule::operator=(const TXShaderModule &amp;)=delete'],['../structtaixu_1_1StructDataNoncopyable.html#ae9c3d660b69c5bd707126c6b37a7defc',1,'taixu::StructDataNoncopyable::operator=(StructDataNoncopyable &amp;&amp;other) noexcept=default'],['../structtaixu_1_1StructDataNoncopyable.html#ae6778154f8d1196c3c139761a44c20d4',1,'taixu::StructDataNoncopyable::operator=(const StructDataNoncopyable &amp;)=delete'],['../classtaixu_1_1Noncopyable.html#a92711d5001d5f077be195f58ce6ade41',1,'taixu::Noncopyable::operator=()']]]
 ];

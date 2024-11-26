@@ -13,5 +13,8 @@ var type__utils_8hpp =
     [ "IsNumber", "type__utils_8hpp.html#a7a3245cf35c7a9e0b9ad5c5b40b117a9", null ],
     [ "IsPointer", "type__utils_8hpp.html#aee1836b1fed643ee2ab5db99bb021304", null ],
     [ "IsReference", "type__utils_8hpp.html#ade876f11654e20cb813b09bceaa46549", null ],
-    [ "IsUnion", "type__utils_8hpp.html#a3acc32686c1caca81121b3923f18b1d7", null ]
+    [ "IsUnion", "type__utils_8hpp.html#a3acc32686c1caca81121b3923f18b1d7", null ],
+    [ "IterableT", "type__utils_8hpp.html#a10778b0b8addbe3a6435641705e46589", null ],
+    [ "KeyValueContainerT", "type__utils_8hpp.html#ae894d6b3051933e86af0882ca8a5987e", null ],
+    [ "StringLikeT", "type__utils_8hpp.html#ad909f5f60de4b075b771a4013fa1c49a", null ]
 ];

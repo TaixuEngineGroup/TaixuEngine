@@ -1,7 +1,10 @@
-<map id="engine/src/runtime/include/management/render/tx_shader.hpp" name="engine/src/runtime/include/management/render/tx_shader.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="130,5,294,61"/>
-<area shape="rect" id="node2" title=" " alt="" coords="5,109,72,136"/>
-<area shape="rect" id="node3" title=" " alt="" coords="96,109,173,136"/>
-<area shape="rect" id="node4" href="$macro_8hpp.html" title=" " alt="" coords="197,109,384,136"/>
-<area shape="rect" id="node5" href="$noncopyable_8hpp.html" title=" " alt="" coords="408,109,656,136"/>
+<map id="engine/src/runtime/source/management/gfx/tx_shader.hpp" name="engine/src/runtime/source/management/gfx/tx_shader.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="25,5,210,61"/>
+<area shape="rect" id="node2" title=" " alt="" coords="13,109,80,136"/>
+<area shape="rect" id="node3" href="$macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="5,184,229,211"/>
+<area shape="rect" id="node4" href="$tx__string_8hpp.html" title=" " alt="" coords="155,109,347,136"/>
+<area shape="rect" id="node5" href="$tx__allocator_8hpp.html" title=" " alt="" coords="254,184,381,211"/>
+<area shape="rect" id="node6" title=" " alt="" coords="167,259,254,285"/>
+<area shape="rect" id="node7" title=" " alt="" coords="279,259,356,285"/>
+<area shape="rect" id="node8" title=" " alt="" coords="381,259,475,285"/>
 </map>

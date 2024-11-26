@@ -1,6 +1,7 @@
 var classtaixu_1_1MapArray =
 [
-    [ "Array", "classtaixu_1_1MapArray.html#a52b2a92c3c330ef8b56b7b9e99481f1f", null ],
+    [ "Array", "classtaixu_1_1MapArray.html#ab86ab98f33025ed0f97b079a0e96057d", null ],
+    [ "MapArray", "classtaixu_1_1MapArray.html#abdcfe5e4977aca5731f7b638657f0d08", null ],
     [ "clear", "classtaixu_1_1MapArray.html#a4167a5feea6e28f1791ead707a66f320", null ],
     [ "contains", "classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831", null ],
     [ "getData", "classtaixu_1_1MapArray.html#a3b631d4e81f7f5f0a2365c304eb6c3f6", null ],

@@ -1,8 +1,13 @@
-<map id="engine/src/runtime/include/management/ecs/object/game_object.hpp" name="engine/src/runtime/include/management/ecs/object/game_object.hpp">
-<area shape="rect" id="node1" title=" " alt="" coords="97,5,305,61"/>
-<area shape="rect" id="node2" href="$macro_8hpp.html" title=" " alt="" coords="5,117,192,143"/>
-<area shape="rect" id="node3" href="$guid__genenrator_8hpp.html" title=" " alt="" coords="216,109,395,151"/>
-<area shape="rect" id="node4" title=" " alt="" coords="181,199,248,225"/>
-<area shape="rect" id="node5" title=" " alt="" coords="272,199,339,225"/>
-<area shape="rect" id="node6" title=" " alt="" coords="363,199,421,225"/>
+<map id="engine/src/runtime/include/taixu/management/ecs/object/game_object.hpp" name="engine/src/runtime/include/taixu/management/ecs/object/game_object.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="189,5,397,61"/>
+<area shape="rect" id="node2" href="$tx__string_8hpp.html" title=" " alt="" coords="197,117,389,143"/>
+<area shape="rect" id="node3" href="$macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="5,199,229,225"/>
+<area shape="rect" id="node8" href="$guid__genenrator_8hpp.html" title=" " alt="" coords="420,109,623,151"/>
+<area shape="rect" id="node4" href="$tx__allocator_8hpp.html" title=" " alt="" coords="254,199,381,225"/>
+<area shape="rect" id="node5" title=" " alt="" coords="167,273,254,300"/>
+<area shape="rect" id="node6" title=" " alt="" coords="279,273,356,300"/>
+<area shape="rect" id="node7" title=" " alt="" coords="381,273,475,300"/>
+<area shape="rect" id="node9" title=" " alt="" coords="405,199,472,225"/>
+<area shape="rect" id="node10" title=" " alt="" coords="496,199,563,225"/>
+<area shape="rect" id="node11" title=" " alt="" coords="587,199,645,225"/>
 </map>

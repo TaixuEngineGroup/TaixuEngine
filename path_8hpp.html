@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/src/runtime/include/platform/os/path.hpp File Reference</title>
+<title>TaixuEngine: engine/src/runtime/source/platform/os/path.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,32 +89,29 @@ $(document).ready(function(){initNavTree('path_8hpp.html',''); initResizable(); 
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;filesystem&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="tx__string_8hpp_source.html">common/hal/tx_string.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for path.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="path_8hpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2include_2platform_2os_2path_8hpp" alt=""/></div>
-<map name="aengine_2src_2runtime_2include_2platform_2os_2path_8hpp" id="aengine_2src_2runtime_2include_2platform_2os_2path_8hpp">
-<area shape="rect" title=" " alt="" coords="73,5,225,61"/>
-<area shape="rect" title=" " alt="" coords="5,109,96,136"/>
-<area shape="rect" title=" " alt="" coords="120,109,179,136"/>
-<area shape="rect" title=" " alt="" coords="203,109,266,136"/>
+<div class="center"><img src="path_8hpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2source_2platform_2os_2path_8hpp" alt=""/></div>
+<map name="aengine_2src_2runtime_2source_2platform_2os_2path_8hpp" id="aengine_2src_2runtime_2source_2platform_2os_2path_8hpp">
+<area shape="rect" title=" " alt="" coords="61,5,209,61"/>
+<area shape="rect" title=" " alt="" coords="7,109,97,136"/>
+<area shape="rect" href="tx__string_8hpp.html" title=" " alt="" coords="121,109,313,136"/>
+<area shape="rect" href="macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="5,184,229,211"/>
+<area shape="rect" href="tx__allocator_8hpp.html" title=" " alt="" coords="254,184,381,211"/>
+<area shape="rect" title=" " alt="" coords="167,259,254,285"/>
+<area shape="rect" title=" " alt="" coords="279,259,356,285"/>
+<area shape="rect" title=" " alt="" coords="381,259,475,285"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="path_8hpp__dep__incl.png" border="0" usemap="#aengine_2src_2runtime_2include_2platform_2os_2path_8hppdep" alt=""/></div>
-<map name="aengine_2src_2runtime_2include_2platform_2os_2path_8hppdep" id="aengine_2src_2runtime_2include_2platform_2os_2path_8hppdep">
-<area shape="rect" title=" " alt="" coords="622,5,774,61"/>
-<area shape="rect" href="dialog__helper_8hpp.html" title=" " alt="" coords="257,117,459,158"/>
-<area shape="rect" href="file__watcher_8cpp.html" title=" " alt="" coords="483,117,675,158"/>
-<area shape="rect" href="file__component_8cpp.html" title=" " alt="" coords="699,117,937,158"/>
-<area shape="rect" href="path_8cpp.html" title=" " alt="" coords="960,109,1108,165"/>
-<area shape="rect" href="dialog__helper_8cpp.html" title=" " alt="" coords="5,213,207,255"/>
-<area shape="rect" href="menu__component_8cpp.html" title=" " alt="" coords="231,213,485,255"/>
-<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="509,213,745,255"/>
+<div class="center"><img src="path_8hpp__dep__incl.png" border="0" usemap="#aengine_2src_2runtime_2source_2platform_2os_2path_8hppdep" alt=""/></div>
+<map name="aengine_2src_2runtime_2source_2platform_2os_2path_8hppdep" id="aengine_2src_2runtime_2source_2platform_2os_2path_8hppdep">
+<area shape="rect" title=" " alt="" coords="5,5,153,61"/>
+<area shape="rect" href="path_8cpp.html" title=" " alt="" coords="5,109,153,165"/>
 </map>
 </div>
 </div>
@@ -127,33 +124,22 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a881dac0713ceac8c69161afa6b6faedc"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a881dac0713ceac8c69161afa6b6faedc">taixu::getRelativePath</a> (const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="separator:a881dac0713ceac8c69161afa6b6faedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0219b67cc3aef6ae173f46ec1282f521"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a0219b67cc3aef6ae173f46ec1282f521">taixu::fromRelativePath</a> (const std::filesystem::path &amp;directory, const std::filesystem::path &amp;relative_path)</td></tr>
-<tr class="separator:a0219b67cc3aef6ae173f46ec1282f521"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2e071cdc152ffdf10af393f5a2dcf9f"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#af2e071cdc152ffdf10af393f5a2dcf9f">taixu::fromRelativePath</a> (const std::filesystem::path &amp;relative_path)</td></tr>
-<tr class="separator:af2e071cdc152ffdf10af393f5a2dcf9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6b2bea29adb7f251249e2af52aaf6ca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ac6b2bea29adb7f251249e2af52aaf6ca">taixu::getPathSegments</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="separator:ac6b2bea29adb7f251249e2af52aaf6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3edf7c7d843186ca8ee41ab8b2a371b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b">taixu::getFileExtensions</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="separator:aa3edf7c7d843186ca8ee41ab8b2a371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa957f205abdf6df8a3ee560d0da743d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">taixu::getLastExtension</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="memdesc:aa957f205abdf6df8a3ee560d0da743d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">get last extension  <a href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">More...</a><br /></td></tr>
-<tr class="separator:aa957f205abdf6df8a3ee560d0da743d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab745f2c8831fd9505af484fc7b7566ff"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ab745f2c8831fd9505af484fc7b7566ff">taixu::getFilePureName</a> (const std::string &amp;)</td></tr>
-<tr class="separator:ab745f2c8831fd9505af484fc7b7566ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47eb4f1e632f585c389145c3e0796793"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">taixu::getRootPath</a> ()</td></tr>
-<tr class="separator:a47eb4f1e632f585c389145c3e0796793"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57787d8e552695ad3623ad435c8769fb"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">taixu::getDirectoryPath</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="memdesc:a57787d8e552695ad3623ad435c8769fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取文件的文件夹路径  <a href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">More...</a><br /></td></tr>
-<tr class="separator:a57787d8e552695ad3623ad435c8769fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b81b73fa2b6b6eef0ab629a283783ee"><td class="memItemLeft" align="right" valign="top">std::vector&lt; tx_string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a1b81b73fa2b6b6eef0ab629a283783ee">taixu::getPathSegments</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="separator:a1b81b73fa2b6b6eef0ab629a283783ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a271eb0474c99fea5e37c0be387b1433d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; tx_string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a271eb0474c99fea5e37c0be387b1433d">taixu::getFileExtensions</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="separator:a271eb0474c99fea5e37c0be387b1433d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdcc93a770a787c51725f7fa5f9f72e9"><td class="memItemLeft" align="right" valign="top">tx_string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#afdcc93a770a787c51725f7fa5f9f72e9">taixu::getLastExtension</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="memdesc:afdcc93a770a787c51725f7fa5f9f72e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">get last extension  <a href="namespacetaixu.html#afdcc93a770a787c51725f7fa5f9f72e9">More...</a><br /></td></tr>
+<tr class="separator:afdcc93a770a787c51725f7fa5f9f72e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f58276408839984f8f07a42eac587f"><td class="memItemLeft" align="right" valign="top">tx_string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#af3f58276408839984f8f07a42eac587f">taixu::getFilePureName</a> (const tx_string &amp;file_full_name)</td></tr>
+<tr class="separator:af3f58276408839984f8f07a42eac587f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_becfb3e9e13d2aa366ce6299284601de.html">platform</a></li><li class="navelem"><a class="el" href="dir_2eafc291f1e7319d062da94630a1576a.html">os</a></li><li class="navelem"><a class="el" href="path_8hpp.html">path.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_7c8a083d2198b08471984ea43c698820.html">platform</a></li><li class="navelem"><a class="el" href="dir_221272e46eeb4da9ea9b3a09a87cd17f.html">os</a></li><li class="navelem"><a class="el" href="path_8hpp.html">path.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

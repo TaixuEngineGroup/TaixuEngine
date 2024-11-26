@@ -140,9 +140,6 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:aa41ba514c2eebe06957b8ebcb7547c2a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#aa41ba514c2eebe06957b8ebcb7547c2a">FileTreeNodeT</a> = <a class="el" href="structtaixu_1_1editor_1_1FileChildrensHierarchyDataNode.html">FileChildrensHierarchyDataNode</a>&lt; <a class="el" href="structtaixu_1_1editor_1_1FileEntryModel.html">FileEntryModel</a> &gt;</td></tr>
 <tr class="separator:aa41ba514c2eebe06957b8ebcb7547c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab68f31e20392ffe7235c7ee80fff7b58"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ab68f31e20392ffe7235c7ee80fff7b58"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#ab68f31e20392ffe7235c7ee80fff7b58">SameT</a> = T</td></tr>
-<tr class="separator:ab68f31e20392ffe7235c7ee80fff7b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -156,9 +153,9 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacetaixu_1_1editor.html#a842a3a32c4c203a71847b16624d07343a28766b4be065d0c806c2e9c9d914af48">DIRECTORY</a>
  }</td></tr>
 <tr class="separator:a842a3a32c4c203a71847b16624d07343"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adede077dbc581cf31a61edd588720d55"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#adede077dbc581cf31a61edd588720d55">OpenFileType</a> { <a class="el" href="namespacetaixu_1_1editor.html#adede077dbc581cf31a61edd588720d55af151a543099185593a5a87339c552698">SCENE</a>
+<tr class="memitem:ae64b2a60dfe56f04cf88e00e62f607c6"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#ae64b2a60dfe56f04cf88e00e62f607c6">OpenFileType</a> : uint8_t { <a class="el" href="namespacetaixu_1_1editor.html#ae64b2a60dfe56f04cf88e00e62f607c6af151a543099185593a5a87339c552698">SCENE</a>
  }</td></tr>
-<tr class="separator:adede077dbc581cf31a61edd588720d55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:ae64b2a60dfe56f04cf88e00e62f607c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a27235577ac59dd3f1971d77bf77cefb8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#a27235577ac59dd3f1971d77bf77cefb8">MovingState</a> { <a class="el" href="namespacetaixu_1_1editor.html#a27235577ac59dd3f1971d77bf77cefb8a63225f19fccb18e7c709f1fa11bc738e">SELECT</a>
 , <a class="el" href="namespacetaixu_1_1editor.html#a27235577ac59dd3f1971d77bf77cefb8aaf5a690fd5ec6f789dbfc51ec6a891ba">MOVING</a>
  }</td></tr>
@@ -188,7 +185,7 @@ Functions</h2></td></tr>
 <tr class="separator:ab019b9b42e61d7ada92e1a45fa3dc4d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ab5f74db5df14f9a602e2da8da0ee65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#a2ab5f74db5df14f9a602e2da8da0ee65">recursiveLoadFileTree</a> (<a class="el" href="namespacetaixu_1_1editor.html#aa41ba514c2eebe06957b8ebcb7547c2a">FileTreeNodeT</a> &amp;entry)</td></tr>
 <tr class="separator:a2ab5f74db5df14f9a602e2da8da0ee65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d2049e2b78094f7874b324457c5d1aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetaixu_1_1editor.html#adede077dbc581cf31a61edd588720d55">OpenFileType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#a6d2049e2b78094f7874b324457c5d1aa">openFileTypeChecker</a> (std::filesystem::path const &amp;path)</td></tr>
+<tr class="memitem:a6d2049e2b78094f7874b324457c5d1aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacetaixu_1_1editor.html#ae64b2a60dfe56f04cf88e00e62f607c6">OpenFileType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#a6d2049e2b78094f7874b324457c5d1aa">openFileTypeChecker</a> (std::filesystem::path const &amp;path)</td></tr>
 <tr class="separator:a6d2049e2b78094f7874b324457c5d1aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac71b253fe812e82b42967aa5cbeeb55a"><td class="memItemLeft" align="right" valign="top">auto&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu_1_1editor.html#ac71b253fe812e82b42967aa5cbeeb55a">buildUsefulObject</a> ()</td></tr>
 <tr class="separator:ac71b253fe812e82b42967aa5cbeeb55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -213,22 +210,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespacetaixu_1_1editor.html#aa41ba514c2eebe06957b8ebcb7547c2a">taixu::editor::FileTreeNodeT</a> = typedef <a class="el" href="structtaixu_1_1editor_1_1FileChildrensHierarchyDataNode.html">FileChildrensHierarchyDataNode</a>&lt;<a class="el" href="structtaixu_1_1editor_1_1FileEntryModel.html">FileEntryModel</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab68f31e20392ffe7235c7ee80fff7b58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab68f31e20392ffe7235c7ee80fff7b58">&#9670;&nbsp;</a></span>SameT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacetaixu_1_1editor.html#ab68f31e20392ffe7235c7ee80fff7b58">taixu::editor::SameT</a> = typedef T</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -316,8 +297,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="adede077dbc581cf31a61edd588720d55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adede077dbc581cf31a61edd588720d55">&#9670;&nbsp;</a></span>OpenFileType</h2>
+<a id="ae64b2a60dfe56f04cf88e00e62f607c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae64b2a60dfe56f04cf88e00e62f607c6">&#9670;&nbsp;</a></span>OpenFileType</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +307,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="namespacetaixu_1_1editor.html#adede077dbc581cf31a61edd588720d55">taixu::editor::OpenFileType</a></td>
+          <td class="memname">enum <a class="el" href="namespacetaixu_1_1editor.html#ae64b2a60dfe56f04cf88e00e62f607c6">taixu::editor::OpenFileType</a> : uint8_t</td>
         </tr>
       </table>
   </td>
@@ -336,7 +317,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adede077dbc581cf31a61edd588720d55af151a543099185593a5a87339c552698"></a>SCENE&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae64b2a60dfe56f04cf88e00e62f607c6af151a543099185593a5a87339c552698"></a>SCENE&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -556,7 +537,7 @@ template&lt;class... TArgs&gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespacetaixu_1_1editor.html#adede077dbc581cf31a61edd588720d55">OpenFileType</a> taixu::editor::openFileTypeChecker </td>
+          <td class="memname"><a class="el" href="namespacetaixu_1_1editor.html#ae64b2a60dfe56f04cf88e00e62f607c6">OpenFileType</a> taixu::editor::openFileTypeChecker </td>
           <td>(</td>
           <td class="paramtype">std::filesystem::path const &amp;&#160;</td>
           <td class="paramname"><em>path</em></td><td>)</td>

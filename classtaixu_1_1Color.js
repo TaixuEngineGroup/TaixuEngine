@@ -9,5 +9,5 @@ var classtaixu_1_1Color =
     [ "value_ptr", "classtaixu_1_1Color.html#a2de7b4f7b24a907bc51ea76d5c0e5dcf", null ],
     [ "operator!=", "classtaixu_1_1Color.html#a05f999bf3fcadc30a3f81112ba6bb058", null ],
     [ "operator==", "classtaixu_1_1Color.html#aa09b529dd5d916f3e5fd2676c336e1c9", null ],
-    [ "value", "classtaixu_1_1Color.html#af012561718428d63b93cb562b65d7e81", null ]
+    [ "_value", "classtaixu_1_1Color.html#a78e462add9dea592ccd2ffeaea464566", null ]
 ];

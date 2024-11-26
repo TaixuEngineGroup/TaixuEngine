@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['debug_5flog_2187',['DEBUG_LOG',['../logger_8hpp.html#a21a2c7330a04ac78200a986f66609369',1,'logger.hpp']]],
-  ['debug_5flog_5floc_2188',['DEBUG_LOG_LOC',['../logger_8hpp.html#ab7433da0cb120428d78d180228b022d1',1,'logger.hpp']]],
-  ['delete_5fcopy_5ftrait_2189',['DELETE_COPY_TRAIT',['../macro_8hpp.html#a24e55f2dc9114fa9614265f1074dd861',1,'macro.hpp']]]
+  ['begin_5ftaixu_5feditor_5fnamespace_2342',['BEGIN_TAIXU_EDITOR_NAMESPACE',['../editor__defs_8hpp.html#acbb22930e82f13ef49ec0a52a66334b7',1,'editor_defs.hpp']]]
 ];

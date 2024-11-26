@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['m_5fpi_2203',['M_PI',['../math_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3',1,'math.hpp']]]
+  ['log_5fsource_5floc_2360',['LOG_SOURCE_LOC',['../logger_8hpp.html#ad69d98ef07a203d5be3793004b9a5774',1,'logger.hpp']]]
 ];

@@ -1,0 +1,11 @@
+<map id="engine/src/runtime/source/management/gfx/tx_command_queue.hpp" name="engine/src/runtime/source/management/gfx/tx_command_queue.hpp">
+<area shape="rect" id="node1" title=" " alt="" coords="253,5,439,61"/>
+<area shape="rect" id="node2" href="$ring__buffer_8hpp.html" title=" " alt="" coords="135,109,309,151"/>
+<area shape="rect" id="node8" href="$macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="287,199,511,225"/>
+<area shape="rect" id="node9" href="$tx__command_8hpp.html" title=" " alt="" coords="384,117,519,143"/>
+<area shape="rect" id="node3" href="$tx__container_8hpp.html" title=" " alt="" coords="48,199,263,225"/>
+<area shape="rect" id="node4" href="$tx__allocator_8hpp.html" title=" " alt="" coords="92,273,219,300"/>
+<area shape="rect" id="node5" title=" " alt="" coords="5,348,92,375"/>
+<area shape="rect" id="node6" title=" " alt="" coords="117,348,194,375"/>
+<area shape="rect" id="node7" title=" " alt="" coords="219,348,313,375"/>
+</map>

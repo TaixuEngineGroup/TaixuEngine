@@ -89,71 +89,95 @@ $(document).ready(function(){initNavTree('type__utils_8hpp_source.html',''); ini
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Created by xmmmmmovo on 1/19/2024.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef TYPE_UTILS_HPP_F632F579D1484A6BB335C3B82355AAB3</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#define TYPE_UTILS_HPP_F632F579D1484A6BB335C3B82355AAB3</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a7a3245cf35c7a9e0b9ad5c5b40b117a9">   14</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a7a3245cf35c7a9e0b9ad5c5b40b117a9">IsNumber</a> = std::is_arithmetic_v&lt;T&gt;;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a13d597a08b4d6a28051b51d88a94ec3c">   17</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a13d597a08b4d6a28051b51d88a94ec3c">IsIntegral</a> = std::is_integral_v&lt;T&gt;;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a88ec0da0385a6be2375533ce5fc1fde5">   20</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a88ec0da0385a6be2375533ce5fc1fde5">IsFloat</a> = std::is_floating_point_v&lt;T&gt;;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespacetaixu.html#aee1836b1fed643ee2ab5db99bb021304">   23</a></span>&#160;concept <a class="code" href="namespacetaixu.html#aee1836b1fed643ee2ab5db99bb021304">IsPointer</a> = std::is_pointer_v&lt;T&gt;;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="namespacetaixu.html#ade876f11654e20cb813b09bceaa46549">   26</a></span>&#160;concept <a class="code" href="namespacetaixu.html#ade876f11654e20cb813b09bceaa46549">IsReference</a> = std::is_reference_v&lt;T&gt;;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Test, <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Ref&gt;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structtaixu_1_1IsSpecialization.html">   29</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1IsSpecialization.html">IsSpecialization</a> : std::false_type {};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Ref, <span class="keyword">typename</span>... Args&gt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structtaixu_1_1IsSpecialization_3_01Ref_3_01Args_8_8_8_01_4_00_01Ref_01_4.html">   32</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1IsSpecialization.html">IsSpecialization</a>&lt;Ref&lt;Args...&gt;, Ref&gt; : std::true_type {};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structtaixu_1_1IsArray.html">   35</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1IsArray.html">IsArray</a> : std::is_array&lt;T&gt; {};</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structtaixu_1_1IsArray_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html">   37</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1IsArray.html">IsArray</a>&lt;std::array&lt;T, N&gt;&gt; : std::true_type {};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="namespacetaixu.html#af5313308d637cfe75021720951276645">   40</a></span>&#160;concept <a class="code" href="namespacetaixu.html#af5313308d637cfe75021720951276645">IsFunction</a> = std::is_function_v&lt;T&gt;;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a6d0d91a113758b7ddde624008dd8d3b2">   43</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a6d0d91a113758b7ddde624008dd8d3b2">IsEnum</a> = std::is_enum_v&lt;T&gt;;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a0b08ef4f103903c7b6f588e606ac2160">   46</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a0b08ef4f103903c7b6f588e606ac2160">IsClass</a> = std::is_class_v&lt;T&gt;;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a3acc32686c1caca81121b3923f18b1d7">   49</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a3acc32686c1caca81121b3923f18b1d7">IsUnion</a> = std::is_union_v&lt;T&gt;;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a950736f82e2569fa8f180cc4e0368926">   52</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#a950736f82e2569fa8f180cc4e0368926">SameT</a> = T;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}<span class="comment">// namespace taixu</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span><span class="comment">// TYPE_UTILS_HPP_F632F579D1484A6BB335C3B82355AAB3</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacetaixu.html">taixu</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a7a3245cf35c7a9e0b9ad5c5b40b117a9">   13</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a7a3245cf35c7a9e0b9ad5c5b40b117a9">IsNumber</a> = std::is_arithmetic_v&lt;T&gt;;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a13d597a08b4d6a28051b51d88a94ec3c">   16</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a13d597a08b4d6a28051b51d88a94ec3c">IsIntegral</a> = std::is_integral_v&lt;T&gt;;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a88ec0da0385a6be2375533ce5fc1fde5">   19</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a88ec0da0385a6be2375533ce5fc1fde5">IsFloat</a> = std::is_floating_point_v&lt;T&gt;;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="namespacetaixu.html#aee1836b1fed643ee2ab5db99bb021304">   22</a></span>&#160;concept <a class="code" href="namespacetaixu.html#aee1836b1fed643ee2ab5db99bb021304">IsPointer</a> = std::is_pointer_v&lt;T&gt;;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="namespacetaixu.html#ade876f11654e20cb813b09bceaa46549">   25</a></span>&#160;concept <a class="code" href="namespacetaixu.html#ade876f11654e20cb813b09bceaa46549">IsReference</a> = std::is_reference_v&lt;T&gt;;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> Test, <span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Ref&gt;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structtaixu_1_1IsSpecialization.html">   28</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1IsSpecialization.html">IsSpecialization</a> : std::false_type {};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class </span>Ref, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structtaixu_1_1IsSpecialization_3_01Ref_3_01Args_8_8_8_01_4_00_01Ref_01_4.html">   31</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1IsSpecialization.html">IsSpecialization</a>&lt;Ref&lt;Args...&gt;, Ref&gt; : std::true_type {};</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structtaixu_1_1IsArray.html">   34</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1IsArray.html">IsArray</a> : std::is_array&lt;T&gt; {};</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structtaixu_1_1IsArray_3_01std_1_1array_3_01T_00_01N_01_4_01_4.html">   36</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structtaixu_1_1IsArray.html">IsArray</a>&lt;std::array&lt;T, N&gt;&gt; : std::true_type {};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacetaixu.html#af5313308d637cfe75021720951276645">   39</a></span>&#160;concept <a class="code" href="namespacetaixu.html#af5313308d637cfe75021720951276645">IsFunction</a> = std::is_function_v&lt;T&gt;;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a6d0d91a113758b7ddde624008dd8d3b2">   42</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a6d0d91a113758b7ddde624008dd8d3b2">IsEnum</a> = std::is_enum_v&lt;T&gt;;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a0b08ef4f103903c7b6f588e606ac2160">   45</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a0b08ef4f103903c7b6f588e606ac2160">IsClass</a> = std::is_class_v&lt;T&gt;;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a3acc32686c1caca81121b3923f18b1d7">   48</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a3acc32686c1caca81121b3923f18b1d7">IsUnion</a> = std::is_union_v&lt;T&gt;;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a950736f82e2569fa8f180cc4e0368926">   51</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespacetaixu.html#a950736f82e2569fa8f180cc4e0368926">SameT</a> = T;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="namespacetaixu.html#ad909f5f60de4b075b771a4013fa1c49a">   54</a></span>&#160;concept <a class="code" href="namespacetaixu.html#ad909f5f60de4b075b771a4013fa1c49a">StringLikeT</a> =</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        std::is_same_v&lt;std::decay_t&lt;T&gt;, std::basic_string&lt;<span class="keyword">typename</span> T::value_type, <span class="keyword">typename</span> T::traits_type,</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                                          <span class="keyword">typename</span> T::allocator_type&gt;&gt;<span class="comment">// std::string</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        || std::is_same_v&lt;std::decay_t&lt;T&gt;, std::basic_string_view&lt;<span class="keyword">typename</span> T::value_type,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                                                                  <span class="keyword">typename</span> T::traits_type&gt;&gt;<span class="comment">// std::string_view</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        || std::is_same_v&lt;std::decay_t&lt;T&gt;, <span class="keyword">const</span> <span class="keywordtype">char</span>*&gt;                                    <span class="comment">// const char*</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        || std::is_same_v&lt;std::decay_t&lt;T&gt;, <span class="keywordtype">char</span>*&gt;                                          <span class="comment">// char*</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        || std::is_array_v&lt;std::decay_t&lt;T&gt;&gt;;                                               <span class="comment">// char[] and other arrays;</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="namespacetaixu.html#a10778b0b8addbe3a6435641705e46589">   69</a></span>&#160;concept <a class="code" href="namespacetaixu.html#a10778b0b8addbe3a6435641705e46589">IterableT</a> = requires(T t) {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    { std::begin(t) } -&gt; std::input_or_output_iterator;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    { std::end(t) } -&gt; std::input_or_output_iterator;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;};</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">// Concept to check if a container has key-value pairs (i.e., maps)</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="namespacetaixu.html#ae894d6b3051933e86af0882ca8a5987e">   76</a></span>&#160;concept <a class="code" href="namespacetaixu.html#ae894d6b3051933e86af0882ca8a5987e">KeyValueContainerT</a> = requires(T t) {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keyword">typename</span> T::value_type;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="comment">// Ensure that value_type is a pair (key-value pair)</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    requires std::is_same_v&lt;typename T::value_type, std::pair&lt;const typename T::key_type, typename T::mapped_type&gt;&gt;;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}<span class="comment">// namespace taixu</span></div>
 <div class="ttc" id="anamespacetaixu_html"><div class="ttname"><a href="namespacetaixu.html">taixu</a></div><div class="ttdef"><b>Definition:</b> dialog_helper.cpp:7</div></div>
-<div class="ttc" id="anamespacetaixu_html_a0b08ef4f103903c7b6f588e606ac2160"><div class="ttname"><a href="namespacetaixu.html#a0b08ef4f103903c7b6f588e606ac2160">taixu::IsClass</a></div><div class="ttdeci">concept IsClass</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:46</div></div>
-<div class="ttc" id="anamespacetaixu_html_a13d597a08b4d6a28051b51d88a94ec3c"><div class="ttname"><a href="namespacetaixu.html#a13d597a08b4d6a28051b51d88a94ec3c">taixu::IsIntegral</a></div><div class="ttdeci">concept IsIntegral</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:17</div></div>
-<div class="ttc" id="anamespacetaixu_html_a3acc32686c1caca81121b3923f18b1d7"><div class="ttname"><a href="namespacetaixu.html#a3acc32686c1caca81121b3923f18b1d7">taixu::IsUnion</a></div><div class="ttdeci">concept IsUnion</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:49</div></div>
-<div class="ttc" id="anamespacetaixu_html_a6d0d91a113758b7ddde624008dd8d3b2"><div class="ttname"><a href="namespacetaixu.html#a6d0d91a113758b7ddde624008dd8d3b2">taixu::IsEnum</a></div><div class="ttdeci">concept IsEnum</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:43</div></div>
-<div class="ttc" id="anamespacetaixu_html_a7a3245cf35c7a9e0b9ad5c5b40b117a9"><div class="ttname"><a href="namespacetaixu.html#a7a3245cf35c7a9e0b9ad5c5b40b117a9">taixu::IsNumber</a></div><div class="ttdeci">concept IsNumber</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:14</div></div>
-<div class="ttc" id="anamespacetaixu_html_a88ec0da0385a6be2375533ce5fc1fde5"><div class="ttname"><a href="namespacetaixu.html#a88ec0da0385a6be2375533ce5fc1fde5">taixu::IsFloat</a></div><div class="ttdeci">concept IsFloat</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:20</div></div>
-<div class="ttc" id="anamespacetaixu_html_a950736f82e2569fa8f180cc4e0368926"><div class="ttname"><a href="namespacetaixu.html#a950736f82e2569fa8f180cc4e0368926">taixu::SameT</a></div><div class="ttdeci">T SameT</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:52</div></div>
-<div class="ttc" id="anamespacetaixu_html_ade876f11654e20cb813b09bceaa46549"><div class="ttname"><a href="namespacetaixu.html#ade876f11654e20cb813b09bceaa46549">taixu::IsReference</a></div><div class="ttdeci">concept IsReference</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:26</div></div>
-<div class="ttc" id="anamespacetaixu_html_aee1836b1fed643ee2ab5db99bb021304"><div class="ttname"><a href="namespacetaixu.html#aee1836b1fed643ee2ab5db99bb021304">taixu::IsPointer</a></div><div class="ttdeci">concept IsPointer</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:23</div></div>
-<div class="ttc" id="anamespacetaixu_html_af5313308d637cfe75021720951276645"><div class="ttname"><a href="namespacetaixu.html#af5313308d637cfe75021720951276645">taixu::IsFunction</a></div><div class="ttdeci">concept IsFunction</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:40</div></div>
-<div class="ttc" id="astructtaixu_1_1IsArray_html"><div class="ttname"><a href="structtaixu_1_1IsArray.html">taixu::IsArray</a></div><div class="ttdef"><b>Definition:</b> type_utils.hpp:35</div></div>
-<div class="ttc" id="astructtaixu_1_1IsSpecialization_html"><div class="ttname"><a href="structtaixu_1_1IsSpecialization.html">taixu::IsSpecialization</a></div><div class="ttdef"><b>Definition:</b> type_utils.hpp:29</div></div>
+<div class="ttc" id="anamespacetaixu_html_a0b08ef4f103903c7b6f588e606ac2160"><div class="ttname"><a href="namespacetaixu.html#a0b08ef4f103903c7b6f588e606ac2160">taixu::IsClass</a></div><div class="ttdeci">concept IsClass</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:45</div></div>
+<div class="ttc" id="anamespacetaixu_html_a10778b0b8addbe3a6435641705e46589"><div class="ttname"><a href="namespacetaixu.html#a10778b0b8addbe3a6435641705e46589">taixu::IterableT</a></div><div class="ttdeci">concept IterableT</div><div class="ttdoc">iterable type</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:69</div></div>
+<div class="ttc" id="anamespacetaixu_html_a13d597a08b4d6a28051b51d88a94ec3c"><div class="ttname"><a href="namespacetaixu.html#a13d597a08b4d6a28051b51d88a94ec3c">taixu::IsIntegral</a></div><div class="ttdeci">concept IsIntegral</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:16</div></div>
+<div class="ttc" id="anamespacetaixu_html_a3acc32686c1caca81121b3923f18b1d7"><div class="ttname"><a href="namespacetaixu.html#a3acc32686c1caca81121b3923f18b1d7">taixu::IsUnion</a></div><div class="ttdeci">concept IsUnion</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:48</div></div>
+<div class="ttc" id="anamespacetaixu_html_a6d0d91a113758b7ddde624008dd8d3b2"><div class="ttname"><a href="namespacetaixu.html#a6d0d91a113758b7ddde624008dd8d3b2">taixu::IsEnum</a></div><div class="ttdeci">concept IsEnum</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:42</div></div>
+<div class="ttc" id="anamespacetaixu_html_a7a3245cf35c7a9e0b9ad5c5b40b117a9"><div class="ttname"><a href="namespacetaixu.html#a7a3245cf35c7a9e0b9ad5c5b40b117a9">taixu::IsNumber</a></div><div class="ttdeci">concept IsNumber</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:13</div></div>
+<div class="ttc" id="anamespacetaixu_html_a88ec0da0385a6be2375533ce5fc1fde5"><div class="ttname"><a href="namespacetaixu.html#a88ec0da0385a6be2375533ce5fc1fde5">taixu::IsFloat</a></div><div class="ttdeci">concept IsFloat</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:19</div></div>
+<div class="ttc" id="anamespacetaixu_html_a950736f82e2569fa8f180cc4e0368926"><div class="ttname"><a href="namespacetaixu.html#a950736f82e2569fa8f180cc4e0368926">taixu::SameT</a></div><div class="ttdeci">T SameT</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:51</div></div>
+<div class="ttc" id="anamespacetaixu_html_ad909f5f60de4b075b771a4013fa1c49a"><div class="ttname"><a href="namespacetaixu.html#ad909f5f60de4b075b771a4013fa1c49a">taixu::StringLikeT</a></div><div class="ttdeci">concept StringLikeT</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:54</div></div>
+<div class="ttc" id="anamespacetaixu_html_ade876f11654e20cb813b09bceaa46549"><div class="ttname"><a href="namespacetaixu.html#ade876f11654e20cb813b09bceaa46549">taixu::IsReference</a></div><div class="ttdeci">concept IsReference</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:25</div></div>
+<div class="ttc" id="anamespacetaixu_html_ae894d6b3051933e86af0882ca8a5987e"><div class="ttname"><a href="namespacetaixu.html#ae894d6b3051933e86af0882ca8a5987e">taixu::KeyValueContainerT</a></div><div class="ttdeci">concept KeyValueContainerT</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:76</div></div>
+<div class="ttc" id="anamespacetaixu_html_aee1836b1fed643ee2ab5db99bb021304"><div class="ttname"><a href="namespacetaixu.html#aee1836b1fed643ee2ab5db99bb021304">taixu::IsPointer</a></div><div class="ttdeci">concept IsPointer</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:22</div></div>
+<div class="ttc" id="anamespacetaixu_html_af5313308d637cfe75021720951276645"><div class="ttname"><a href="namespacetaixu.html#af5313308d637cfe75021720951276645">taixu::IsFunction</a></div><div class="ttdeci">concept IsFunction</div><div class="ttdef"><b>Definition:</b> type_utils.hpp:39</div></div>
+<div class="ttc" id="astructtaixu_1_1IsArray_html"><div class="ttname"><a href="structtaixu_1_1IsArray.html">taixu::IsArray</a></div><div class="ttdef"><b>Definition:</b> type_utils.hpp:34</div></div>
+<div class="ttc" id="astructtaixu_1_1IsSpecialization_html"><div class="ttname"><a href="structtaixu_1_1IsSpecialization.html">taixu::IsSpecialization</a></div><div class="ttdef"><b>Definition:</b> type_utils.hpp:28</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

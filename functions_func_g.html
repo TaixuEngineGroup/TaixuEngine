@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="classtaixu_1_1RandomNumberGenerator.html#a74cd7a53ce51483ca77720e12dc1507c">taixu::RandomNumberGenerator&lt; RandomEngine &gt;</a>
 </li>
 <li>getArgs()
-: <a class="el" href="classtaixu_1_1Engine.html#a81023e38d06ca7b52fb8f00869e2183c">taixu::Engine</a>
+: <a class="el" href="classEngine.html#a6350bbdcf5ba88465cbaf4c417e07b0c">Engine</a>
 </li>
 <li>getBuiltinShaderModule()
 : <a class="el" href="classtaixu_1_1TXShaderModuleManager.html#ab188f3901e7dc585c1113af431b9ab51">taixu::TXShaderModuleManager</a>
@@ -112,7 +112,10 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 , <a class="el" href="classtaixu_1_1MapArray.html#a3b631d4e81f7f5f0a2365c304eb6c3f6">taixu::MapArray&lt; Key, Value, Size &gt;</a>
 </li>
 <li>getDeltaTime()
-: <a class="el" href="classtaixu_1_1CpuClock.html#a36be163b846fee95edecac8bf7cf2f01">taixu::CpuClock</a>
+: <a class="el" href="classCpuClock.html#a2b741236555b942adb6ea45ebcd4d1c2">CpuClock</a>
+</li>
+<li>getEngineArgs()
+: <a class="el" href="classEngine.html#aaca47f36456f44ee1c6df97a6a7a772a">Engine</a>
 </li>
 <li>getEntityCount()
 : <a class="el" href="classtaixu_1_1ECSCoordinator.html#a6aa6e0df06685eff415b86c758d5098c">taixu::ECSCoordinator</a>
@@ -121,19 +124,13 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="classtaixu_1_1Event.html#abf074ad57aa8bfaebcad99d78c379af7">taixu::Event</a>
 </li>
 <li>getFPS()
-: <a class="el" href="classtaixu_1_1CpuClock.html#a3bf063be2feca5dec1384345757016b4">taixu::CpuClock</a>
-</li>
-<li>getHandle()
-: <a class="el" href="classtaixu_1_1TXObject.html#a8ee10d5c372b293ea6c5a7707e7a14cf">taixu::TXObject&lt; ParentT, HandleT, DestroyFnT &gt;</a>
+: <a class="el" href="classCpuClock.html#ac25d2eb0a22125951f1ccffcdc11bfb4">CpuClock</a>
 </li>
 <li>getInputState()
 : <a class="el" href="classtaixu_1_1InputSystem.html#ab7c22c5688ce6a3bb595f9b1f3bb1893">taixu::InputSystem</a>
 </li>
-<li>getInstance()
-: <a class="el" href="classtaixu_1_1PublicSingleton.html#aeb634e3e104633939dc568bc9f1bc910">taixu::PublicSingleton&lt; T &gt;</a>
-</li>
 <li>getOpenedProject()
-: <a class="el" href="classtaixu_1_1Engine.html#a07237683b62b7459acd02659ae710e6b">taixu::Engine</a>
+: <a class="el" href="classEngine.html#a1c1c474bd57698961e9e0c8cd0fd6aaf">Engine</a>
 </li>
 <li>GetParam()
 : <a class="el" href="classtaixu_1_1Event.html#aee1a6f62cbe2b94bbe182ce2563bcc0c">taixu::Event</a>
@@ -142,20 +139,39 @@ $(document).ready(function(){initNavTree('functions_func_g.html',''); initResiza
 : <a class="el" href="classtaixu_1_1EulerCamera.html#ad9d10df60a774b20697cd0c03c6a0a57">taixu::EulerCamera</a>
 </li>
 <li>getRawWindow()
-: <a class="el" href="classtaixu_1_1Window.html#ae6c309e6fa9de2913cf5c8fb5687f857">taixu::Window</a>
+: <a class="el" href="classtaixu_1_1GLFWWindow.html#a3ee03a1a260f4e37d75faf6e0456b95a">taixu::GLFWWindow</a>
 </li>
 <li>getSignature()
 : <a class="el" href="classtaixu_1_1EntityManager.html#a4dae1b73c2de689bd7edab1800a3c713">taixu::EntityManager</a>
 , <a class="el" href="classtaixu_1_1SystemManager.html#a79718d7821b187a52d34af7ef0a74dac">taixu::SystemManager</a>
 </li>
 <li>getTimeSinceStart()
-: <a class="el" href="classtaixu_1_1CpuClock.html#af4e66fc9f39cdb0d38b687faf85fdb37">taixu::CpuClock</a>
+: <a class="el" href="classCpuClock.html#a9e9faee20c371d217ccaa34bb0c98237">CpuClock</a>
 </li>
 <li>getViewMatrix()
 : <a class="el" href="classtaixu_1_1EulerCamera.html#a0ee0cfd8946bb5fd79cf3322c0805161">taixu::EulerCamera</a>
 </li>
+<li>getVKFramebuffer()
+: <a class="el" href="classVKFramebuffer.html#aca6ebbf98cebad2bfad62adaf28e1821">VKFramebuffer</a>
+</li>
+<li>getVKPipeline()
+: <a class="el" href="classVKPipeline.html#a2ea39180a52e7ba5f0ababe73f5c60a8">VKPipeline</a>
+</li>
+<li>getVKRenderPass()
+: <a class="el" href="classVKRenderPass.html#afe41b584271d7164b46ead64e87657e3">VKRenderPass</a>
+</li>
+<li>getVKShaderModule()
+: <a class="el" href="classVKShaderMod.html#a2f13c60b604ea38fe0ec6c0bcb306b66">VKShaderMod</a>
+</li>
 <li>getVulkanInstanceExtensions()
-: <a class="el" href="classtaixu_1_1Window.html#a8d9791516f7e5d0075920126c10b8d65">taixu::Window</a>
+: <a class="el" href="classtaixu_1_1GLFWWindow.html#a5e068f26d14e5ee1e266cb14926e97a0">taixu::GLFWWindow</a>
+</li>
+<li>getWindowAPI()
+: <a class="el" href="classtaixu_1_1GLFWWindow.html#a1eba1c36e9dd8a42be303a9b080aae6c">taixu::GLFWWindow</a>
+, <a class="el" href="classWindow.html#ace37e8c7cab42b3049d33b8b6a09c88d">Window</a>
+</li>
+<li>GLFWWindow()
+: <a class="el" href="classtaixu_1_1GLFWWindow.html#a70a02dafd236160b5a0e48c992265130">taixu::GLFWWindow</a>
 </li>
 </ul>
 </div><!-- contents -->

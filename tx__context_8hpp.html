@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>TaixuEngine: engine/src/runtime/include/management/render/tx_context.hpp File Reference</title>
+<title>TaixuEngine: engine/src/runtime/source/management/gfx/tx_context.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,46 +83,65 @@ $(document).ready(function(){initNavTree('tx__context_8hpp.html',''); initResiza
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">tx_context.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="noncopyable_8hpp_source.html">common/designs/noncopyable.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="window_8hpp_source.html">gameplay/gui/window.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="tx__device_8hpp_source.html">tx_device.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;proxy.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="custom__fmt_8hpp_source.html">common/log/custom_fmt.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="abstract__factory_8hpp_source.html">taixu/common/designs/abstract_factory.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="logger_8hpp_source.html">taixu/common/log/logger.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="window_8hpp_source.html">taixu/gameplay/gui/window.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tx__shader_8hpp_source.html">tx_shader.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for tx_context.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="tx__context_8hpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2include_2management_2render_2tx__context_8hpp" alt=""/></div>
-<map name="aengine_2src_2runtime_2include_2management_2render_2tx__context_8hpp" id="aengine_2src_2runtime_2include_2management_2render_2tx__context_8hpp">
-<area shape="rect" title=" " alt="" coords="653,5,823,61"/>
-<area shape="rect" href="noncopyable_8hpp.html" title=" " alt="" coords="662,184,910,211"/>
-<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="434,109,626,136"/>
-<area shape="rect" href="tx__device_8hpp.html" title=" " alt="" coords="776,109,889,136"/>
-<area shape="rect" title=" " alt="" coords="5,184,92,211"/>
-<area shape="rect" href="core_8hpp.html" title=" " alt="" coords="116,184,291,211"/>
-<area shape="rect" href="macro_8hpp.html" title=" " alt="" coords="315,184,502,211"/>
-<area shape="rect" title=" " alt="" coords="527,184,637,211"/>
-<area shape="rect" title=" " alt="" coords="934,184,1102,211"/>
+<div class="center"><img src="tx__context_8hpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2source_2management_2gfx_2tx__context_8hpp" alt=""/></div>
+<map name="aengine_2src_2runtime_2source_2management_2gfx_2tx__context_8hpp" id="aengine_2src_2runtime_2source_2management_2gfx_2tx__context_8hpp">
+<area shape="rect" title=" " alt="" coords="507,5,693,61"/>
+<area shape="rect" title=" " alt="" coords="175,117,244,143"/>
+<area shape="rect" href="custom__fmt_8hpp.html" title=" " alt="" coords="1167,117,1380,143"/>
+<area shape="rect" href="abstract__factory_8hpp.html" title=" " alt="" coords="407,109,577,151"/>
+<area shape="rect" href="logger_8hpp.html" title=" " alt="" coords="603,117,815,143"/>
+<area shape="rect" href="window_8hpp.html" title=" " alt="" coords="1753,109,1901,151"/>
+<area shape="rect" href="tx__shader_8hpp.html" title=" " alt="" coords="269,117,382,143"/>
+<area shape="rect" title=" " alt="" coords="1450,206,1555,233"/>
+<area shape="rect" title=" " alt="" coords="1313,206,1426,233"/>
+<area shape="rect" title=" " alt="" coords="847,206,937,233"/>
+<area shape="rect" title=" " alt="" coords="961,206,1042,233"/>
+<area shape="rect" title=" " alt="" coords="1066,206,1289,233"/>
+<area shape="rect" href="type__utils_8hpp.html" title=" " alt="" coords="1865,206,2071,233"/>
+<area shape="rect" href="core_8hpp.html" title=" " alt="" coords="1579,206,1789,233"/>
+<area shape="rect" title=" " alt="" coords="1869,288,1925,315"/>
+<area shape="rect" title=" " alt="" coords="1950,288,2042,315"/>
+<area shape="rect" href="macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="264,288,488,315"/>
+<area shape="rect" title=" " alt="" coords="413,206,493,233"/>
+<area shape="rect" title=" " alt="" coords="518,206,623,233"/>
+<area shape="rect" title=" " alt="" coords="647,206,771,233"/>
+<area shape="rect" title=" " alt="" coords="1147,363,1234,389"/>
+<area shape="rect" href="noncopyable_8hpp.html" title=" " alt="" coords="2147,199,2317,240"/>
+<area shape="rect" title=" " alt="" coords="221,206,288,233"/>
+<area shape="rect" href="tx__string_8hpp.html" title=" " alt="" coords="5,206,197,233"/>
+<area shape="rect" href="tx__allocator_8hpp.html" title=" " alt="" coords="75,288,202,315"/>
+<area shape="rect" title=" " alt="" coords="45,363,123,389"/>
+<area shape="rect" title=" " alt="" coords="147,363,242,389"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="tx__context_8hpp__dep__incl.png" border="0" usemap="#aengine_2src_2runtime_2include_2management_2render_2tx__context_8hppdep" alt=""/></div>
-<map name="aengine_2src_2runtime_2include_2management_2render_2tx__context_8hppdep" id="aengine_2src_2runtime_2include_2management_2render_2tx__context_8hppdep">
-<area shape="rect" title=" " alt="" coords="1102,5,1271,61"/>
-<area shape="rect" href="tx__scene__renderer_8hpp.html" title=" " alt="" coords="962,109,1177,165"/>
-<area shape="rect" href="tx__context_8cpp.html" title=" " alt="" coords="1201,109,1407,165"/>
-<area shape="rect" href="engine_8hpp.html" title=" " alt="" coords="755,213,952,255"/>
-<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="973,310,1165,351"/>
-<area shape="rect" href="tx__scene__renderer_8cpp.html" title=" " alt="" coords="1189,303,1392,359"/>
-<area shape="rect" href="src_2editor_2application_2main_8cpp.html" title=" " alt="" coords="526,310,733,351"/>
-<area shape="rect" href="file__watcher_8cpp.html" title=" " alt="" coords="757,310,949,351"/>
-<area shape="rect" href="file__component_8cpp.html" title=" " alt="" coords="5,310,243,351"/>
-<area shape="rect" href="main__window_8cpp.html" title=" " alt="" coords="266,310,502,351"/>
+<div class="center"><img src="tx__context_8hpp__dep__incl.png" border="0" usemap="#aengine_2src_2runtime_2source_2management_2gfx_2tx__context_8hppdep" alt=""/></div>
+<map name="aengine_2src_2runtime_2source_2management_2gfx_2tx__context_8hppdep" id="aengine_2src_2runtime_2source_2management_2gfx_2tx__context_8hppdep">
+<area shape="rect" title=" " alt="" coords="351,5,537,61"/>
+<area shape="rect" href="shader__manager_8hpp.html" title=" " alt="" coords="163,109,381,165"/>
+<area shape="rect" href="tx__scene__renderer_8hpp.html" title=" " alt="" coords="246,213,431,269"/>
+<area shape="rect" href="tx__scene__renderer_8cpp.html" title=" " alt="" coords="377,317,562,373"/>
+<area shape="rect" href="vk__context_8hpp.html" title=" " alt="" coords="507,109,683,165"/>
+<area shape="rect" href="shader__manager_8cpp.html" title=" " alt="" coords="5,213,221,269"/>
+<area shape="rect" href="engine_8cpp.html" title=" " alt="" coords="160,325,352,366"/>
+<area shape="rect" href="vk__context_8cpp.html" title=" " alt="" coords="507,213,683,269"/>
 </map>
 </div>
 </div>
@@ -130,30 +149,341 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtaixu_1_1TXContext.html">taixu::TXContext</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTXGFXProxy.html">TXGFXProxy</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Graphics proxy, like a interface define all needed functions.  <a href="structTXGFXProxy.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structTXGFXCreateInfo.html">TXGFXCreateInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTXGFXContextFactory.html">TXGFXContextFactory</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespacetaixu"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html">taixu</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a39a70e2bfb3ed710cf3071689a56264e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#a39a70e2bfb3ed710cf3071689a56264e">TX_GFX_CONTEXT_FACTORY_REGISTER</a>(PRODUCT_CLASS_NAME,  RENDER_API)</td></tr>
+<tr class="separator:a39a70e2bfb3ed710cf3071689a56264e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a20a515bd6597c60418c88bfbcd7ac69f"><td class="memItemLeft" align="right" valign="top">std::optional&lt; TXContext &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a20a515bd6597c60418c88bfbcd7ac69f">taixu::createContext</a> (Window *window)</td></tr>
-<tr class="separator:a20a515bd6597c60418c88bfbcd7ac69f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ce5dc5b7103a67e86659b58f662162e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="macro_8hpp.html#add16c3c78e48493088b9c816031dd94c">TX_NAMESPACE_BEGIN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">PRO_DEF_MEM_DISPATCH</a> (ImguiInitImpl, imguiInit)</td></tr>
+<tr class="memdesc:a7ce5dc5b7103a67e86659b58f662162e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imgui init function.  <a href="tx__context_8hpp.html#a7ce5dc5b7103a67e86659b58f662162e">More...</a><br /></td></tr>
+<tr class="separator:a7ce5dc5b7103a67e86659b58f662162e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23fa5972e8f28de0285d19f5444274dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#a23fa5972e8f28de0285d19f5444274dd">PRO_DEF_MEM_DISPATCH</a> (ImguiDestroyImpl, imguiDestroy)</td></tr>
+<tr class="memdesc:a23fa5972e8f28de0285d19f5444274dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imgui destroy function.  <a href="tx__context_8hpp.html#a23fa5972e8f28de0285d19f5444274dd">More...</a><br /></td></tr>
+<tr class="separator:a23fa5972e8f28de0285d19f5444274dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabce22263e0bf8228b943ae9b339d318"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#aabce22263e0bf8228b943ae9b339d318">PRO_DEF_MEM_DISPATCH</a> (ImguiPreUpdateImpl, imguiPreUpdate)</td></tr>
+<tr class="memdesc:aabce22263e0bf8228b943ae9b339d318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imgui preupdate function.  <a href="tx__context_8hpp.html#aabce22263e0bf8228b943ae9b339d318">More...</a><br /></td></tr>
+<tr class="separator:aabce22263e0bf8228b943ae9b339d318"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63fdb23b285d837fcf4561fe2abbd8a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#a63fdb23b285d837fcf4561fe2abbd8a6">PRO_DEF_MEM_DISPATCH</a> (ImguiUpdateImpl, imguiUpdate)</td></tr>
+<tr class="memdesc:a63fdb23b285d837fcf4561fe2abbd8a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imgui update function.  <a href="tx__context_8hpp.html#a63fdb23b285d837fcf4561fe2abbd8a6">More...</a><br /></td></tr>
+<tr class="separator:a63fdb23b285d837fcf4561fe2abbd8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e1dcd251e9434a38942edd41f4a53ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#a1e1dcd251e9434a38942edd41f4a53ca">PRO_DEF_MEM_DISPATCH</a> (CreateShaderModuleImpl, createShaderModule)</td></tr>
+<tr class="memdesc:a1e1dcd251e9434a38942edd41f4a53ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shader create function.  <a href="tx__context_8hpp.html#a1e1dcd251e9434a38942edd41f4a53ca">More...</a><br /></td></tr>
+<tr class="separator:a1e1dcd251e9434a38942edd41f4a53ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1f78d0600524554258e05ed64c6810e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#af1f78d0600524554258e05ed64c6810e">PRO_DEF_MEM_DISPATCH</a> (CreateQuadPipelineImpl, createShaderModule)</td></tr>
+<tr class="memdesc:af1f78d0600524554258e05ed64c6810e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Pipeline.  <a href="tx__context_8hpp.html#af1f78d0600524554258e05ed64c6810e">More...</a><br /></td></tr>
+<tr class="separator:af1f78d0600524554258e05ed64c6810e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af85d9a73fd04526a06e6e67b35041a69"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#af85d9a73fd04526a06e6e67b35041a69">PRO_DEF_MEM_DISPATCH</a> (CreateCommandImpl, createCommand)</td></tr>
+<tr class="memdesc:af85d9a73fd04526a06e6e67b35041a69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Command.  <a href="tx__context_8hpp.html#af85d9a73fd04526a06e6e67b35041a69">More...</a><br /></td></tr>
+<tr class="separator:af85d9a73fd04526a06e6e67b35041a69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d2aea6c0e621f63740f584fab8fda93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tx__context_8hpp.html#a2d2aea6c0e621f63740f584fab8fda93">PRO_DEF_MEM_DISPATCH</a> (Present2SwapchainImpl, present2Swapchain)</td></tr>
+<tr class="memdesc:a2d2aea6c0e621f63740f584fab8fda93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Present to Swapchain.  <a href="tx__context_8hpp.html#a2d2aea6c0e621f63740f584fab8fda93">More...</a><br /></td></tr>
+<tr class="separator:a2d2aea6c0e621f63740f584fab8fda93"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section author"><dt>Author</dt><dd>xmmmmmovo (<a href="#" onclick="location.href='mai'+'lto:'+'ma_'+'fi'+'vez'+'ha'+'@16'+'3.'+'com'; return false;">ma_fi<span style="display: none;">.nosp@m.</span>vezh<span style="display: none;">.nosp@m.</span>a@163<span style="display: none;">.nosp@m.</span>.com</a>) </dd></dl>
+<div class="textblock"><dl class="section author"><dt>Author</dt><dd>xmmmmmovo </dd></dl>
 <dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2024-07-22</dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2024 </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a39a70e2bfb3ed710cf3071689a56264e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a70e2bfb3ed710cf3071689a56264e">&#9670;&nbsp;</a></span>TX_GFX_CONTEXT_FACTORY_REGISTER</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TX_GFX_CONTEXT_FACTORY_REGISTER</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">PRODUCT_CLASS_NAME, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">RENDER_API&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    <span class="keyword">static</span> <a class="code" href="classAbstractFactory.html#af3b76c31c9fb8560c2eab146ef590cc8">TXGFXContextFactory::ReturnTTrait</a> __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME(                      \</div>
+<div class="line">            <a class="code" href="structTXGFXCreateInfo.html">TXGFXContextFactory::CreateInfoTTrait</a>&amp;&amp; info) {                                                            \</div>
+<div class="line">        auto res = PRODUCT_CLASS_NAME::createContext(std::forward&lt;TXGFXContextFactory::CreateInfoTTrait&gt;(info));       \</div>
+<div class="line">        if (!res.has_value()) {                                                                                        \</div>
+<div class="line">            ERROR_LOG(<span class="stringliteral">&quot;Failed to create vulkan context: {}&quot;</span>, res.error());                                             \</div>
+<div class="line">            return <span class="keyword">nullptr</span>;                                                                                            \</div>
+<div class="line">        }                                                                                                              \</div>
+<div class="line">        return std::move(res.value());                                                                                 \</div>
+<div class="line">    }                                                                                                                  \</div>
+<div class="line">    TX_FACTORY_REGISTER(<a class="code" href="classTXGFXContextFactory.html">TXGFXContextFactory</a>, PRODUCT_CLASS_NAME, RENDER_API,                                           \</div>
+<div class="line">                        __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME)</div>
+<div class="ttc" id="aclassAbstractFactory_html_af3b76c31c9fb8560c2eab146ef590cc8"><div class="ttname"><a href="classAbstractFactory.html#af3b76c31c9fb8560c2eab146ef590cc8">AbstractFactory&lt; RenderAPI, pro::proxy&lt; TXGFXProxy &gt;, TXGFXCreateInfo &gt;::ReturnTTrait</a></div><div class="ttdeci">pro::proxy&lt; TXGFXProxy &gt; ReturnTTrait</div><div class="ttdef"><b>Definition:</b> abstract_factory.hpp:28</div></div>
+<div class="ttc" id="aclassTXGFXContextFactory_html"><div class="ttname"><a href="classTXGFXContextFactory.html">TXGFXContextFactory</a></div><div class="ttdef"><b>Definition:</b> tx_context.hpp:82</div></div>
+<div class="ttc" id="astructTXGFXCreateInfo_html"><div class="ttname"><a href="structTXGFXCreateInfo.html">TXGFXCreateInfo</a></div><div class="ttdef"><b>Definition:</b> tx_context.hpp:78</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="af85d9a73fd04526a06e6e67b35041a69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af85d9a73fd04526a06e6e67b35041a69">&#9670;&nbsp;</a></span>PRO_DEF_MEM_DISPATCH() <span class="overload">[1/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PRO_DEF_MEM_DISPATCH </td>
+          <td>(</td>
+          <td class="paramtype">CreateCommandImpl&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">createCommand&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create Command. </p>
+
+</div>
+</div>
+<a id="af1f78d0600524554258e05ed64c6810e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1f78d0600524554258e05ed64c6810e">&#9670;&nbsp;</a></span>PRO_DEF_MEM_DISPATCH() <span class="overload">[2/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PRO_DEF_MEM_DISPATCH </td>
+          <td>(</td>
+          <td class="paramtype">CreateQuadPipelineImpl&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">createShaderModule&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create Pipeline. </p>
+
+</div>
+</div>
+<a id="a1e1dcd251e9434a38942edd41f4a53ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e1dcd251e9434a38942edd41f4a53ca">&#9670;&nbsp;</a></span>PRO_DEF_MEM_DISPATCH() <span class="overload">[3/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PRO_DEF_MEM_DISPATCH </td>
+          <td>(</td>
+          <td class="paramtype">CreateShaderModuleImpl&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">createShaderModule&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Shader create function. </p>
+
+</div>
+</div>
+<a id="a23fa5972e8f28de0285d19f5444274dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23fa5972e8f28de0285d19f5444274dd">&#9670;&nbsp;</a></span>PRO_DEF_MEM_DISPATCH() <span class="overload">[4/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PRO_DEF_MEM_DISPATCH </td>
+          <td>(</td>
+          <td class="paramtype">ImguiDestroyImpl&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">imguiDestroy&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imgui destroy function. </p>
+
+</div>
+</div>
+<a id="a7ce5dc5b7103a67e86659b58f662162e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ce5dc5b7103a67e86659b58f662162e">&#9670;&nbsp;</a></span>PRO_DEF_MEM_DISPATCH() <span class="overload">[5/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="macro_8hpp.html#add16c3c78e48493088b9c816031dd94c">TX_NAMESPACE_BEGIN</a> PRO_DEF_MEM_DISPATCH </td>
+          <td>(</td>
+          <td class="paramtype">ImguiInitImpl&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">imguiInit&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imgui init function. </p>
+
+</div>
+</div>
+<a id="aabce22263e0bf8228b943ae9b339d318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabce22263e0bf8228b943ae9b339d318">&#9670;&nbsp;</a></span>PRO_DEF_MEM_DISPATCH() <span class="overload">[6/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PRO_DEF_MEM_DISPATCH </td>
+          <td>(</td>
+          <td class="paramtype">ImguiPreUpdateImpl&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">imguiPreUpdate&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imgui preupdate function. </p>
+
+</div>
+</div>
+<a id="a63fdb23b285d837fcf4561fe2abbd8a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63fdb23b285d837fcf4561fe2abbd8a6">&#9670;&nbsp;</a></span>PRO_DEF_MEM_DISPATCH() <span class="overload">[7/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PRO_DEF_MEM_DISPATCH </td>
+          <td>(</td>
+          <td class="paramtype">ImguiUpdateImpl&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">imguiUpdate&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Imgui update function. </p>
+
+</div>
+</div>
+<a id="a2d2aea6c0e621f63740f584fab8fda93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d2aea6c0e621f63740f584fab8fda93">&#9670;&nbsp;</a></span>PRO_DEF_MEM_DISPATCH() <span class="overload">[8/8]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">PRO_DEF_MEM_DISPATCH </td>
+          <td>(</td>
+          <td class="paramtype">Present2SwapchainImpl&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">present2Swapchain&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Present to Swapchain. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_3802cdeaf35b5335b0a6f63293970273.html">include</a></li><li class="navelem"><a class="el" href="dir_327714c5b147a50948c4cc2b9248097b.html">management</a></li><li class="navelem"><a class="el" href="dir_fac2414cc82e640d5c8eed219370bf89.html">render</a></li><li class="navelem"><a class="el" href="tx__context_8hpp.html">tx_context.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_996f45160da62e1a3d7f6046fad68f51.html">engine</a></li><li class="navelem"><a class="el" href="dir_3d9126aa00c041bc0b8f859d1965a0f4.html">src</a></li><li class="navelem"><a class="el" href="dir_25af579fff40d90ea7ba98c1764ae1f1.html">runtime</a></li><li class="navelem"><a class="el" href="dir_e34146c038430371148b35aa510c7f89.html">source</a></li><li class="navelem"><a class="el" href="dir_c43fa6ee8b9194a57dc2220ae96e12ce.html">management</a></li><li class="navelem"><a class="el" href="dir_3f88cf2360a731abc1d4e7459bb7f9c1.html">gfx</a></li><li class="navelem"><a class="el" href="tx__context_8hpp.html">tx_context.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>

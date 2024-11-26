@@ -25,15 +25,20 @@
 var NAVTREE =
 [
   [ "TaixuEngine", "index.html", [
-    [ "How to build", "index.html#autotoc_md1", null ],
-    [ "Features", "index.html#autotoc_md2", [
-      [ "Supporting API", "index.html#autotoc_md3", null ]
+    [ "TaixuEngine", "index.html#autotoc_md0", [
+      [ "Roadmap", "index.html#autotoc_md1", null ],
+      [ "How to build", "index.html#autotoc_md2", null ],
+      [ "Features", "index.html#autotoc_md3", [
+        [ "Supporting API", "index.html#autotoc_md4", null ]
+      ] ],
+      [ "Architecture", "index.html#autotoc_md5", null ],
+      [ "Third Parties", "index.html#autotoc_md6", null ],
+      [ "Designs", "index.html#autotoc_md7", null ]
     ] ],
-    [ "Architecture", "index.html#autotoc_md4", null ],
+    [ "WGPU 相关实现", "md_engine_src_runtime_source_platform_wgpu_README.html", null ],
     [ "About", "about.html", [
       [ "TaixuEngine Documentation", "about.html#doc", null ]
     ] ],
-    [ "Todo List", "todo.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -73,13 +78,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "about.html",
-"classtaixu_1_1MapArray.html#a2bd31bb399651b4cb17b353f8ec02831",
-"classtaixu_1_1editor_1_1RenderComponent.html#a7fb23d3bcb3c5921bffa0793ba6c4aa2",
-"file__watcher_8hpp_source.html",
-"math_8hpp.html#ae71449b1cc6e6250b91f539153a7a0d3",
-"namespacetaixu_1_1editor.html#a27235577ac59dd3f1971d77bf77cefb8",
-"structtaixu_1_1Material.html#af0e59f109a4514689c22ba655f204fd7",
-"tx__shader_8hpp.html#af9bb023d8437da060011a580038288e3"
+"classWindow.html#af509bc51bfee8c116fd5f744769a4e37",
+"classtaixu_1_1TXShaderModuleManager.html#ab188f3901e7dc585c1113af431b9ab51",
+"ecs__types_8hpp.html#a54ad07a8bbe7358da12d832a8cff8480",
+"key__code_8hpp.html#a5da3db179229ed5443a5e58eb1db721b",
+"namespacetaixu.html#a7bc8d31d0ff0b5d33d40da13800f29f0",
+"shader__manager_8hpp.html#a4cfabc21dbdb7087179f8a3560a40995a0bf4c3549501959b5664860222712e5f",
+"structtaixu_1_1editor_1_1ViewModel.html#adc38ea78705f08b887272c90e1d0b30d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

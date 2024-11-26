@@ -13,6 +13,6 @@ var asset__helper_8hpp =
       [ "MANIFEST", "asset__helper_8hpp.html#a1ec72dd9aa1e59d8d7435b57c862efe6a0bf22fc49ca50df354c7619caaaa96d2", null ],
       [ "UNKNOWN", "asset__helper_8hpp.html#a1ec72dd9aa1e59d8d7435b57c862efe6a696b031073e74bf2cb98e5ef201d4aa3", null ]
     ] ],
-    [ "ASSET_MAGIC_NUMBER", "asset__helper_8hpp.html#a22fbb93a560a7ebc349adfe203e8ac71", null ],
+    [ "ASSET_MAGIC_NUMBER", "asset__helper_8hpp.html#af9bdc34b349f2dd77ca8447aa6673f55", null ],
     [ "ASSET_VERSION", "asset__helper_8hpp.html#abb5fe8de25cfd6941c6639aa38f1d33d", null ]
 ];

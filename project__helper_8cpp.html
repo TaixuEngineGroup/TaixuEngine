@@ -89,31 +89,29 @@ $(document).ready(function(){initNavTree('project__helper_8cpp.html',''); initRe
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="project__helper_8hpp_source.html">project_helper.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="logger_8hpp_source.html">common/log/logger.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="json__parser_8hpp_source.html">resource/json/json_parser.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="manifest__json_8hpp_source.html">resource/json_data/manifest_json.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="project__json_8hpp_source.html">resource/json_data/project_json.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="logger_8hpp_source.html">taixu/common/log/logger.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="manifest__json_8hpp_source.html">taixu/resource/json_data/manifest_json.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for project_helper.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="project__helper_8cpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2source_2resource_2helper_2project__helper_8cpp" alt=""/></div>
 <map name="aengine_2src_2runtime_2source_2resource_2helper_2project__helper_8cpp" id="aengine_2src_2runtime_2source_2resource_2helper_2project__helper_8cpp">
-<area shape="rect" title=" " alt="" coords="491,5,666,61"/>
-<area shape="rect" href="project__helper_8hpp.html" title=" " alt="" coords="290,117,433,143"/>
-<area shape="rect" href="logger_8hpp.html" title=" " alt="" coords="162,206,337,233"/>
-<area shape="rect" href="json__parser_8hpp.html" title=" " alt="" coords="509,109,649,151"/>
-<area shape="rect" href="manifest__json_8hpp.html" title=" " alt="" coords="993,199,1140,240"/>
-<area shape="rect" href="project__json_8hpp.html" title=" " alt="" coords="793,109,938,151"/>
-<area shape="rect" href="macro_8hpp.html" title=" " alt="" coords="309,295,496,322"/>
-<area shape="rect" title=" " alt="" coords="5,295,136,322"/>
-<area shape="rect" title=" " alt="" coords="161,295,285,322"/>
-<area shape="rect" title=" " alt="" coords="791,206,881,233"/>
-<area shape="rect" title=" " alt="" coords="652,295,711,322"/>
-<area shape="rect" title=" " alt="" coords="581,206,715,233"/>
-<area shape="rect" title=" " alt="" coords="463,206,556,233"/>
-<area shape="rect" href="json__serializable_8hpp.html" title=" " alt="" coords="839,288,979,329"/>
-<area shape="rect" title=" " alt="" coords="874,377,945,404"/>
-<area shape="rect" title=" " alt="" coords="906,206,969,233"/>
+<area shape="rect" title=" " alt="" coords="346,5,521,61"/>
+<area shape="rect" href="project__helper_8hpp.html" title=" " alt="" coords="175,117,318,143"/>
+<area shape="rect" href="logger_8hpp.html" title=" " alt="" coords="549,117,761,143"/>
+<area shape="rect" href="manifest__json_8hpp.html" title=" " alt="" coords="342,109,525,151"/>
+<area shape="rect" href="tx__string_8hpp.html" title=" " alt="" coords="224,206,416,233"/>
+<area shape="rect" href="management_2project_2project_8hpp.html" title=" " alt="" coords="5,199,200,240"/>
+<area shape="rect" href="macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="365,288,589,315"/>
+<area shape="rect" href="tx__allocator_8hpp.html" title=" " alt="" coords="214,288,341,315"/>
+<area shape="rect" title=" " alt="" coords="127,363,214,389"/>
+<area shape="rect" title=" " alt="" coords="239,363,316,389"/>
+<area shape="rect" title=" " alt="" coords="341,363,435,389"/>
+<area shape="rect" title=" " alt="" coords="57,288,148,315"/>
+<area shape="rect" title=" " alt="" coords="574,206,663,233"/>
+<area shape="rect" title=" " alt="" coords="687,206,793,233"/>
+<area shape="rect" title=" " alt="" coords="817,206,941,233"/>
+<area shape="rect" title=" " alt="" coords="440,206,499,233"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -124,10 +122,10 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5260a81999867fe3a6797c7aaf9c59de"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Project &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a5260a81999867fe3a6797c7aaf9c59de">taixu::openProject</a> (std::filesystem::path const &amp;path)</td></tr>
+<tr class="memitem:a5260a81999867fe3a6797c7aaf9c59de"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classProject.html">Project</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a5260a81999867fe3a6797c7aaf9c59de">taixu::openProject</a> (std::filesystem::path const &amp;path)</td></tr>
 <tr class="separator:a5260a81999867fe3a6797c7aaf9c59de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cad49dd01f74c5a78ba3318a0496b56"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; Project &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a7cad49dd01f74c5a78ba3318a0496b56">taixu::createProject</a> (std::filesystem::path const &amp;path, std::string const &amp;name, std::string const &amp;author, std::string const &amp;description)</td></tr>
-<tr class="separator:a7cad49dd01f74c5a78ba3318a0496b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0cb108aab7b539d988990efcede0ab64"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="classProject.html">Project</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a0cb108aab7b539d988990efcede0ab64">taixu::createProject</a> (std::filesystem::path const &amp;path, tx_string const &amp;name, tx_string const &amp;author, tx_string const &amp;description)</td></tr>
+<tr class="separator:a0cb108aab7b539d988990efcede0ab64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e6cbef3dc51cb07e677993db8e22bf1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a0e6cbef3dc51cb07e677993db8e22bf1">taixu::saveProject</a> ()</td></tr>
 <tr class="separator:a0e6cbef3dc51cb07e677993db8e22bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

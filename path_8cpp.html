@@ -88,17 +88,23 @@ $(document).ready(function(){initNavTree('path_8cpp.html',''); initResizable(); 
 <div class="title">path.cpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="path_8hpp_source.html">platform/os/path.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="path__utils_8hpp_source.html">taixu/platform/os/path_utils.hpp</a>&gt;</code><br />
+<code>#include &quot;<a class="el" href="path_8hpp_source.html">platform/os/path.hpp</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for path.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="path_8cpp__incl.png" border="0" usemap="#aengine_2src_2runtime_2source_2platform_2os_2path_8cpp" alt=""/></div>
 <map name="aengine_2src_2runtime_2source_2platform_2os_2path_8cpp" id="aengine_2src_2runtime_2source_2platform_2os_2path_8cpp">
-<area shape="rect" title=" " alt="" coords="75,5,223,61"/>
-<area shape="rect" href="path_8hpp.html" title=" " alt="" coords="70,109,229,136"/>
-<area shape="rect" title=" " alt="" coords="5,184,96,211"/>
-<area shape="rect" title=" " alt="" coords="120,184,179,211"/>
-<area shape="rect" title=" " alt="" coords="203,184,266,211"/>
+<area shape="rect" title=" " alt="" coords="108,5,256,61"/>
+<area shape="rect" href="path__utils_8hpp.html" title=" " alt="" coords="5,109,172,151"/>
+<area shape="rect" href="path_8hpp.html" title=" " alt="" coords="196,117,355,143"/>
+<area shape="rect" title=" " alt="" coords="54,199,145,225"/>
+<area shape="rect" href="tx__string_8hpp.html" title=" " alt="" coords="179,199,371,225"/>
+<area shape="rect" href="macro_8hpp.html" title="Copyright (c) 2024 xmmmmmovo." alt="" coords="63,273,287,300"/>
+<area shape="rect" href="tx__allocator_8hpp.html" title=" " alt="" coords="312,273,439,300"/>
+<area shape="rect" title=" " alt="" coords="225,348,312,375"/>
+<area shape="rect" title=" " alt="" coords="337,348,414,375"/>
+<area shape="rect" title=" " alt="" coords="439,348,533,375"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -111,23 +117,24 @@ Namespaces</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a881dac0713ceac8c69161afa6b6faedc"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a881dac0713ceac8c69161afa6b6faedc">taixu::getRelativePath</a> (const std::filesystem::path &amp;directory, const std::filesystem::path &amp;file_path)</td></tr>
 <tr class="separator:a881dac0713ceac8c69161afa6b6faedc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6b2bea29adb7f251249e2af52aaf6ca"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ac6b2bea29adb7f251249e2af52aaf6ca">taixu::getPathSegments</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="separator:ac6b2bea29adb7f251249e2af52aaf6ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3edf7c7d843186ca8ee41ab8b2a371b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa3edf7c7d843186ca8ee41ab8b2a371b">taixu::getFileExtensions</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="separator:aa3edf7c7d843186ca8ee41ab8b2a371b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa957f205abdf6df8a3ee560d0da743d0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">taixu::getLastExtension</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="memdesc:aa957f205abdf6df8a3ee560d0da743d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">get last extension  <a href="namespacetaixu.html#aa957f205abdf6df8a3ee560d0da743d0">More...</a><br /></td></tr>
-<tr class="separator:aa957f205abdf6df8a3ee560d0da743d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab745f2c8831fd9505af484fc7b7566ff"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#ab745f2c8831fd9505af484fc7b7566ff">taixu::getFilePureName</a> (const std::string &amp;)</td></tr>
-<tr class="separator:ab745f2c8831fd9505af484fc7b7566ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b81b73fa2b6b6eef0ab629a283783ee"><td class="memItemLeft" align="right" valign="top">std::vector&lt; tx_string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a1b81b73fa2b6b6eef0ab629a283783ee">taixu::getPathSegments</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="separator:a1b81b73fa2b6b6eef0ab629a283783ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a271eb0474c99fea5e37c0be387b1433d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; tx_string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a271eb0474c99fea5e37c0be387b1433d">taixu::getFileExtensions</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="separator:a271eb0474c99fea5e37c0be387b1433d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdcc93a770a787c51725f7fa5f9f72e9"><td class="memItemLeft" align="right" valign="top">tx_string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#afdcc93a770a787c51725f7fa5f9f72e9">taixu::getLastExtension</a> (const std::filesystem::path &amp;file_path)</td></tr>
+<tr class="memdesc:afdcc93a770a787c51725f7fa5f9f72e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">get last extension  <a href="namespacetaixu.html#afdcc93a770a787c51725f7fa5f9f72e9">More...</a><br /></td></tr>
+<tr class="separator:afdcc93a770a787c51725f7fa5f9f72e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f58276408839984f8f07a42eac587f"><td class="memItemLeft" align="right" valign="top">tx_string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#af3f58276408839984f8f07a42eac587f">taixu::getFilePureName</a> (const tx_string &amp;file_full_name)</td></tr>
+<tr class="separator:af3f58276408839984f8f07a42eac587f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0219b67cc3aef6ae173f46ec1282f521"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a0219b67cc3aef6ae173f46ec1282f521">taixu::fromRelativePath</a> (const std::filesystem::path &amp;directory, const std::filesystem::path &amp;relative_path)</td></tr>
 <tr class="separator:a0219b67cc3aef6ae173f46ec1282f521"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2e071cdc152ffdf10af393f5a2dcf9f"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#af2e071cdc152ffdf10af393f5a2dcf9f">taixu::fromRelativePath</a> (const std::filesystem::path &amp;relative_path)</td></tr>
 <tr class="separator:af2e071cdc152ffdf10af393f5a2dcf9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47eb4f1e632f585c389145c3e0796793"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">taixu::getRootPath</a> ()</td></tr>
+<tr class="memdesc:a47eb4f1e632f585c389145c3e0796793"><td class="mdescLeft">&#160;</td><td class="mdescRight">根据不同os获取磁盘根目录  <a href="namespacetaixu.html#a47eb4f1e632f585c389145c3e0796793">More...</a><br /></td></tr>
 <tr class="separator:a47eb4f1e632f585c389145c3e0796793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a57787d8e552695ad3623ad435c8769fb"><td class="memItemLeft" align="right" valign="top">std::filesystem::path&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">taixu::getDirectoryPath</a> (const std::filesystem::path &amp;file_path)</td></tr>
-<tr class="memdesc:a57787d8e552695ad3623ad435c8769fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">获取文件的文件夹路径  <a href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">More...</a><br /></td></tr>
+<tr class="memdesc:a57787d8e552695ad3623ad435c8769fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">get parent directory of file path.  <a href="namespacetaixu.html#a57787d8e552695ad3623ad435c8769fb">More...</a><br /></td></tr>
 <tr class="separator:a57787d8e552695ad3623ad435c8769fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

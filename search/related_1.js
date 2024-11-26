@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['publicsingleton_3c_20cuberenderable_20_3e_2184',['PublicSingleton&lt; CubeRenderable &gt;',['../classtaixu_1_1CubeRenderable.html#ac9f9eaf1aa15e2c113c202abe74f665e',1,'taixu::CubeRenderable']]],
-  ['publicsingleton_3c_20inputsystem_20_3e_2185',['PublicSingleton&lt; InputSystem &gt;',['../classtaixu_1_1InputSystem.html#a19ad988cf399e206a4f7c3cb8a367f1d',1,'taixu::InputSystem']]]
+  ['operator_21_3d_2337',['operator!=',['../classtaixu_1_1Color.html#a05f999bf3fcadc30a3f81112ba6bb058',1,'taixu::Color']]],
+  ['operator_3d_3d_2338',['operator==',['../classtaixu_1_1Color.html#aa09b529dd5d916f3e5fd2676c336e1c9',1,'taixu::Color']]]
 ];

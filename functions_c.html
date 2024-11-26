@@ -94,7 +94,7 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 : <a class="el" href="classtaixu_1_1CameraComponent.html#a1aa02ccf873cbbc6784071e2628d2cac">taixu::CameraComponent</a>
 </li>
 <li>changeEngineState()
-: <a class="el" href="classtaixu_1_1Engine.html#a88888fb1d9f53526588110e5ae19acb5">taixu::Engine</a>
+: <a class="el" href="classEngine.html#ae9859d9a4e5d3fc6607fedcc074a9a2a">Engine</a>
 </li>
 <li>channels
 : <a class="el" href="structtaixu_1_1Image.html#ade85d5bb0c1e0c9927f7de6ab8c21716">taixu::Image</a>
@@ -103,10 +103,10 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 : <a class="el" href="classtaixu_1_1CameraComponent.html#ad0640d8c609a79c8fd07a1fa67666546">taixu::CameraComponent</a>
 </li>
 <li>charCallback()
-: <a class="el" href="classtaixu_1_1Window.html#a9eae8dfbc82a735802d5575d62986f59">taixu::Window</a>
+: <a class="el" href="classtaixu_1_1GLFWWindow.html#a79e0f38bff7a98256becf74b8eafb2ab">taixu::GLFWWindow</a>
 </li>
 <li>charModsCallback()
-: <a class="el" href="classtaixu_1_1Window.html#a76fda11f0da449501536f31d415f57cc">taixu::Window</a>
+: <a class="el" href="classtaixu_1_1GLFWWindow.html#a5b1312aeba46066b69dd857734be95d6">taixu::GLFWWindow</a>
 </li>
 <li>childerns
 : <a class="el" href="structtaixu_1_1editor_1_1ChildrensArrayHierarchyDataNode.html#a738dd6773441a86984402b48f092baa6">taixu::editor::ChildrensArrayHierarchyDataNode&lt; DataT, ChildT, ArrSize &gt;</a>
@@ -124,9 +124,6 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 </li>
 <li>Color()
 : <a class="el" href="classtaixu_1_1Color.html#aa5a983ebadc6508fd75a593d6d4c4c38">taixu::Color</a>
-</li>
-<li>color_blend_state
-: <a class="el" href="structtaixu_1_1TXPipelineCreateInfo.html#a1639abba27a3afaa9d4a9883f31c00e5">taixu::TXPipelineCreateInfo</a>
 </li>
 <li>component_type
 : <a class="el" href="structtaixu_1_1ImGuiComponentInfo.html#ab351f33f8db3bbed68ad8f6afafe2708">taixu::ImGuiComponentInfo</a>
@@ -146,6 +143,12 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 <li>create()
 : <a class="el" href="classtaixu_1_1SharedPtrOnly.html#afa40c032114934bf74dc64bad0ba5564">taixu::SharedPtrOnly&lt; T &gt;</a>
 </li>
+<li>createAllocator()
+: <a class="el" href="classVKAllocator.html#af57fce86fbe1b721cf0e432955030cd7">VKAllocator</a>
+</li>
+<li>createContext()
+: <a class="el" href="classVKContext.html#ab2cd028cf2b8ba3a16ddabbab2222660">VKContext</a>
+</li>
 <li>createCustomShaderModule()
 : <a class="el" href="classtaixu_1_1TXShaderModuleManager.html#ab217eb256485d4a2babd7b92519c821a">taixu::TXShaderModuleManager</a>
 </li>
@@ -153,20 +156,45 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 : <a class="el" href="classtaixu_1_1ECSCoordinator.html#ab182430c40a024aeedfc535a61e3de50">taixu::ECSCoordinator</a>
 , <a class="el" href="classtaixu_1_1EntityManager.html#a8efe513c7dc24fa253aa7b0e9deadd06">taixu::EntityManager</a>
 </li>
+<li>createFramebuffer()
+: <a class="el" href="classVKFramebuffer.html#ab853cfb41fffbc439a432ad49e7e7f12">VKFramebuffer</a>
+</li>
+<li>CreateFunctorT
+: <a class="el" href="classAbstractFactory.html#adfaf06d8ff170e820d3a191d13316dfb">AbstractFactory&lt; RegisterKeyT, ReturnT, CreateInfoT &gt;</a>
+</li>
+<li>CreateInfoTTrait
+: <a class="el" href="classAbstractFactory.html#a7569336282b09ca7a5628d2d9527338e">AbstractFactory&lt; RegisterKeyT, ReturnT, CreateInfoT &gt;</a>
+, <a class="el" href="classCreateFunctor.html#a4e7adee867faa2cdca88c3d9112f6fdc">CreateFunctor&lt; ReturnT, ConstructFunc, CreateInfoT &gt;</a>
+, <a class="el" href="classCreateSharedPtrFunctor.html#ab75fa8c06de4089cd184bd2a52ed34af">CreateSharedPtrFunctor&lt; ReturnT, CreateInfoT, PolymoT &gt;</a>
+, <a class="el" href="classCreateUniquePtrFunctor.html#a36113db98047a74b0c6a472f308a815e">CreateUniquePtrFunctor&lt; ReturnT, CreateInfoT, PolymoT &gt;</a>
+, <a class="el" href="classCreateWrapperFunctor.html#a979fd2937a37d5ba3181096a87330492">CreateWrapperFunctor&lt; ReturnT, ConstructWrapper, CreateInfoT &gt;</a>
+</li>
+<li>createPresentRenderPass()
+: <a class="el" href="classVKRenderPass.html#a6832213c4486cf024685fbe480dfcf4d">VKRenderPass</a>
+</li>
 <li>createProduct()
-: <a class="el" href="classtaixu_1_1AbstractFactory.html#aa72d9371c9b8ab467a38b71dd08c2e98">taixu::AbstractFactory&lt; RegisterKeyT, ProductionT &gt;</a>
+: <a class="el" href="classAbstractFactory.html#a13b757d1d19073f41ead4a6b57d83d46">AbstractFactory&lt; RegisterKeyT, ReturnT, CreateInfoT &gt;</a>
+</li>
+<li>createQuadPipeline()
+: <a class="el" href="classVKPipeline.html#a6f81086149194a45fb46803815b67097">VKPipeline</a>
+</li>
+<li>createShaderModule()
+: <a class="el" href="classVKContext.html#a56672cce29cb871db4bda89b372d2039">VKContext</a>
 </li>
 <li>createShaderModuleInner()
 : <a class="el" href="classtaixu_1_1TXShaderModuleManager.html#aa7f8561a3c0d3b3aa34640bbebeea3fb">taixu::TXShaderModuleManager</a>
 </li>
+<li>createSwapchain()
+: <a class="el" href="classVKSwapchain.html#a5f9120cff4e9cdb6f74d12f21a55b382">VKSwapchain</a>
+</li>
 <li>createThreads()
 : <a class="el" href="classtaixu_1_1ThreadPool.html#a0e05354492079d49cad60eb898acb7f8">taixu::ThreadPool</a>
 </li>
-<li>creation_func_map
-: <a class="el" href="classtaixu_1_1AbstractFactory.html#a1428ace8db2dabc1448a7a7e4eaccb0f">taixu::AbstractFactory&lt; RegisterKeyT, ProductionT &gt;</a>
+<li>createVKShaderModule()
+: <a class="el" href="classVKShaderMod.html#a5721f14b2935b12c81d9926dff77dad7">VKShaderMod</a>
 </li>
-<li>creation_func_t
-: <a class="el" href="classtaixu_1_1AbstractFactory.html#a57ef7511f3200a9509f006cd31442f31">taixu::AbstractFactory&lt; RegisterKeyT, ProductionT &gt;</a>
+<li>creation_func_map
+: <a class="el" href="classAbstractFactory.html#a9a6f63b739b143c2b88b8755d9c5575b">AbstractFactory&lt; RegisterKeyT, ReturnT, CreateInfoT &gt;</a>
 </li>
 <li>CUBE_ELEMENT_COUNT
 : <a class="el" href="classtaixu_1_1CubeRenderable.html#abcad40ff6a515783a24547eaefbba8e5">taixu::CubeRenderable</a>
@@ -181,10 +209,10 @@ $(document).ready(function(){initNavTree('functions_c.html',''); initResizable()
 : <a class="el" href="classtaixu_1_1CubeRenderable.html#a114870c4ae265ecd6a661111c34c53c3">taixu::CubeRenderable</a>
 </li>
 <li>cursorEnterCallback()
-: <a class="el" href="classtaixu_1_1Window.html#a93cbac967f984841d24411b563c46cc4">taixu::Window</a>
+: <a class="el" href="classtaixu_1_1GLFWWindow.html#a68b68392ae851d8c0a5f6400227208aa">taixu::GLFWWindow</a>
 </li>
 <li>cursorPosCallback()
-: <a class="el" href="classtaixu_1_1Window.html#a219cd1d4f3a254577ff220222f1a7bfc">taixu::Window</a>
+: <a class="el" href="classtaixu_1_1GLFWWindow.html#a2f719bff692fb15709957550ed1372e1">taixu::GLFWWindow</a>
 </li>
 <li>cutOff
 : <a class="el" href="structtaixu_1_1SpotLight.html#a271ad77d8285116ce35b489384e07912">taixu::SpotLight</a>

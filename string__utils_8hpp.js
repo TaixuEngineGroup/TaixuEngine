@@ -1,5 +1,5 @@
 var string__utils_8hpp =
 [
-    [ "utf8Decode", "string__utils_8hpp.html#a4418cf347ede76f1d892e0821394a5ba", null ],
-    [ "utf8Encode", "string__utils_8hpp.html#a4d664e16ff3d5a6b9d9c4dc9704b28d3", null ]
+    [ "utf8Decode", "string__utils_8hpp.html#aa85b4c4cf5d0280e5ad6391fce3c03bb", null ],
+    [ "utf8Encode", "string__utils_8hpp.html#a03b5a388667038401187fd1428c98b50", null ]
 ];

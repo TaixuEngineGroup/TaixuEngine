@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['glfw_5finclude_5fnone_2194',['GLFW_INCLUDE_NONE',['../window_8hpp.html#a088324ad8995e3eb76024e3e79083d48',1,'window.hpp']]]
+  ['fatal_5flog_2350',['FATAL_LOG',['../logger_8hpp.html#abcac65ba3cb410f8a017a9adf69ff56e',1,'logger.hpp']]],
+  ['fatal_5flog_5floc_2351',['FATAL_LOG_LOC',['../logger_8hpp.html#a576a883d220d478a6f8ac89f1320e528',1,'logger.hpp']]]
 ];

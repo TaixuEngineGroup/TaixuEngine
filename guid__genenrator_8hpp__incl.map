@@ -1,4 +1,4 @@
-<map id="engine/src/runtime/include/management/ecs/object/guid_genenrator.hpp" name="engine/src/runtime/include/management/ecs/object/guid_genenrator.hpp">
+<map id="engine/src/runtime/include/taixu/management/ecs/object/guid_genenrator.hpp" name="engine/src/runtime/include/taixu/management/ecs/object/guid_genenrator.hpp">
 <area shape="rect" id="node1" title=" " alt="" coords="15,5,244,61"/>
 <area shape="rect" id="node2" title=" " alt="" coords="5,109,72,136"/>
 <area shape="rect" id="node3" title=" " alt="" coords="96,109,163,136"/>
