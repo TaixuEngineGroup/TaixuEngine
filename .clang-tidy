@@ -1,6 +1,5 @@
 ---
-Checks:
-  cppcoreguidelines-*,
+Checks: cppcoreguidelines-*,
   performance-*,
   portability-*,
 
@@ -188,6 +187,8 @@ Checks:
   clang-analyzer-unix.cstring.BadSizeArg,
   clang-analyzer-unix.cstring.NullArg
 
+  -cppcoreguidelines-macro-usage
+
 # Turn all the warnings from the checks above into errors.
 WarningsAsErrors: "*"
 
@@ -212,4 +213,5 @@ CheckOptions:
   readability-identifier-naming.TypedefCase: CamelCase
   readability-identifier-naming.UnionCase: CamelCase
   readability-identifier-naming.UsingCase: CamelCase
-  misc-non-private-member-variables-in-classes: IgnorePublicMemberVariables
+  misc-non-private-member-variables-in-classes.IgnorePublicMemberVariables: true
+  cppcoreguidelines-rvalue-reference-param-not-moved.IgnoreNonDeducedTemplateTypes: true

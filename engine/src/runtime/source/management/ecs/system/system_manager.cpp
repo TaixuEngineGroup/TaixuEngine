@@ -4,17 +4,17 @@
 
 #include "system_manager.hpp"
 
+#include <ranges>
+
 namespace taixu {
 System* SystemManager::registerSystem(SystemIdType const key) {
     TX_ASSERT_MSG(_systems.contains(key), "Registering system more than once.");
 
-    auto [iter, was_insert] =
-            _systems.insert({key, std::make_unique<System>()});
+    auto [iter, was_insert] = _systems.insert({key, std::make_unique<System>()});
     return iter->second.get();
 }
 
-void SystemManager::setSignature(SystemIdType const key,
-                                 Signature const&   signature) {
+void SystemManager::setSignature(SystemIdType const key, Signature const& signature) {
     TX_ASSERT_MSG(_systems.contains(key), "System used before registered.");
     _signatures.insert({key, signature});
 }
@@ -30,8 +30,7 @@ void SystemManager::entityDestroyed(const Entity entity) {
     }
 }
 
-void SystemManager::entitySignatureChanged(const Entity    entity,
-                                           const Signature entitySignature) {
+void SystemManager::entitySignatureChanged(const Entity entity, const Signature entitySignature) {
     for (const auto& [key, category] : _systems) {
         if (auto const& category_signature = _signatures[key];
             (entitySignature & category_signature) == category_signature) {
