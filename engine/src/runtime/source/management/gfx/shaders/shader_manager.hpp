@@ -14,15 +14,13 @@
 namespace taixu {
 
 enum class TXBuiltinShader : uint8_t {
-    FORWARD_VERT = 0,
-    FORWARD_FRAG = 1,
+    TRIANGLE_VERT_SHADER = 0,
+    TRIANGLE_FRAG_SHADER = 1,
 };
 
 static constexpr std::size_t TX_BUILTIN_SHADER_SIZE = magic_enum::enum_count<TXBuiltinShader>();
 
-using TXBuiltinShaderCreateInfoArrT = std::array<TXShaderModuleCreateInfo, TX_BUILTIN_SHADER_SIZE>;
-using TXBuiltinShaderModulePtrArrT  = std::array<std::shared_ptr<TXShaderModule>, TX_BUILTIN_SHADER_SIZE>;
-
+using TXBuiltinShaderModulePtrArrT = std::array<std::shared_ptr<TXShaderModule>, TX_BUILTIN_SHADER_SIZE>;
 
 #define INIT_BUILTIN_SHADER_MODULE_CREATE_INFO(name_, binaries_ptr, infos)                                             \
     {                                                                                                                  \
@@ -34,17 +32,16 @@ using TXBuiltinShaderModulePtrArrT  = std::array<std::shared_ptr<TXShaderModule>
 
 class TXShaderModuleManager final {
 private:
-    TX_INLINE static TXBuiltinShaderCreateInfoArrT builtin_shader_create_infos;
-    TX_INLINE static TXBuiltinShaderModulePtrArrT  builtin_modules;
+    TX_INLINE static TXBuiltinShaderModulePtrArrT builtin_modules;
 
     std::unordered_map<hash32_t, std::shared_ptr<TXShaderModule>> _custom_modules;
 
-    pro::proxy<TXGfxProxy> _gfx_proxy{};
+    pro::proxy<TXGFXProxy> _gfx_proxy{};
 
     [[nodiscard]] std::shared_ptr<TXShaderModule> createShaderModuleInner(TXShaderModuleCreateInfo const& info) const;
 
 public:
-    void init(pro::proxy<TXGfxProxy> const& gfx_proxy);
+    void init(pro::proxy<TXGFXProxy> const& gfx_proxy);
 
     [[nodiscard]] std::shared_ptr<TXShaderModule> createCustomShaderModule(const TXShaderModuleCreateInfo& info) const;
 

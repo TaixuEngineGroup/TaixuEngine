@@ -53,22 +53,33 @@ PRO_DEF_MEM_DISPATCH(CreateShaderModuleImpl, createShaderModule);
  *
  */
 PRO_DEF_MEM_DISPATCH(CreateQuadPipelineImpl, createShaderModule);
+/**
+ * @brief Create Command
+ *
+ */
+PRO_DEF_MEM_DISPATCH(CreateCommandImpl, createCommand);
+/**
+ * @brief Present to Swapchain
+ *
+ */
+PRO_DEF_MEM_DISPATCH(Present2SwapchainImpl, present2Swapchain);
+
 
 /**
  * @brief Graphics proxy, like a interface define all needed functions.
  *
  */
-struct TXGfxProxy
+struct TXGFXProxy
     : pro::facade_builder::add_convention<ImguiInitImpl, void()>::add_convention<ImguiDestroyImpl, void()>::
               add_convention<ImguiPreUpdateImpl, void()>::add_convention<ImguiUpdateImpl, void()>::add_convention<
                       CreateShaderModuleImpl, std::shared_ptr<TXShaderModule>(TXShaderModuleCreateInfo const&)
                                                       const>::support_copy<pro::constraint_level::nontrivial>::build {};
 
-struct TXGfxCreateInfo {
+struct TXGFXCreateInfo {
     const Window* window{nullptr};
 };
 
-class TXGFXContextFactory final : public AbstractFactory<RenderAPI, pro::proxy<TXGfxProxy>, TXGfxCreateInfo> {};
+class TXGFXContextFactory final : public AbstractFactory<RenderAPI, pro::proxy<TXGFXProxy>, TXGFXCreateInfo> {};
 
 #define TX_GFX_CONTEXT_FACTORY_REGISTER(PRODUCT_CLASS_NAME, RENDER_API)                                                \
     static TXGFXContextFactory::ReturnTTrait __createFuncTXGFXContextFactory##PRODUCT_CLASS_NAME(                      \

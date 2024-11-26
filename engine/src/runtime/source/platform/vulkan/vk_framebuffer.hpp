@@ -9,7 +9,6 @@
  */
 #pragma once
 
-#include "common/hal/tx_container.hpp"
 #include "taixu/common/base/macro.hpp"
 #include "taixu/common/base/result.hpp"
 
@@ -17,9 +16,7 @@ TX_NAMESPACE_BEGIN
 
 class VKFramebuffer {
 private:
-    vk::raii::Framebuffer          _framebuffer{VK_NULL_HANDLE};
-    tx_vector<vk::raii::Image>     _color_images;
-    tx_vector<vk::raii::ImageView> _color_image_views;
+    vk::raii::Framebuffer _framebuffer{VK_NULL_HANDLE};
 
 public:
     [[nodiscard]] vk::raii::Framebuffer const& getVKFramebuffer() const noexcept {

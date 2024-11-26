@@ -4,7 +4,7 @@
 
 #include "shader_manager.hpp"
 
-#include "intern/shader_inc_list.hpp"
+#include "shader_inc_list.hpp"
 
 namespace taixu {
 // NOLINTBEGIN(cppcoreguidelines-pro-type-reinterpret-cast)
@@ -16,17 +16,17 @@ namespace taixu {
 
 constexpr TXShaderModuleCreateInfo mappingBuiltinShader2CreateInfo(TXBuiltinShader builtin_shader) {
     switch (builtin_shader) {
-        case TXBuiltinShader::FORWARD_VERT: {
+        case TXBuiltinShader::TRIANGLE_VERT_SHADER: {
             return SHADER_MODULE_CREATE_INFO_INIT("forward_vert", TRIANGLE_VERT);
         } break;
-        case TXBuiltinShader::FORWARD_FRAG: {
+        case TXBuiltinShader::TRIANGLE_FRAG_SHADER: {
             return SHADER_MODULE_CREATE_INFO_INIT("forward_frag", TRIANGLE_FRAG);
         } break;
     }
     return {};
 }
 // NOLINTEND(cppcoreguidelines-pro-type-reinterpret-cast)
-void TXShaderModuleManager::init(pro::proxy<TXGfxProxy> const& gfx_proxy) {
+void TXShaderModuleManager::init(pro::proxy<TXGFXProxy> const& gfx_proxy) {
     _gfx_proxy = gfx_proxy;
 }
 
@@ -43,9 +43,8 @@ TXShaderModuleManager::createCustomShaderModule(const TXShaderModuleCreateInfo& 
 
 std::shared_ptr<TXShaderModule> TXShaderModuleManager::getBuiltinShaderModule(TXBuiltinShader builtin_shader) const {
     if (builtin_modules.at(static_cast<size_t>(builtin_shader)) == nullptr) {
-        auto& cfref                            = builtin_shader_create_infos.at(static_cast<size_t>(builtin_shader));
-        cfref                                  = mappingBuiltinShader2CreateInfo(builtin_shader);
-        std::shared_ptr<TXShaderModule> module = createShaderModuleInner(cfref);
+        auto                            cf                      = mappingBuiltinShader2CreateInfo(builtin_shader);
+        std::shared_ptr<TXShaderModule> module                  = createShaderModuleInner(cf);
         builtin_modules.at(static_cast<size_t>(builtin_shader)) = module;
         return module;
     }

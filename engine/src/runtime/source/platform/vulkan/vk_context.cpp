@@ -251,7 +251,7 @@ ResValT<std::tuple<vk::raii::Device, NeededQueueResult>> createDevice(vk::raii::
         ERROR_LOG("Failed to create device: {}", vk::to_string(device.error()));
         return UNEXPECTED(RetCode::VULKAN_DEVICE_CREATE_ERROR);
     }
-    VULKAN_HPP_DEFAULT_DISPATCHER.init(device.value());
+    VULKAN_HPP_DEFAULT_DISPATCHER.init(*device.value());
     vk::raii::Device device_raii{std::move(device.value())};
 
     return std::make_tuple(std::move(device_raii), std::move(res));
@@ -457,7 +457,7 @@ void initDynamicDispatchLoader() {
     VULKAN_HPP_DEFAULT_DISPATCHER.init(get_instance_proc_addr);
 }
 
-ResValT<pro::proxy<TXGfxProxy>> VKContext::createContext(const TXGfxCreateInfo& window_ctx) {
+ResValT<pro::proxy<TXGFXProxy>> VKContext::createContext(const TXGFXCreateInfo& window_ctx) {
     initDynamicDispatchLoader();
 
     const auto window = window_ctx.window;

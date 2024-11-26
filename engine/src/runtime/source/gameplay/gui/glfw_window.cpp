@@ -53,6 +53,7 @@ void GLFWWindow::destroy() {
 }
 
 void GLFWWindow::handleEvents() {
+    glfwPollEvents();
 }
 
 bool GLFWWindow::shouldClose() const {

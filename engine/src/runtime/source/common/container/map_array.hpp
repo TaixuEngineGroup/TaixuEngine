@@ -5,12 +5,12 @@
 #ifndef ENGINE_RUNTIME_CORE_CONTAINER_MAP_ARRAY_HPP
 #define ENGINE_RUNTIME_CORE_CONTAINER_MAP_ARRAY_HPP
 
-#include <array>
 #include <cassert>
 #include <cstddef>
 #include <unordered_map>
 
-#include <taixu/common/base/macro.hpp>
+#include "common/hal/tx_container.hpp"
+#include "taixu/common/base/macro.hpp"
 
 namespace taixu {
 
@@ -20,7 +20,7 @@ class MapArray final {
     // set to a specified maximum amount, matching the maximum number
     // of entities allowed to exist simultaneously, so that each entity
     // has a unique spot.
-    using Array = std::array<Value, Size>;
+    using Array = tx_vector<Value>;
     PROTOTYPE_ONLY_GETTER(private, Array, values)
 
 private:
@@ -32,6 +32,9 @@ private:
     std::size_t                          _size{0};
 
 public:
+    MapArray() : _values(Size) {
+    }
+
     void insertData(const Key& key, const Value& value) noexcept {
         if (contains(key)) {
             _values[_key_to_index_map[key]] = value;

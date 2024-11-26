@@ -131,8 +131,8 @@ void MainWindow::destroy() const {
     _window_ptr->destroy();
 }
 
-MainWindow::MainWindow(WindowInfo&& window_info)
-    : _window_ptr(WindowFactory::createProduct(WindowAPI::GLFW, std::move(window_info))) {
+MainWindow::MainWindow(WindowInfo&& window_info)// NOLINT
+    : _window_ptr(WindowFactory::createProduct(WindowAPI::GLFW, std::forward<WindowInfo>(window_info))) {
 }
 
 }// namespace taixu::editor

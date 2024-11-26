@@ -2,7 +2,7 @@
 
 #include "taixu/common/log/logger.hpp"
 
-#include "management/gfx/scene/tx_scene_renderer.hpp"
+#include "management/gfx/tx_scene_renderer.hpp"
 #include "resource/helper/project_helper.hpp"
 #include "resource/manager/asset_manager.hpp"
 

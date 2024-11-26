@@ -11,6 +11,7 @@
 #include "common/math/color.hpp"
 #include "management/gfx/shaders/shader_manager.hpp"
 #include "management/gfx/tx_context.hpp"
+#include "tx_command_queue.hpp"
 
 #ifdef USE_VULKAN
     #include "platform/vulkan/vk_context.hpp"
@@ -47,12 +48,30 @@ struct ImguiStyleGroup {
 
 class TXSceneRenderer final : public Noncopyable {
 private:
-    pro::proxy<TXGfxProxy> _context;
-    TXShaderModuleManager  _shader_module_manager;
+    /**
+     * Graphics variables
+     */
 
-    ///
-    /// ImGui使用的变量
-    ///
+    /**
+     * @brief Graphics Context
+     *
+     */
+    pro::proxy<TXGFXProxy> _context{};
+    /**
+     * @brief Shader manager
+     *
+     */
+    TXShaderModuleManager  _shader_module_manager{};
+    /**
+     * @brief Command Queue for rendering
+     *
+     */
+    TXCommandQueue         _command_queue{};
+
+    /**
+     * Imgui variables
+     *
+     */
 
     /**
      * @brief ImGui io接口

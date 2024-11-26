@@ -79,4 +79,15 @@ vk::raii::Semaphore createSemaphore(vk::raii::Device const& device) noexcept {
 }
 
 
+vk::MemoryBarrier getVKMemoryBarrier(vk::AccessFlags src_access_mask, vk::AccessFlags dst_access_mask) noexcept {
+    return {};
+}
+
+
+vk::ImageMemoryBarrier getVKImageMemoryBarrier(vk::AccessFlags src_access_mask,
+                                               vk::AccessFlags dst_access_mask) noexcept {
+    return {};
+}
+
+
 TX_NAMESPACE_END

@@ -181,7 +181,7 @@ void TXSceneRenderer::imguiUpdate() {
     ImGui::SetNextWindowSize(viewport->Size);
     ImGui::SetNextWindowViewport(viewport->ID);
 
-    _imgui_update();
+    // _imgui_update();
 
     ImGui::Render();
     _context->imguiUpdate();
@@ -201,7 +201,7 @@ void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {
 }
 
 void TXSceneRenderer::initForGraphicsAPI(Window* window, RenderAPI render_api) {
-    this->_context = TXGFXContextFactory::createProduct(render_api, TXGfxCreateInfo{window});
+    this->_context = TXGFXContextFactory::createProduct(render_api, TXGFXCreateInfo{window});
     if (!this->_context.has_value()) {
         ERROR_LOG("Failed to create graphics context");
     }
