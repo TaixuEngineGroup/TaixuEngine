@@ -457,7 +457,7 @@ void initDynamicDispatchLoader() {
     VULKAN_HPP_DEFAULT_DISPATCHER.init(get_instance_proc_addr);
 }
 
-ResValT<pro::proxy<TXGFXProxy>> VKContext::createContext(const TXGFXCreateInfo& window_ctx) {
+ResValT<pro::proxy<TXGFXProxy>> VulkanContext::createContext(const TXGFXCreateInfo& window_ctx) {
     initDynamicDispatchLoader();
 
     const auto window = window_ctx.window;
@@ -474,9 +474,9 @@ ResValT<pro::proxy<TXGFXProxy>> VKContext::createContext(const TXGFXCreateInfo& 
 
     auto&& [instance, debug_messenger] = instance_tuple.value();
 
-    std::shared_ptr<VKContext> context = std::make_shared<VKContext>();
-    context->_instance                 = std::move(instance);
-    context->_debug_messenger          = std::move(debug_messenger);
+    std::shared_ptr<VulkanContext> context = std::make_shared<VulkanContext>();
+    context->_instance                     = std::move(instance);
+    context->_debug_messenger              = std::move(debug_messenger);
 
     auto surface = createSurface(context->_instance, window);
     if (!surface.has_value()) {
@@ -526,17 +526,18 @@ ResValT<pro::proxy<TXGFXProxy>> VKContext::createContext(const TXGFXCreateInfo& 
         return UNEXPECTED(swapchain_res.error());
     }
 
-    auto allocator_ret = VKAllocator::createAllocator(context->_physical_device, context->_device, context->_instance);
+    auto allocator_ret =
+            VulkanAllocator::createAllocator(context->_physical_device, context->_device, context->_instance);
     if (!allocator_ret.has_value()) {
         ERROR_LOG("Failed to create allocator: {}", allocator_ret.error());
         return UNEXPECTED(allocator_ret.error());
     }
     context->_allocator = std::move(allocator_ret.value());
 
-    context->_command_pool = createCommandPool(context->_device, context->_graphics_family_index,
-                                               vk::CommandPoolCreateFlagBits::eTransient |
-                                                       vk::CommandPoolCreateFlagBits::eResetCommandBuffer);
-    if (*context->_command_pool == VK_NULL_HANDLE) {
+    context->_graphics_command_pool = createCommandPool(context->_device, context->_graphics_family_index,
+                                                        vk::CommandPoolCreateFlagBits::eTransient |
+                                                                vk::CommandPoolCreateFlagBits::eResetCommandBuffer);
+    if (*context->_graphics_command_pool == VK_NULL_HANDLE) {
         return UNEXPECTED(RetCode::VULKAN_INIT_ERROR);
     }
 
@@ -552,25 +553,25 @@ void checkImguiVKResult(VkResult error) {
 }
 }// namespace
 
-void VKContext::imguiInit() {
+void VulkanContext::imguiInit() {
     INFO_LOG("Init for imgui with Vulkan.");
 }
 
-void VKContext::imguiDestroy() {
+void VulkanContext::imguiDestroy() {
     INFO_LOG("Destroy for imgui with Vulkan.");
     // ImGui_ImplVulkan_Shutdown();
 }
 
-void VKContext::imguiPreUpdate() {
+void VulkanContext::imguiPreUpdate() {
     DEBUG_LOG("PreUpdate for imgui with Vulkan.");
 }
 
-void VKContext::imguiUpdate() {
+void VulkanContext::imguiUpdate() {
     DEBUG_LOG("Update for imgui with Vulkan.");
 }
 
-std::shared_ptr<TXShaderModule> VKContext::createShaderModule(TXShaderModuleCreateInfo const& create_info) const {
-    return VKShaderMod::createVKShaderModule(create_info, _device);
+std::shared_ptr<TXShaderModule> VulkanContext::createShaderModule(TXShaderModuleCreateInfo const& create_info) const {
+    return VulkanShaderModule::createVulkanShaderModuleule(create_info, _device);
 }
 
 TX_NAMESPACE_END

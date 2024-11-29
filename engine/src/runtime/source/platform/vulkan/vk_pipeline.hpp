@@ -15,17 +15,17 @@
 
 TX_NAMESPACE_BEGIN
 
-class VKPipelineLayout : public TXPipelineLayout {
+class VulkanPipelineLayout : public TXPipelineLayout {
 public:
     vk::raii::PipelineLayout pipeline_layout{VK_NULL_HANDLE};
 };
 
-class VKPipeline {
+class VulkanPipeline {
 private:
     vk::raii::Pipeline _pipeline{VK_NULL_HANDLE};
 
 public:
-    [[nodiscard]] vk::raii::Pipeline const& getVKPipeline() const noexcept {
+    [[nodiscard]] vk::raii::Pipeline const& getVulkanPipeline() const noexcept {
         return _pipeline;
     }
 
@@ -34,10 +34,10 @@ public:
      *
      * @param device
      * @param render_pass
-     * @return VKPipeline
+     * @return VulkanPipeline
      */
-    static VKPipeline createQuadPipeline(vk::raii::Device const& device, vk::raii::RenderPass const& render_pass,
-                                         vk::Extent2D const& extent, TXPipelineCreateInfo const& info) noexcept;
+    static VulkanPipeline createQuadPipeline(vk::raii::Device const& device, vk::raii::RenderPass const& render_pass,
+                                             vk::Extent2D const& extent, TXPipelineCreateInfo const& info) noexcept;
 };
 
 TX_NAMESPACE_END

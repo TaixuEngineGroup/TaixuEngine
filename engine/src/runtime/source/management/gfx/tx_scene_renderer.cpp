@@ -55,6 +55,7 @@ void TXSceneRenderer::enableImgui(const std::function<void()>& update_func) {
     _enable_imgui = true;
     _imgui_update = update_func;
 }
+
 void TXSceneRenderer::disableImgui() {
     _enable_imgui = false;
 }
@@ -198,6 +199,7 @@ void TXSceneRenderer::imguiDestroy() {
 }
 
 void TXSceneRenderer::updateScene(float delta_time, Scene* scene) {
+    _command_queue;
 }
 
 void TXSceneRenderer::initForGraphicsAPI(Window* window, RenderAPI render_api) {

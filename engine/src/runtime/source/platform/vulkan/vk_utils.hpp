@@ -74,7 +74,7 @@ vk::raii::Semaphore createSemaphore(vk::raii::Device const& device) noexcept;
 /// TODO: Below are not finished.
 vk::MemoryBarrier getVKMemoryBarrier(vk::AccessFlags src_access_mask, vk::AccessFlags dst_access_mask) noexcept;
 
-vk::ImageMemoryBarrier getVKImageMemoryBarrier(vk::AccessFlags src_access_mask,
-                                               vk::AccessFlags dst_access_mask) noexcept;
+vk::ImageMemoryBarrier getVulkanImageMemoryBarrier(vk::AccessFlags src_access_mask,
+                                                   vk::AccessFlags dst_access_mask) noexcept;
 
 TX_NAMESPACE_END

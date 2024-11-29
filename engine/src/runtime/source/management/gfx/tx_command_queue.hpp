@@ -25,6 +25,9 @@ private:
     RingBuffer<pro::proxy<TXCommandProxy>> _command_queue{MAX_COMMAND_QUEUE_SIZE};
 
 public:
+    void push(pro::proxy<TXCommandProxy> command);
+
+    void update(float delta_time);
 };
 
 TX_NAMESPACE_END

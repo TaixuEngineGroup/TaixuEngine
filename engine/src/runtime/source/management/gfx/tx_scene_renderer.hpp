@@ -48,9 +48,9 @@ struct ImguiStyleGroup {
 
 class TXSceneRenderer final : public Noncopyable {
 private:
-    /**
-     * Graphics variables
-     */
+    ///
+    /// @name Graphics Variables
+    /// @{
 
     /**
      * @brief Graphics Context
@@ -68,10 +68,10 @@ private:
      */
     TXCommandQueue         _command_queue{};
 
-    /**
-     * Imgui variables
-     *
-     */
+    /// @}
+
+    /// @name Imgui Variables
+    /// @{
 
     /**
      * @brief ImGui io接口
@@ -84,6 +84,8 @@ private:
 
     std::function<void()> _imgui_update{nullptr};
     bool                  _enable_imgui{true};
+
+    /// @}
 
     const Window* _window{nullptr};
 

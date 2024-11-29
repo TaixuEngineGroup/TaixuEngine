@@ -20,8 +20,9 @@
 
 TX_NAMESPACE_BEGIN
 
-ResValT<VKAllocator> VKAllocator::createAllocator(vk::raii::PhysicalDevice& physical_device, vk::raii::Device& device,
-                                                  vk::raii::Instance const& instance) {
+ResValT<VulkanAllocator> VulkanAllocator::createAllocator(vk::raii::PhysicalDevice& physical_device,
+                                                          vk::raii::Device&         device,
+                                                          vk::raii::Instance const& instance) {
     auto        props = physical_device.getProperties();
     const auto& d     = VULKAN_HPP_DEFAULT_DISPATCHER;
 
@@ -43,7 +44,7 @@ ResValT<VKAllocator> VKAllocator::createAllocator(vk::raii::PhysicalDevice& phys
         return UNEXPECTED(RetCode::VMA_CREATE_FAILED_ERROR);
     }
 
-    return VKAllocator(allocator);
+    return VulkanAllocator(allocator);
 }
 
 TX_NAMESPACE_END

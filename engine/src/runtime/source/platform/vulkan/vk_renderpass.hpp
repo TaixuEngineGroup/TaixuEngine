@@ -13,12 +13,12 @@
 
 TX_NAMESPACE_BEGIN
 
-class VKRenderPass {
+class VulkanRenderPass {
 private:
     vk::raii::RenderPass _render_pass{VK_NULL_HANDLE};
 
 public:
-    [[nodiscard]] vk::raii::RenderPass const& getVKRenderPass() const noexcept {
+    [[nodiscard]] vk::raii::RenderPass const& getVulkanRenderPass() const noexcept {
         return _render_pass;
     }
 
@@ -26,9 +26,9 @@ public:
      * @brief Create a Present Render Pass object, no depth buffer
      *
      * @param device
-     * @return VKRenderPass
+     * @return VulkanRenderPass
      */
-    static VKRenderPass createPresentRenderPass(vk::raii::Device const& device) noexcept;
+    static VulkanRenderPass createPresentRenderPass(vk::raii::Device const& device) noexcept;
 };
 
 TX_NAMESPACE_END

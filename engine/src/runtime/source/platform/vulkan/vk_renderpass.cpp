@@ -12,14 +12,14 @@
 
 TX_NAMESPACE_BEGIN
 
-VKRenderPass VKRenderPass::createPresentRenderPass(vk::raii::Device const& device) noexcept {
+VulkanRenderPass VulkanRenderPass::createPresentRenderPass(vk::raii::Device const& device) noexcept {
     // Note: the stencilLoadOp & stencilStoreOp members are left initialized
     // to 0(= DONT CARE).The image format(R8G8B8A8 SRGB) of the color
     // attachment does not have a stencil component, so these are ignored either way.
 
     // logic: renderpass in -> subpasss[0] -> external renderpass output
 
-    VKRenderPass render_pass{};
+    VulkanRenderPass render_pass{};
 
     std::array<vk::AttachmentDescription, 1> desc{};
     desc.at(0)

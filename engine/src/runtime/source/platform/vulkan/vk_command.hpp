@@ -8,3 +8,14 @@
  *
  */
 #pragma once
+
+#include "taixu/common/base/macro.hpp"
+
+TX_NAMESPACE_BEGIN
+
+class VulkanCommand {
+private:
+    vk::raii::CommandBuffer _command_buffer{VK_NULL_HANDLE};
+};
+
+TX_NAMESPACE_END

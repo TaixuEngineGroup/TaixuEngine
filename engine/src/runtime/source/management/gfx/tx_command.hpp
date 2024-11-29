@@ -12,6 +12,20 @@
 
 TX_NAMESPACE_BEGIN
 
-struct TXCommandProxy : pro::facade_builder::build {};
+/**
+ * @brief Record Command
+ *
+ */
+PRO_DEF_MEM_DISPATCH(RecordCommandImpl, recordCommand);
+
+
+/**
+ * @brief Submit Command
+ *
+ */
+PRO_DEF_MEM_DISPATCH(SubmitCommandImpl, submitCommand);
+
+
+struct TXCommandProxy : pro::facade_builder ::build {};
 
 TX_NAMESPACE_END

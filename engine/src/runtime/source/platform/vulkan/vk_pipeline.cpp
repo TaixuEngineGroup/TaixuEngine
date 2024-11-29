@@ -31,14 +31,16 @@ vk::ShaderStageFlagBits mappingTXShaderStage(EnumShaderStage stage) noexcept {
     return vk::ShaderStageFlagBits::eVertex;
 }
 
-VKPipeline VKPipeline::createQuadPipeline(vk::raii::Device const& device, vk::raii::RenderPass const& render_pass,
-                                          vk::Extent2D const& extent, TXPipelineCreateInfo const& info) noexcept {
+VulkanPipeline VulkanPipeline::createQuadPipeline(vk::raii::Device const&     device,
+                                                  vk::raii::RenderPass const& render_pass, vk::Extent2D const& extent,
+                                                  TXPipelineCreateInfo const& info) noexcept {
     tx_vector<vk::PipelineShaderStageCreateInfo> shader_stages(info.shaders.size());
     for (std::size_t i = 0; i < info.shaders.size(); ++i) {
-        std::shared_ptr<VKShaderMod> shader = std::static_pointer_cast<VKShaderMod>(info.shaders[i].shader_module);
+        std::shared_ptr<VulkanShaderModule> shader =
+                std::static_pointer_cast<VulkanShaderModule>(info.shaders[i].shader_module);
         shader_stages[i]
                 .setStage(mappingTXShaderStage(info.shaders[i].stage))
-                .setModule(*shader->getVKShaderModule())
+                .setModule(*shader->getVulkanShaderModuleule())
                 .setPName(shader->name().data());
     }
 
@@ -88,8 +90,8 @@ VKPipeline VKPipeline::createQuadPipeline(vk::raii::Device const& device, vk::ra
     vk::PipelineColorBlendStateCreateInfo color_blending_info{};
     color_blending_info.setLogicOpEnable(VK_FALSE).setAttachmentCount(1).setPAttachments(&color_blend_attachment);
 
-    std::shared_ptr<VKPipelineLayout> pipeline_layout =
-            std::static_pointer_cast<VKPipelineLayout>(info.pipeline_layout);
+    std::shared_ptr<VulkanPipelineLayout> pipeline_layout =
+            std::static_pointer_cast<VulkanPipelineLayout>(info.pipeline_layout);
 
     vk::GraphicsPipelineCreateInfo pipeline_info{};
     pipeline_info.setStages(shader_stages)
@@ -112,7 +114,7 @@ VKPipeline VKPipeline::createQuadPipeline(vk::raii::Device const& device, vk::ra
         return {};
     }
 
-    VKPipeline vk_pipeline{};
+    VulkanPipeline vk_pipeline{};
     vk_pipeline._pipeline = std::move(pipeline.value());
     return vk_pipeline;
 }

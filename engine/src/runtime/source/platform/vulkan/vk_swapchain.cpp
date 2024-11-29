@@ -139,21 +139,21 @@ RetCode VKSwapchain::initSwapchainImagesAndViews(vk::raii::Device const& device)
 RetCode VKSwapchain::initSwapchainFramebuffer(vk::raii::Device const& device) {
     _framebuffers.reserve(_image_views.size());
 
-    _present_renderpass = VKRenderPass::createPresentRenderPass(device);
-    if (*_present_renderpass.getVKRenderPass() == VK_NULL_HANDLE) {
+    _present_renderpass = VulkanRenderPass::createPresentRenderPass(device);
+    if (*_present_renderpass.getVulkanRenderPass() == VK_NULL_HANDLE) {
         return RetCode::VULKAN_SWAPCHAIN_RENDERPASS_CREATE_FAILED_ERROR;
     }
 
     for (auto const& image_view : _image_views) {
         vk::FramebufferCreateInfo create_info;
-        create_info.setRenderPass(*_present_renderpass.getVKRenderPass())
+        create_info.setRenderPass(*_present_renderpass.getVulkanRenderPass())
                 .setAttachments(*image_view)
                 .setWidth(_extent.width)
                 .setHeight(_extent.height)
                 .setLayers(1);
 
-        auto res = VKFramebuffer::createFramebuffer(device, _present_renderpass.getVKRenderPass(), *image_view,
-                                                    _extent.width, _extent.height);
+        auto res = VulkanFramebuffer::createFramebuffer(device, _present_renderpass.getVulkanRenderPass(), *image_view,
+                                                        _extent.width, _extent.height);
         if (!res.has_value()) {
             ERROR_LOG("Failed to create framebuffer: {}", res.error());
             return RetCode::VULKAN_SWAPCHAIN_CREATE_FAILED_ERROR;

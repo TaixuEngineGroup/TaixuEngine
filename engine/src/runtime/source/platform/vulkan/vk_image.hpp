@@ -14,7 +14,7 @@
 
 TX_NAMESPACE_BEGIN
 
-class VKImage {
+class VulkanImage {
 private:
     vk::raii::Image        _image;
     vk::raii::DeviceMemory _memory;

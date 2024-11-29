@@ -14,9 +14,9 @@
 
 TX_NAMESPACE_BEGIN
 
-std::shared_ptr<VKShaderMod> VKShaderMod::createVKShaderModule(TXShaderModuleCreateInfo const& info,
-                                                               vkraii::Device const&           device) {
-    std::shared_ptr<VKShaderMod> shader_module = std::make_shared<VKShaderMod>(info);
+std::shared_ptr<VulkanShaderModule>
+VulkanShaderModule::createVulkanShaderModuleule(TXShaderModuleCreateInfo const& info, vkraii::Device const& device) {
+    std::shared_ptr<VulkanShaderModule> shader_module = std::make_shared<VulkanShaderModule>(info);
 
     vk::ShaderModuleCreateInfo create_info;
     create_info.setPCode(reinterpret_cast<const uint32_t*>(info.binaries)).setCodeSize(info.binaries_size);// NOLINT
@@ -32,7 +32,7 @@ std::shared_ptr<VKShaderMod> VKShaderMod::createVKShaderModule(TXShaderModuleCre
     vk::DebugUtilsObjectNameInfoEXT name_info;
     name_info.setObjectType(vk::ObjectType::eShaderModule)
             .setObjectHandle(reinterpret_cast<uint64_t>(static_cast<VkShaderModule>(*ret.value())))// NOLINT
-            .setPObjectName(info.name.data());
+            .setPObjectName("main");
     device.setDebugUtilsObjectNameEXT(name_info);
 #endif
 

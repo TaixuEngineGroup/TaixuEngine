@@ -17,15 +17,15 @@ namespace vkraii = vk::raii;
 
 TX_NAMESPACE_BEGIN
 
-class VKShaderMod : public TXShaderModule {
+class VulkanShaderModule : public TXShaderModule {
 private:
     vk::raii::ShaderModule _shader_module{VK_NULL_HANDLE};
 
 public:
-    explicit VKShaderMod(TXShaderModuleCreateInfo const& create_info) : TXShaderModule(create_info) {
+    explicit VulkanShaderModule(TXShaderModuleCreateInfo const& create_info) : TXShaderModule(create_info) {
     }
 
-    [[nodiscard]] vk::raii::ShaderModule const& getVKShaderModule() const noexcept {
+    [[nodiscard]] vk::raii::ShaderModule const& getVulkanShaderModuleule() const noexcept {
         return _shader_module;
     }
 
@@ -36,8 +36,8 @@ public:
      * @param device
      * @return std::shared_ptr<TXShaderModule>
      */
-    static std::shared_ptr<VKShaderMod> createVKShaderModule(TXShaderModuleCreateInfo const& info,
-                                                             vkraii::Device const&           device);
+    static std::shared_ptr<VulkanShaderModule> createVulkanShaderModuleule(TXShaderModuleCreateInfo const& info,
+                                                                           vkraii::Device const&           device);
 };
 
 TX_NAMESPACE_END

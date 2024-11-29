@@ -13,7 +13,6 @@
 #include "taixu/common/base/macro.hpp"
 
 TX_NAMESPACE_BEGIN
-
 /**
  * @brief A circle queue.
  *
@@ -28,10 +27,10 @@ private:
     std::atomic<size_t> _tail{0};
 
 public:
-    explicit RingBuffer(size_t const cap) : _capacity(cap) {
+    explicit RingBuffer(size_t const cap) : _capacity(cap), _buffer(cap) {
     }
 
-    bool push(const T& item) {
+    bool push(T&& item) {
         size_t current_tail = _tail.load(std::memory_order_relaxed);
         size_t next_tail    = (current_tail + 1) % _capacity;
 
@@ -40,7 +39,7 @@ public:
             return false;
         }
 
-        _buffer[current_tail] = item;
+        _buffer[current_tail] = std::forward<T>(item);
         _tail.store(next_tail, std::memory_order_release);
         return true;
     }
@@ -53,7 +52,7 @@ public:
             return std::nullopt;
         }
 
-        T item = _buffer[current_head];
+        T item = std::move(_buffer[current_head]);
         _head.store((current_head + 1) % _capacity, std::memory_order_release);
         return item;
     }

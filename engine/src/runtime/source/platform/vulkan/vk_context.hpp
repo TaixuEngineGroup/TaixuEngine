@@ -25,7 +25,7 @@ namespace vkraii = vk::raii;
  * @brief Vulkan Context, create resources or vk objects.
  *
  */
-class VKContext final : private Noncopyable {
+class VulkanContext final : private Noncopyable {
 private:
     vkraii::Instance   _instance{VK_NULL_HANDLE};
     vkraii::SurfaceKHR _surface{VK_NULL_HANDLE};
@@ -44,10 +44,10 @@ private:
 
     vkraii::DebugUtilsMessengerEXT _debug_messenger{VK_NULL_HANDLE};
 
-    VKSwapchain _swapchain{};
-    VKAllocator _allocator{};
+    VKSwapchain     _swapchain{};
+    VulkanAllocator _allocator{};
 
-    vk::raii::CommandPool _command_pool{VK_NULL_HANDLE};
+    vk::raii::CommandPool _graphics_command_pool{VK_NULL_HANDLE};
 
 public:
     static ResValT<pro::proxy<TXGFXProxy>> createContext(const TXGFXCreateInfo& window_ctx);
@@ -59,7 +59,7 @@ public:
     [[nodiscard]] std::shared_ptr<TXShaderModule> createShaderModule(TXShaderModuleCreateInfo const&) const;
 };
 
-TX_GFX_CONTEXT_FACTORY_REGISTER(VKContext,// NOLINT(cppcoreguidelines-rvalue-reference-param-not-moved)
+TX_GFX_CONTEXT_FACTORY_REGISTER(VulkanContext,// NOLINT(cppcoreguidelines-rvalue-reference-param-not-moved)
                                 RenderAPI::VULKAN);
 
 TX_NAMESPACE_END

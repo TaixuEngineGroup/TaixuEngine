@@ -17,28 +17,28 @@
 
 TX_NAMESPACE_BEGIN
 
-class VKAllocator final : public Noncopyable {
+class VulkanAllocator final : public Noncopyable {
 public:
-    VKAllocator() = default;
+    VulkanAllocator() = default;
 
-    explicit VKAllocator(VmaAllocator allocator) : _allocator(allocator) {
+    explicit VulkanAllocator(VmaAllocator allocator) : _allocator(allocator) {
     }
 
-    VKAllocator(const VKAllocator&)            = delete;
-    VKAllocator& operator=(const VKAllocator&) = delete;
+    VulkanAllocator(const VulkanAllocator&)            = delete;
+    VulkanAllocator& operator=(const VulkanAllocator&) = delete;
 
-    VKAllocator(VKAllocator&& other) noexcept : _allocator(std::exchange(other._allocator, VK_NULL_HANDLE)) {};
-    VKAllocator& operator=(VKAllocator&& other) noexcept {
+    VulkanAllocator(VulkanAllocator&& other) noexcept : _allocator(std::exchange(other._allocator, VK_NULL_HANDLE)) {};
+    VulkanAllocator& operator=(VulkanAllocator&& other) noexcept {
         std::swap(_allocator, other._allocator);
         return *this;
     };
 
-    ~VKAllocator() override {
+    ~VulkanAllocator() override {
         vmaDestroyAllocator(_allocator);
     }
 
-    static ResValT<VKAllocator> createAllocator(vk::raii::PhysicalDevice& physical_device, vk::raii::Device& device,
-                                                vk::raii::Instance const& instance);
+    static ResValT<VulkanAllocator> createAllocator(vk::raii::PhysicalDevice& physical_device, vk::raii::Device& device,
+                                                    vk::raii::Instance const& instance);
 
 private:
     VmaAllocator _allocator{VK_NULL_HANDLE};

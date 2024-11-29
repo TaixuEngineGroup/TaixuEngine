@@ -29,8 +29,8 @@ private:
     tx_vector<vk::raii::Image>       _images;
     std::vector<vk::raii::ImageView> _image_views;
 
-    std::vector<VKFramebuffer> _framebuffers;
-    VKRenderPass               _present_renderpass{};
+    std::vector<VulkanFramebuffer> _framebuffers;
+    VulkanRenderPass               _present_renderpass{};
 
 public:
     static ResValT<VKSwapchain> createSwapchain(vk::raii::PhysicalDevice const& physical_device,
